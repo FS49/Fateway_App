@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc86bcea93926f24dbee2fd9d50628dc, type: 3}
+  m_Name: MainPassionPoints_1
+  m_EditorClassIdentifier: 
+  id: FCP001
+  title: Points
+  description: 
+  cardType: 2
+  effectType: 0
+  audioTemplateName: 
+  videoTemplateName: 
+  trackAsStatusEffect: 0
+  useSimplePoints: 0
+  pointsDelta: 30
+  applyToMainPassion: 0
+  simplePassion: 0
+  useMultiPassionPoints: 0
+  multiPassionPoints:
+    yellow: 0
+    green: 0
+    blue: 0
+    purple: 0
+    pink: 0
+    orange: 0
+  useMainPassionPoints: 1
+  mainPassionPointsDelta: 100
+  triggersManualScan: 0

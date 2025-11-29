@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77997d20af8f2a46853927c840c18ca, type: 3}
+  m_Name: ItemCard_4
+  m_EditorClassIdentifier: 
+  id: ITG004
+  title: Zeugnis
+  description: Gibt Punkte bei Wissen und Neugier, so lange die Karte in deinem Besitz
+    ist.
+  cardType: 1
+  effectType: 1
+  audioTemplateName: 
+  videoTemplateName: 
+  trackAsStatusEffect: 0
+  tags:
+  - Dokument
+  uniquePerPlayer: 0
+  partOfCombo: 0
+  enableScoreMultipliers: 0
+  passionMultipliers:
+    yellow: 1
+    green: 1
+    blue: 1
+    purple: 1
+    pink: 1
+    orange: 1
+  grantRollBonus: 1
+  perRollBonus:
+    yellow: 0
+    green: 0
+    blue: 5
+    purple: 0
+    pink: 0
+    orange: 0
+  rollBonusPassion: 0
+  rollBonusPoints: 0
+  diceRollBonus: 0
