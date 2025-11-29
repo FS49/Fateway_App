@@ -28,8 +28,6 @@ public class InventoryCardButton : MonoBehaviour
     private void OnClicked()
     {
         if (popup != null && card != null)
-        {
             popup.Show(card);
-        }
     }
 }

@@ -6,24 +6,19 @@ public class CardDescriptionPopup : MonoBehaviour
 {
     [Header("References")]
     public GameManager gameManager;
-
     public GameObject panelRoot;
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI descriptionText;
 
     [Header("Item Tag Icons")]
     public Transform tagIconContainer;
-    public GameObject tagIconPrefab;          // e.g. an Image with optional TMP label
+    public GameObject tagIconPrefab;
     public ItemTagIconRegistry tagIconRegistry;
-
-    private BaseCardDefinition currentCard;
 
     private void Start()
     {
         if (gameManager == null)
-        {
             gameManager = FindObjectOfType<GameManager>();
-        }
 
         Hide();
     }
@@ -31,7 +26,6 @@ public class CardDescriptionPopup : MonoBehaviour
     public void Show(BaseCardDefinition card)
     {
         if (card == null) return;
-        currentCard = card;
 
         if (panelRoot != null)
             panelRoot.SetActive(true);
@@ -44,30 +38,26 @@ public class CardDescriptionPopup : MonoBehaviour
 
         ClearTagIcons();
 
-        if (card is ItemCardDefinition item && tagIconContainer != null && tagIconPrefab != null)
+        if (card is ItemCardDefinition item && item.tags != null && tagIconContainer != null && tagIconPrefab != null)
         {
-            if (item.tags != null)
+            for (int i = 0; i < item.tags.Length; i++)
             {
-                foreach (var tag in item.tags)
+                var tag = item.tags[i];
+                if (string.IsNullOrEmpty(tag)) continue;
+
+                GameObject iconGO = Instantiate(tagIconPrefab, tagIconContainer);
+                var img = iconGO.GetComponent<Image>();
+                var label = iconGO.GetComponentInChildren<TextMeshProUGUI>();
+
+                if (img != null && tagIconRegistry != null)
                 {
-                    if (string.IsNullOrEmpty(tag)) continue;
-
-                    GameObject iconGO = Instantiate(tagIconPrefab, tagIconContainer);
-                    var img = iconGO.GetComponent<Image>();
-                    var label = iconGO.GetComponentInChildren<TextMeshProUGUI>();
-
-                    if (img != null && tagIconRegistry != null)
-                    {
-                        var sprite = tagIconRegistry.GetIcon(tag);
-                        img.sprite = sprite;
-                        img.enabled = (sprite != null);
-                    }
-
-                    if (label != null)
-                    {
-                        label.text = tag;
-                    }
+                    var sprite = tagIconRegistry.GetIcon(tag);
+                    img.sprite = sprite;
+                    img.enabled = sprite != null;
                 }
+
+                if (label != null)
+                    label.text = tag;
             }
         }
 
@@ -81,7 +71,6 @@ public class CardDescriptionPopup : MonoBehaviour
             panelRoot.SetActive(false);
 
         ClearTagIcons();
-        currentCard = null;
 
         if (gameManager != null)
             gameManager.OnCardPopupClosed();
@@ -97,7 +86,6 @@ public class CardDescriptionPopup : MonoBehaviour
         }
     }
 
-    // Hook this to the X button
     public void OnCloseButtonClicked()
     {
         Hide();

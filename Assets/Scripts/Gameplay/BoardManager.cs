@@ -11,47 +11,52 @@ public class BoardFieldDefinition
     public string description;
 
     [Header("Passion Scoring")]
-    [Tooltip("If true, an event/field on this tile yields points in this passion.")]
     public bool yieldsPassionScore;
-
-    [Tooltip("Which passion this field rewards (used when a points card is applied).")]
     public PassionColor passionReward;
 
     [Header("Card Overrides")]
-    [Tooltip("If true and Field Type is Event, use this specific event card instead of a random one.")]
     public bool useSpecificEventCard;
     public EventCardDefinition eventCardOverride;
-
-    [Tooltip("If true and Field Type is ItemShop, use this specific item card instead of a random one.")]
     public bool useSpecificItemCard;
     public ItemCardDefinition itemCardOverride;
 
-    [Header("Field Card (Neutral/simple points)")]
-    [Tooltip("If true, landing here will apply this FieldCard (simple points).")]
+    [Header("Field Card")]
     public bool useFieldCard;
     public FieldCardDefinition fieldCardOverride;
 
     [Header("Manual Card Input")]
-    [Tooltip("If true, player must input a card ID from their stack when landing here.")]
     public bool requiresManualCardIdInput;
 }
 
 public class BoardManager : MonoBehaviour
 {
-    [Tooltip("Total number of fields on the physical board.")]
     public int totalFields = 91;
-
-    [Tooltip("Definitions for special fields (events, shops, minigames, crossroads, finish, etc.).")]
     public List<BoardFieldDefinition> specialFields = new List<BoardFieldDefinition>();
+
+    private Dictionary<int, BoardFieldDefinition> fieldLookup;
+
+    private void Awake()
+    {
+        BuildLookup();
+    }
+
+    private void BuildLookup()
+    {
+        fieldLookup = new Dictionary<int, BoardFieldDefinition>(specialFields.Count);
+        foreach (var field in specialFields)
+        {
+            if (field != null && !fieldLookup.ContainsKey(field.index))
+            {
+                fieldLookup[field.index] = field;
+            }
+        }
+    }
 
     public FieldType GetFieldTypeAt(int positionIndex)
     {
-        foreach (var field in specialFields)
+        if (fieldLookup != null && fieldLookup.TryGetValue(positionIndex, out var field))
         {
-            if (field.index == positionIndex)
-            {
-                return field.fieldType;
-            }
+            return field.fieldType;
         }
 
         if (positionIndex >= totalFields - 1)
@@ -62,14 +67,17 @@ public class BoardManager : MonoBehaviour
 
     public BoardFieldDefinition GetFieldDefinitionAt(int positionIndex)
     {
-        foreach (var field in specialFields)
+        if (fieldLookup != null && fieldLookup.TryGetValue(positionIndex, out var field))
         {
-            if (field.index == positionIndex)
-            {
-                return field;
-            }
+            return field;
         }
-
         return null;
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        BuildLookup();
+    }
+#endif
 }

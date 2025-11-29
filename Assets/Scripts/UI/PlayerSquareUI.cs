@@ -7,7 +7,7 @@ public class PlayerSquareUI : MonoBehaviour
     [Header("UI References")]
     public Image backgroundImage;
     public Image activeHighlightImage;
-    
+
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI fieldText;
     public TextMeshProUGUI starsText;
@@ -27,18 +27,23 @@ public class PlayerSquareUI : MonoBehaviour
     public TextMeshProUGUI pinkScoreText;
     public TextMeshProUGUI orangeScoreText;
 
-    private PlayerData boundPlayer;
+    private int cachedPosition = -1;
+    private int cachedStars = -1;
+    private bool cachedActive;
+    private int cachedYellow = -1, cachedGreen = -1, cachedBlue = -1;
+    private int cachedPurple = -1, cachedPink = -1, cachedOrange = -1;
 
     public void Init(PlayerData playerData, int playerIndex, bool isActive)
     {
-        boundPlayer = playerData;
-
         if (nameText != null)
             nameText.text = playerData.playerName;
 
         if (backgroundImage != null)
             backgroundImage.color = PassionColorUtils.GetColor(playerData.passion);
-        
+
+        cachedPosition = -1;
+        cachedStars = -1;
+        cachedYellow = cachedGreen = cachedBlue = cachedPurple = cachedPink = cachedOrange = -1;
 
         UpdateVisuals(playerData, isActive);
 
@@ -49,36 +54,42 @@ public class PlayerSquareUI : MonoBehaviour
     {
         if (playerData == null) return;
 
-        if (fieldText != null)
-            fieldText.text = $"Field: {playerData.boardPosition}";
+        if (fieldText != null && cachedPosition != playerData.boardPosition)
+        {
+            cachedPosition = playerData.boardPosition;
+            fieldText.text = $"Field: {cachedPosition}";
+        }
 
-        if (starsText != null)
-            starsText.text = $"★ {playerData.starCount}";
+        if (starsText != null && cachedStars != playerData.starCount)
+        {
+            cachedStars = playerData.starCount;
+            starsText.text = $"★ {cachedStars}";
+        }
 
-        if (activeHighlightImage != null)
+        if (activeHighlightImage != null && cachedActive != isActive)
+        {
+            cachedActive = isActive;
             activeHighlightImage.enabled = isActive;
+        }
 
-        // Bars: value is score % 100
-        SetBar(yellowBar, yellowScoreText, playerData.passionScores.yellow, "Yellow: ");
-        SetBar(greenBar,  greenScoreText,  playerData.passionScores.green,  "Green: ");
-        SetBar(blueBar,   blueScoreText,   playerData.passionScores.blue,   "Blue: ");
-        SetBar(purpleBar, purpleScoreText, playerData.passionScores.purple, "Purple: ");
-        SetBar(pinkBar,   pinkScoreText,   playerData.passionScores.pink,   "Pink: ");
-        SetBar(orangeBar, orangeScoreText, playerData.passionScores.orange, "Orange: ");
-
+        var scores = playerData.passionScores;
+        SetBarCached(yellowBar, yellowScoreText, scores.yellow, ref cachedYellow, "Yellow: ");
+        SetBarCached(greenBar, greenScoreText, scores.green, ref cachedGreen, "Green: ");
+        SetBarCached(blueBar, blueScoreText, scores.blue, ref cachedBlue, "Blue: ");
+        SetBarCached(purpleBar, purpleScoreText, scores.purple, ref cachedPurple, "Purple: ");
+        SetBarCached(pinkBar, pinkScoreText, scores.pink, ref cachedPink, "Pink: ");
+        SetBarCached(orangeBar, orangeScoreText, scores.orange, ref cachedOrange, "Orange: ");
     }
 
-    private void SetBar(Image barImage, TextMeshProUGUI scoreText, int score, string labelPrefix)
+    private void SetBarCached(Image barImage, TextMeshProUGUI scoreText, int score, ref int cached, string labelPrefix)
     {
+        if (cached == score) return;
+        cached = score;
+
         if (barImage != null)
-        {
-            float fill = Mathf.Clamp01((score % 100) / 100f);
-            barImage.fillAmount = fill;
-        }
+            barImage.fillAmount = (score % 100) * 0.01f;
 
         if (scoreText != null)
-        {
             scoreText.text = $"{labelPrefix}{score}";
-        }
     }
 }

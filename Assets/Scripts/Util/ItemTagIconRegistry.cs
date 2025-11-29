@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -12,14 +13,28 @@ public class ItemTagIconRegistry : ScriptableObject
 {
     public TagIconEntry[] entries;
 
+    private Dictionary<string, Sprite> lookup;
+
     public Sprite GetIcon(string tag)
     {
         if (entries == null) return null;
-        foreach (var e in entries)
+
+        if (lookup == null)
         {
-            if (e != null && e.tag == tag)
-                return e.icon;
+            lookup = new Dictionary<string, Sprite>(entries.Length);
+            for (int i = 0; i < entries.Length; i++)
+            {
+                var e = entries[i];
+                if (e != null && !string.IsNullOrEmpty(e.tag) && !lookup.ContainsKey(e.tag))
+                    lookup[e.tag] = e.icon;
+            }
         }
-        return null;
+
+        return lookup.TryGetValue(tag, out var sprite) ? sprite : null;
+    }
+
+    private void OnEnable()
+    {
+        lookup = null;
     }
 }

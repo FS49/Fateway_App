@@ -6,19 +6,10 @@ public class InventoryUI : MonoBehaviour
     [Header("References")]
     public GameManager gameManager;
     public CardManager cardManager;
-
     public GameObject panelRoot;
-
-    [Tooltip("Container that holds one column per player (same layout/position idea as PlayerSquaresPanel).")]
     public RectTransform playersContainer;
-
-    [Tooltip("Prefab for each player's column (name + Status + Items).")]
     public GameObject playerColumnPrefab;
-
-    [Tooltip("Prefab for each card button (shows title, opens popup).")]
     public GameObject cardButtonPrefab;
-
-    [Tooltip("Popup that shows card title/description/tags.")]
     public CardDescriptionPopup cardPopup;
 
     private readonly List<GameObject> spawnedColumns = new List<GameObject>();
@@ -47,8 +38,9 @@ public class InventoryUI : MonoBehaviour
 
     public void Hide()
     {
-        cardPopup.Hide();
-        
+        if (cardPopup != null)
+            cardPopup.Hide();
+
         ClearColumns();
 
         if (panelRoot != null)
@@ -58,7 +50,6 @@ public class InventoryUI : MonoBehaviour
             gameManager.OnInventoryClosed();
     }
 
-    // Use this when starting to avoid firing OnInventoryClosed at boot
     private void HideImmediate()
     {
         ClearColumns();
@@ -68,10 +59,10 @@ public class InventoryUI : MonoBehaviour
 
     private void ClearColumns()
     {
-        foreach (var go in spawnedColumns)
+        for (int i = 0; i < spawnedColumns.Count; i++)
         {
-            if (go != null)
-                Destroy(go);
+            if (spawnedColumns[i] != null)
+                Destroy(spawnedColumns[i]);
         }
         spawnedColumns.Clear();
     }
@@ -80,52 +71,45 @@ public class InventoryUI : MonoBehaviour
     {
         ClearColumns();
 
-        if (gameManager == null || cardManager == null || playersContainer == null || playerColumnPrefab == null || cardButtonPrefab == null)
-        {
-            Debug.LogWarning("[InventoryUI] Missing references.");
+        if (gameManager == null || cardManager == null || playersContainer == null || 
+            playerColumnPrefab == null || cardButtonPrefab == null)
             return;
-        }
 
         var players = gameManager.players;
         if (players == null) return;
 
-        foreach (var player in players)
+        for (int i = 0; i < players.Count; i++)
         {
+            var player = players[i];
             if (player == null) continue;
 
             GameObject colGO = Instantiate(playerColumnPrefab, playersContainer);
             var col = colGO.GetComponent<InventoryPlayerColumn>();
             if (col == null)
             {
-                Debug.LogError("[InventoryUI] Player column prefab missing InventoryPlayerColumn component.");
                 Destroy(colGO);
                 continue;
             }
 
-            // NEW: initialize with player name + passion color
             col.Init(player);
 
-            // STATUS EFFECTS
             if (col.statusEffectsContainer != null && player.statusEffectCards != null)
             {
-                foreach (var id in player.statusEffectCards)
+                for (int j = 0; j < player.statusEffectCards.Count; j++)
                 {
-                    var card = cardManager.GetCardById(id);
-                    if (card == null) continue;
-
-                    CreateCardButton(card, col.statusEffectsContainer);
+                    var card = cardManager.GetCardById(player.statusEffectCards[j]);
+                    if (card != null)
+                        CreateCardButton(card, col.statusEffectsContainer);
                 }
             }
 
-            // ITEM CARDS
             if (col.itemsContainer != null && player.inventory != null)
             {
-                foreach (var itemId in player.inventory)
+                for (int j = 0; j < player.inventory.Count; j++)
                 {
-                    var item = cardManager.GetItemById(itemId);
-                    if (item == null) continue;
-
-                    CreateCardButton(item, col.itemsContainer);
+                    var item = cardManager.GetItemById(player.inventory[j]);
+                    if (item != null)
+                        CreateCardButton(item, col.itemsContainer);
                 }
             }
 
@@ -133,14 +117,12 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-
     private void CreateCardButton(BaseCardDefinition card, Transform parent)
     {
         GameObject btnGO = Instantiate(cardButtonPrefab, parent);
         var btn = btnGO.GetComponent<InventoryCardButton>();
         if (btn == null)
         {
-            Debug.LogError("[InventoryUI] Card button prefab missing InventoryCardButton component.");
             Destroy(btnGO);
             return;
         }
@@ -148,7 +130,6 @@ public class InventoryUI : MonoBehaviour
         btn.Init(card, cardPopup);
     }
 
-    // Hook to the X button on the inventory overlay
     public void OnCloseButtonClicked()
     {
         Hide();

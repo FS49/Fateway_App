@@ -12,31 +12,30 @@ public class PassionScores
 
     public int GetScore(PassionColor passion)
     {
-        switch (passion)
+        return passion switch
         {
-            case PassionColor.Yellow:  return yellow;
-            case PassionColor.Green:   return green;
-            case PassionColor.Blue:    return blue;
-            case PassionColor.Purple:  return purple;
-            case PassionColor.Pink:    return pink;
-            case PassionColor.Orange:  return orange;
-            default:                   return 0;
-        }
+            PassionColor.Yellow => yellow,
+            PassionColor.Green => green,
+            PassionColor.Blue => blue,
+            PassionColor.Purple => purple,
+            PassionColor.Pink => pink,
+            PassionColor.Orange => orange,
+            _ => 0
+        };
     }
 
     public void AddScore(PassionColor passion, int amount)
     {
         switch (passion)
         {
-            case PassionColor.Yellow:  yellow  += amount; break;
-            case PassionColor.Green:   green   += amount; break;
-            case PassionColor.Blue:    blue    += amount; break;
-            case PassionColor.Purple:  purple  += amount; break;
-            case PassionColor.Pink:    pink    += amount; break;
-            case PassionColor.Orange:  orange  += amount; break;
+            case PassionColor.Yellow: yellow += amount; break;
+            case PassionColor.Green: green += amount; break;
+            case PassionColor.Blue: blue += amount; break;
+            case PassionColor.Purple: purple += amount; break;
+            case PassionColor.Pink: pink += amount; break;
+            case PassionColor.Orange: orange += amount; break;
         }
     }
 
-    public int TotalScore =>
-        yellow + green + blue + purple + pink + orange;
+    public int TotalScore => yellow + green + blue + purple + pink + orange;
 }

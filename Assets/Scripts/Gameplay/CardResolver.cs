@@ -2,7 +2,13 @@ using UnityEngine;
 
 public class CardResolver
 {
-    private GameManager game;
+    private readonly GameManager game;
+
+    private static readonly PassionColor[] AllPassions =
+    {
+        PassionColor.Yellow, PassionColor.Green, PassionColor.Blue,
+        PassionColor.Purple, PassionColor.Pink, PassionColor.Orange
+    };
 
     public CardResolver(GameManager gameManager)
     {
@@ -11,32 +17,15 @@ public class CardResolver
 
     public void ApplyCard(BaseCardDefinition card, PlayerData targetPlayer, PassionColor? passionForPoints = null)
     {
-        if (card == null)
-        {
-            Debug.LogWarning("[CardResolver] Card is null.");
-            return;
-        }
-
-        if (targetPlayer == null)
-        {
-            Debug.LogWarning("[CardResolver] Target player is null.");
-            return;
-        }
+        if (card == null || targetPlayer == null) return;
 
         Debug.Log($"[CardResolver] Applying card: {card.title} to {targetPlayer.playerName}");
-        Debug.Log($"[CardResolver] Card type: {card.GetType().Name}, effectType: {card.effectType}");
 
         switch (card.effectType)
         {
             case CardEffectType.GivePoints:
                 if (card is PointsCardDefinition pointsCard)
-                {
                     ApplyPointsCard(pointsCard, targetPlayer, passionForPoints);
-                }
-                else
-                {
-                    Debug.LogWarning("[CardResolver] GivePoints effect on non-PointsCardDefinition.");
-                }
                 break;
 
             case CardEffectType.GiveItem:
@@ -64,120 +53,62 @@ public class CardResolver
                 break;
 
             case CardEffectType.Custom:
-                Debug.Log("[CardResolver] Custom effect type - implement as needed.");
-                break;
-
-            default:
-                Debug.LogWarning($"[CardResolver] Unhandled CardEffectType: {card.effectType}");
                 break;
         }
 
-        // If this card should appear in the Status Effects list, register it.
         game.AddStatusEffect(targetPlayer, card);
-
         PlayCardMedia(card);
     }
 
-    // =====================================================================
-    //  POINTS (NEW: multi-passion + main-passion support)
-    // =====================================================================
-
     private void ApplyPointsCard(PointsCardDefinition card, PlayerData p, PassionColor? passionOverride)
     {
-        if (card == null || p == null)
-            return;
+        if (card == null || p == null) return;
 
-        // 1) Multi-passion points (like PassionAddConfig)
         if (card.useMultiPassionPoints && card.multiPassionPoints != null)
         {
             ApplyMultiPassionPoints(card, p);
         }
 
-        // 2) Extra main passion points (uses player.passion)
         if (card.useMainPassionPoints && card.mainPassionPointsDelta != 0)
         {
-            PassionColor main = p.passion;
-            int basePoints = card.mainPassionPointsDelta;
-            AddPointsWithMultipliers(p, main, basePoints, card.title, "Main passion points");
+            AddPointsWithMultipliers(p, p.passion, card.mainPassionPointsDelta, card.title);
         }
 
-        // 3) Simple points (legacy style)
         if (card.useSimplePoints && card.pointsDelta != 0)
         {
-            PassionColor passionToUse;
+            PassionColor passionToUse = card.applyToMainPassion
+                ? p.passion
+                : passionOverride ?? card.simplePassion;
 
-            if (card.applyToMainPassion)
-            {
-                passionToUse = p.passion;
-            }
-            else if (passionOverride.HasValue)
-            {
-                // external override (e.g. field-specific passion)
-                passionToUse = passionOverride.Value;
-            }
-            else
-            {
-                passionToUse = card.simplePassion;
-            }
-
-            AddPointsWithMultipliers(p, passionToUse, card.pointsDelta, card.title, "Simple points");
+            AddPointsWithMultipliers(p, passionToUse, card.pointsDelta, card.title);
         }
     }
 
     private void ApplyMultiPassionPoints(PointsCardDefinition card, PlayerData p)
     {
-        ApplyPassionDelta(p, card, PassionColor.Yellow, card.multiPassionPoints.yellow);
-        ApplyPassionDelta(p, card, PassionColor.Green,  card.multiPassionPoints.green);
-        ApplyPassionDelta(p, card, PassionColor.Blue,   card.multiPassionPoints.blue);
-        ApplyPassionDelta(p, card, PassionColor.Purple, card.multiPassionPoints.purple);
-        ApplyPassionDelta(p, card, PassionColor.Pink,   card.multiPassionPoints.pink);
-        ApplyPassionDelta(p, card, PassionColor.Orange, card.multiPassionPoints.orange);
+        var mp = card.multiPassionPoints;
+        if (mp.yellow != 0) AddPointsWithMultipliers(p, PassionColor.Yellow, mp.yellow, card.title);
+        if (mp.green != 0) AddPointsWithMultipliers(p, PassionColor.Green, mp.green, card.title);
+        if (mp.blue != 0) AddPointsWithMultipliers(p, PassionColor.Blue, mp.blue, card.title);
+        if (mp.purple != 0) AddPointsWithMultipliers(p, PassionColor.Purple, mp.purple, card.title);
+        if (mp.pink != 0) AddPointsWithMultipliers(p, PassionColor.Pink, mp.pink, card.title);
+        if (mp.orange != 0) AddPointsWithMultipliers(p, PassionColor.Orange, mp.orange, card.title);
     }
 
-    private void ApplyPassionDelta(PlayerData p, PointsCardDefinition card, PassionColor passion, int basePoints)
+    private void AddPointsWithMultipliers(PlayerData p, PassionColor passion, int basePoints, string cardTitle)
     {
-        if (basePoints == 0)
-            return;
+        if (basePoints == 0) return;
 
-        AddPointsWithMultipliers(p, passion, basePoints, card.title, "Multi-passion points");
-    }
-
-    /// <summary>
-    /// Central place to apply points with:
-    /// - 1.2x if passion == player's main passion
-    /// - Item-based score multipliers
-    /// - Stars via GameManager.AddPassionPoints
-    /// </summary>
-    private void AddPointsWithMultipliers(PlayerData p, PassionColor passion, int basePoints, string cardTitle, string context)
-    {
-        if (basePoints == 0)
-            return;
-
-        float factor = 1f;
-
-        // Rule: main passion gets 1.2x
-        if (passion == p.passion)
-            factor *= 1.2f;
-
-        // Item-based multiplier logic (your existing system)
+        float factor = passion == p.passion ? 1.2f : 1f;
         factor *= game.GetItemScoreMultiplier(p, passion);
 
         int finalPoints = Mathf.RoundToInt(basePoints * factor);
-
-        if (finalPoints == 0)
-            return;
+        if (finalPoints == 0) return;
 
         game.AddPassionPoints(p, passion, finalPoints);
 
-        Debug.Log(
-            $"[CardResolver] ({context}) Card '{cardTitle}' gives {finalPoints} points in {passion} " +
-            $"to {p.playerName} (base {basePoints}, factor {factor:F2}). Total score now: {p.GetTotalScore()}"
-        );
+        Debug.Log($"[CardResolver] Card '{cardTitle}' gives {finalPoints} points in {passion} to {p.playerName} (base {basePoints}, factor {factor:F2}). Total: {p.GetTotalScore()}");
     }
-
-    // =====================================================================
-    //  ITEMS
-    // =====================================================================
 
     private void GiveItem(ItemCardDefinition itemCard, PlayerData p)
     {
@@ -197,9 +128,8 @@ public class CardResolver
     {
         if (itemCard == null || p == null) return;
 
-        if (p.inventory.Contains(itemCard.id))
+        if (p.inventory.Remove(itemCard.id))
         {
-            p.inventory.Remove(itemCard.id);
             Debug.Log($"[CardResolver] {p.playerName} loses item: {itemCard.title} ({itemCard.id})");
         }
         else
@@ -208,26 +138,13 @@ public class CardResolver
         }
     }
 
-    // =====================================================================
-    //  MINIGAME
-    // =====================================================================
-
     private void StartMinigame(EventCardDefinition card, PlayerData p)
     {
-        if (card == null || p == null) return;
-        if (!card.triggersMinigame)
-        {
-            Debug.LogWarning("[CardResolver] Card does not have triggersMinigame set, but effectType is StartMinigame.");
-            return;
-        }
+        if (card == null || p == null || !card.triggersMinigame) return;
 
         Debug.Log($"[CardResolver] Starting minigame '{card.minigameId}' for {p.playerName}");
         game.StartMinigame(card.minigameId, p);
     }
-
-    // =====================================================================
-    //  RISK OUTCOMES
-    // =====================================================================
 
     private void ScheduleRiskOutcome(EventCardDefinition card, PlayerData p, PassionColor? passionForPoints)
     {
@@ -242,27 +159,14 @@ public class CardResolver
         if (card == null) return;
 
         PlayerData last = game.GetLastPlacePlayer();
-        if (last == null)
-        {
-            Debug.LogWarning("[CardResolver] No last-place player to help.");
-            return;
-        }
+        if (last == null) return;
 
-        // Use the same advanced points logic, but targeting the last-place player.
         if (card is PointsCardDefinition pointsCard)
         {
             Debug.Log($"[CardResolver] Helping last place {last.playerName} using card '{card.title}'.");
             ApplyPointsCard(pointsCard, last, passionOverride);
         }
-        else
-        {
-            Debug.LogWarning("[CardResolver] HelpLastPlace called with non-PointsCardDefinition.");
-        }
     }
-
-    // =====================================================================
-    //  MEDIA
-    // =====================================================================
 
     private void PlayCardMedia(BaseCardDefinition card)
     {

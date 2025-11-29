@@ -9,47 +9,53 @@ public class GameHUDUI : MonoBehaviour
     public TextMeshProUGUI availableRollsText;
     public TextMeshProUGUI lastRollText;
 
+    private int cachedRolls = -1;
+    private int cachedBaseRoll = -1;
+    private int cachedBonus = -1;
+    private int cachedFinal = -1;
+
     private void Start()
     {
         if (gameManager == null)
-        {
             gameManager = FindObjectOfType<GameManager>();
-        }
 
-        Refresh();
+        Refresh(true);
     }
 
     private void Update()
     {
-        Refresh();
+        Refresh(false);
     }
 
-    private void Refresh()
+    private void Refresh(bool force)
     {
-        if (gameManager == null || gameManager.players == null || gameManager.players.Count == 0)
+        if (gameManager?.players == null || gameManager.players.Count == 0)
             return;
 
         var player = gameManager.GetCurrentPlayer();
         if (player == null) return;
 
-        // Available rolls
-        if (availableRollsText != null)
+        if (availableRollsText != null && (force || cachedRolls != player.availableRolls))
         {
-            availableRollsText.text = $"Available rolls: {player.availableRolls}";
+            cachedRolls = player.availableRolls;
+            availableRollsText.text = $"Available rolls: {cachedRolls}";
         }
 
-        // Last roll
         if (lastRollText != null)
         {
-            if (gameManager.lastBaseRoll == 0 && gameManager.lastFinalRoll == 0 && gameManager.lastRollBonus == 0)
+            int baseRoll = gameManager.lastBaseRoll;
+            int bonus = gameManager.lastRollBonus;
+            int final_ = gameManager.lastFinalRoll;
+
+            if (force || cachedBaseRoll != baseRoll || cachedBonus != bonus || cachedFinal != final_)
             {
-                lastRollText.text = "Last roll: -";
-            }
-            else
-            {
-                lastRollText.text =
-                    $"Last roll: {gameManager.lastFinalRoll} " +
-                    $"(base {gameManager.lastBaseRoll} + bonus {gameManager.lastRollBonus})";
+                cachedBaseRoll = baseRoll;
+                cachedBonus = bonus;
+                cachedFinal = final_;
+
+                lastRollText.text = (baseRoll == 0 && final_ == 0 && bonus == 0)
+                    ? "Last roll: -"
+                    : $"Last roll: {final_} (base {baseRoll} + bonus {bonus})";
             }
         }
     }

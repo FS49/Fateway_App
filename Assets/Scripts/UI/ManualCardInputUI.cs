@@ -6,10 +6,7 @@ public class ManualCardInputUI : MonoBehaviour
 {
     [Header("References")]
     public GameManager gameManager;
-
-    [Tooltip("Root panel for the input UI (will be enabled/disabled).")]
     public GameObject panelRoot;
-
     public TextMeshProUGUI promptText;
     public TMP_InputField cardIdInput;
     public Button confirmButton;
@@ -20,9 +17,7 @@ public class ManualCardInputUI : MonoBehaviour
     private void Awake()
     {
         if (gameManager == null)
-        {
             gameManager = FindObjectOfType<GameManager>();
-        }
 
         if (confirmButton != null)
             confirmButton.onClick.AddListener(OnConfirmClicked);
@@ -30,7 +25,7 @@ public class ManualCardInputUI : MonoBehaviour
         if (cancelButton != null)
             cancelButton.onClick.AddListener(OnCancelClicked);
 
-        Hide(); // ensures panel is off at start
+        Hide();
     }
 
     public void ShowForPlayer(PlayerData player)
@@ -58,44 +53,23 @@ public class ManualCardInputUI : MonoBehaviour
         targetPlayer = null;
 
         if (gameManager != null)
-        {
             gameManager.OnManualCardInputClosed();
-        }
     }
 
     private void OnConfirmClicked()
     {
-        if (targetPlayer == null)
+        if (targetPlayer == null || cardIdInput == null)
         {
-            Debug.LogWarning("[ManualCardInputUI] No target player set.");
-            Hide();
-            return;
-        }
-
-        if (cardIdInput == null)
-        {
-            Debug.LogWarning("[ManualCardInputUI] No input field assigned.");
             Hide();
             return;
         }
 
         string rawId = cardIdInput.text;
         if (string.IsNullOrWhiteSpace(rawId))
-        {
-            Debug.LogWarning("[ManualCardInputUI] Card ID is empty.");
             return;
-        }
-
-        string cardId = rawId.Trim();
 
         if (gameManager != null)
-        {
-            gameManager.ApplyCardFromId(cardId, targetPlayer, null);
-        }
-        else
-        {
-            Debug.LogWarning("[ManualCardInputUI] No GameManager assigned.");
-        }
+            gameManager.ApplyCardFromId(rawId.Trim(), targetPlayer, null);
 
         Hide();
     }

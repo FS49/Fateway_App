@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 [Serializable]
 public class PassionScoreSet
@@ -13,28 +12,30 @@ public class PassionScoreSet
 
     public int GetScore(PassionColor passion)
     {
-        switch (passion)
+        return passion switch
         {
-            case PassionColor.Yellow:  return yellow;
-            case PassionColor.Green:   return green;
-            case PassionColor.Blue:    return blue;
-            case PassionColor.Purple:  return purple;
-            case PassionColor.Pink:    return pink;
-            case PassionColor.Orange:  return orange;
-            default:                   return 0;
-        }
+            PassionColor.Yellow => yellow,
+            PassionColor.Green => green,
+            PassionColor.Blue => blue,
+            PassionColor.Purple => purple,
+            PassionColor.Pink => pink,
+            PassionColor.Orange => orange,
+            _ => 0
+        };
     }
 
     public void AddScore(PassionColor passion, int delta)
     {
         switch (passion)
         {
-            case PassionColor.Yellow:  yellow  += delta; break;
-            case PassionColor.Green:   green   += delta; break;
-            case PassionColor.Blue:    blue    += delta; break;
-            case PassionColor.Purple:  purple  += delta; break;
-            case PassionColor.Pink:    pink    += delta; break;
-            case PassionColor.Orange:  orange  += delta; break;
+            case PassionColor.Yellow: yellow += delta; break;
+            case PassionColor.Green: green += delta; break;
+            case PassionColor.Blue: blue += delta; break;
+            case PassionColor.Purple: purple += delta; break;
+            case PassionColor.Pink: pink += delta; break;
+            case PassionColor.Orange: orange += delta; break;
         }
     }
+
+    public int TotalScore => yellow + green + blue + purple + pink + orange;
 }

@@ -5,8 +5,8 @@ public class PlayersUIController : MonoBehaviour
 {
     [Header("References")]
     public GameManager gameManager;
-    public RectTransform playersContainer;   // Panel under Canvas
-    public GameObject playerSquarePrefab;    // The prefab
+    public RectTransform playersContainer;
+    public GameObject playerSquarePrefab;
 
     private readonly List<PlayerSquareUI> spawnedSquares = new List<PlayerSquareUI>();
     private int lastPlayerCount = -1;
@@ -14,17 +14,14 @@ public class PlayersUIController : MonoBehaviour
     private void Start()
     {
         if (gameManager == null)
-        {
             gameManager = FindObjectOfType<GameManager>();
-        }
 
         RefreshUI();
     }
 
     private void Update()
     {
-        if (gameManager == null || gameManager.players == null)
-            return;
+        if (gameManager?.players == null) return;
 
         int currentCount = gameManager.players.Count;
         if (currentCount != lastPlayerCount)
@@ -33,38 +30,33 @@ public class PlayersUIController : MonoBehaviour
             return;
         }
 
-        // Update visuals every frame (or you can call this manually after each turn)
+        int currentIdx = gameManager.currentPlayerIndex;
         for (int i = 0; i < spawnedSquares.Count && i < gameManager.players.Count; i++)
         {
             var square = spawnedSquares[i];
             var player = gameManager.players[i];
-            bool isActive = (i == gameManager.currentPlayerIndex);
 
             if (square != null && player != null)
-            {
-                square.UpdateVisuals(player, isActive);
-            }
+                square.UpdateVisuals(player, i == currentIdx);
         }
     }
 
     public void RefreshUI()
     {
         if (gameManager == null || playersContainer == null || playerSquarePrefab == null)
-        {
-            Debug.LogWarning("[PlayersUIController] Missing references.");
             return;
-        }
 
-        foreach (var sq in spawnedSquares)
+        for (int i = 0; i < spawnedSquares.Count; i++)
         {
-            if (sq != null)
-                Destroy(sq.gameObject);
+            if (spawnedSquares[i] != null)
+                Destroy(spawnedSquares[i].gameObject);
         }
         spawnedSquares.Clear();
 
         var players = gameManager.players;
         if (players == null) return;
 
+        int currentIdx = gameManager.currentPlayerIndex;
         for (int i = 0; i < players.Count; i++)
         {
             var player = players[i];
@@ -74,8 +66,7 @@ public class PlayersUIController : MonoBehaviour
             var ui = squareGO.GetComponent<PlayerSquareUI>();
             if (ui != null)
             {
-                bool isActive = (i == gameManager.currentPlayerIndex);
-                ui.Init(player, i, isActive);
+                ui.Init(player, i, i == currentIdx);
                 spawnedSquares.Add(ui);
             }
         }

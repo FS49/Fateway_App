@@ -3,13 +3,52 @@ using UnityEngine;
 
 public class CardManager : MonoBehaviour
 {
-    [Header("Event Cards")] public List<EventCardDefinition> eventCards = new List<EventCardDefinition>();
+    [Header("Event Cards")]
+    public List<EventCardDefinition> eventCards = new List<EventCardDefinition>();
 
-    [Header("Item Cards")] public List<ItemCardDefinition> itemCards = new List<ItemCardDefinition>();
+    [Header("Item Cards")]
+    public List<ItemCardDefinition> itemCards = new List<ItemCardDefinition>();
 
-    [Header("Field Cards")] public List<FieldCardDefinition> fieldCards = new List<FieldCardDefinition>();
+    [Header("Field Cards")]
+    public List<FieldCardDefinition> fieldCards = new List<FieldCardDefinition>();
 
-    // ---------- Random draws ----------
+    private Dictionary<string, EventCardDefinition> eventLookup;
+    private Dictionary<string, ItemCardDefinition> itemLookup;
+    private Dictionary<string, FieldCardDefinition> fieldLookup;
+    private bool isInitialized;
+
+    private void Awake()
+    {
+        BuildLookups();
+    }
+
+    private void BuildLookups()
+    {
+        if (isInitialized) return;
+
+        eventLookup = new Dictionary<string, EventCardDefinition>(eventCards.Count);
+        foreach (var card in eventCards)
+        {
+            if (card != null && !string.IsNullOrEmpty(card.id))
+                eventLookup[card.id] = card;
+        }
+
+        itemLookup = new Dictionary<string, ItemCardDefinition>(itemCards.Count);
+        foreach (var card in itemCards)
+        {
+            if (card != null && !string.IsNullOrEmpty(card.id))
+                itemLookup[card.id] = card;
+        }
+
+        fieldLookup = new Dictionary<string, FieldCardDefinition>(fieldCards.Count);
+        foreach (var card in fieldCards)
+        {
+            if (card != null && !string.IsNullOrEmpty(card.id))
+                fieldLookup[card.id] = card;
+        }
+
+        isInitialized = true;
+    }
 
     public EventCardDefinition DrawRandomEventCard()
     {
@@ -39,119 +78,49 @@ public class CardManager : MonoBehaviour
         return card;
     }
 
-    // ---------- Lookups ----------
-
     public ItemCardDefinition GetItemById(string id)
     {
         if (string.IsNullOrEmpty(id)) return null;
 
-        foreach (var item in itemCards)
-        {
-            if (item != null && item.id == id)
-                return item;
-        }
-
-        return null;
+        BuildLookups();
+        return itemLookup.TryGetValue(id, out var item) ? item : null;
     }
 
-    /// <summary>
-    /// Lookup by ID across all card types (event, item, field).
-    /// Used for manual card ID input from the player.
-    /// </summary>
     public BaseCardDefinition GetCardById(string id)
     {
         if (string.IsNullOrEmpty(id)) return null;
 
+        BuildLookups();
+
         string trimmed = id.Trim();
-        string upper = trimmed.ToUpperInvariant();
 
-        BaseCardDefinition found = null;
-
-        // If ID looks like an item (IT...), check items first.
-        if (upper.StartsWith("IT"))
+        if (itemLookup.TryGetValue(trimmed, out var item))
         {
-            foreach (var item in itemCards)
-            {
-                if (item != null && item.id == trimmed)
-                {
-                    found = item;
-                    break;
-                }
-            }
-
-            if (found != null)
-            {
-                Debug.Log(
-                    $"[CardManager] GetCardById('{id}') → ITEM: {found.title} ({found.GetType().Name}), effectType={found.effectType}");
-                return found;
-            }
+            Debug.Log($"[CardManager] GetCardById('{id}') → ITEM: {item.title}");
+            return item;
         }
 
-        // If ID looks like an event (EV...), check events first.
-        if (upper.StartsWith("EV"))
+        if (eventLookup.TryGetValue(trimmed, out var ev))
         {
-            foreach (var ev in eventCards)
-            {
-                if (ev != null && ev.id == trimmed)
-                {
-                    found = ev;
-                    break;
-                }
-            }
-
-            if (found != null)
-            {
-                Debug.Log(
-                    $"[CardManager] GetCardById('{id}') → EVENT: {found.title} ({found.GetType().Name}), effectType={found.effectType}");
-                return found;
-            }
+            Debug.Log($"[CardManager] GetCardById('{id}') → EVENT: {ev.title}");
+            return ev;
         }
 
-        // Otherwise / fallback: search all lists.
-
-        foreach (var ev in eventCards)
+        if (fieldLookup.TryGetValue(trimmed, out var field))
         {
-            if (ev != null && ev.id == trimmed)
-            {
-                found = ev;
-                break;
-            }
+            Debug.Log($"[CardManager] GetCardById('{id}') → FIELD: {field.title}");
+            return field;
         }
 
-        if (found == null)
-        {
-            foreach (var item in itemCards)
-            {
-                if (item != null && item.id == trimmed)
-                {
-                    found = item;
-                    break;
-                }
-            }
-        }
-
-        if (found == null)
-        {
-            foreach (var field in fieldCards)
-            {
-                if (field != null && field.id == trimmed)
-                {
-                    found = field;
-                    break;
-                }
-            }
-        }
-
-        if (found != null)
-        {
-            Debug.Log(
-                $"[CardManager] GetCardById('{id}') → {found.title} ({found.GetType().Name}), effectType={found.effectType}");
-        }
-        else
-        {
-            Debug.LogWarning($"[CardManager] GetCardById('{id}') → no card found.");
-        }
-
-        return found;
+        Debug.LogWarning($"[CardManager] GetCardById('{id}') → no card found.");
+        return null;
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        isInitialized = false;
+    }
+#endif
 }
+

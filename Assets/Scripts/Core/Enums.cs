@@ -1,13 +1,11 @@
-using UnityEngine;
-
 public enum PassionColor
 {
-    Yellow,   // Kreativ
-    Green,    // Fitness
-    Blue,     // Wissen
-    Purple,   // Erfolg
-    Pink,     // Sozial
-    Orange    // Abenteuerlustig
+    Yellow,
+    Green,
+    Blue,
+    Purple,
+    Pink,
+    Orange
 }
 
 public enum Gender
@@ -41,6 +39,6 @@ public enum CardEffectType
     StartMinigame,
     ScheduleRiskOutcome,
     HelpLastPlacePlayer,
-    ShowInventory,   // NEW
+    ShowInventory,
     Custom
 }

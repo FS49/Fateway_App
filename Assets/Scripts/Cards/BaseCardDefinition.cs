@@ -11,26 +11,18 @@ public abstract class BaseCardDefinition : ScriptableObject
     public CardType cardType;
     public CardEffectType effectType;
 
-    [Header("Media Templates (placeholders)")]
+    [Header("Media Templates")]
     public string audioTemplateName;
     public string videoTemplateName;
 
     [Header("Inventory / Status UI")]
-    [Tooltip("If true, this card will be shown in the player's Status Effects list when applied (non-items).")]
-    public bool trackAsStatusEffect = false;
+    public bool trackAsStatusEffect;
 
     [Header("Polarity / Risk Flags")]
-    [Tooltip("True if this card is generally beneficial.")]
-    public bool isPositive = false;
-
-    [Tooltip("True if this card is generally harmful.")]
-    public bool isNegative = false;
-
-    [Tooltip("True if this card represents a risky effect (can go good or bad).")]
-    public bool isRisk = false;
+    public bool isPositive;
+    public bool isNegative;
+    public bool isRisk;
 
     [Header("Status Effect Lifetime")]
-    [Tooltip("If this card is tracked as a status effect, this config defines how long it stays active.")]
     public StatusEffectLifetimeConfig statusLifetime = new StatusEffectLifetimeConfig();
-
 }
