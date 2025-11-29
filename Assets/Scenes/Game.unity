@@ -3718,7 +3718,6 @@ MonoBehaviour:
     starCount: 0
     inventory:
     - ITG004
-    - ITG990
     statusEffectCards: []
     activeStatusEffects: []
   - playerName: Player 3
@@ -4607,6 +4606,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd61667f15ed36844876177784cb621f, type: 2}
   - {fileID: 11400000, guid: 5c3d379b18d60c2438dafcb7b7951d1c, type: 2}
   - {fileID: 11400000, guid: 38aadf938382ea34abb88b52b6a99b05, type: 2}
+  - {fileID: 11400000, guid: 4d81195ce51dfc749a3f390a044d1ddb, type: 2}
   fieldCards: []
 --- !u!4 &2008201003
 Transform:

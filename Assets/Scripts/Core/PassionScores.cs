@@ -1,6 +1,6 @@
-using UnityEngine;
+using System;
 
-[System.Serializable]
+[Serializable]
 public class PassionScores
 {
     public int yellow;
@@ -28,12 +28,12 @@ public class PassionScores
     {
         switch (passion)
         {
-            case PassionColor.Yellow: yellow += amount; break;
-            case PassionColor.Green: green += amount; break;
-            case PassionColor.Blue: blue += amount; break;
-            case PassionColor.Purple: purple += amount; break;
-            case PassionColor.Pink: pink += amount; break;
-            case PassionColor.Orange: orange += amount; break;
+            case PassionColor.Yellow: yellow = Math.Max(0, yellow + amount); break;
+            case PassionColor.Green: green = Math.Max(0, green + amount); break;
+            case PassionColor.Blue: blue = Math.Max(0, blue + amount); break;
+            case PassionColor.Purple: purple = Math.Max(0, purple + amount); break;
+            case PassionColor.Pink: pink = Math.Max(0, pink + amount); break;
+            case PassionColor.Orange: orange = Math.Max(0, orange + amount); break;
         }
     }
 

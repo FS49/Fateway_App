@@ -28,12 +28,12 @@ public class PassionScoreSet
     {
         switch (passion)
         {
-            case PassionColor.Yellow: yellow += delta; break;
-            case PassionColor.Green: green += delta; break;
-            case PassionColor.Blue: blue += delta; break;
-            case PassionColor.Purple: purple += delta; break;
-            case PassionColor.Pink: pink += delta; break;
-            case PassionColor.Orange: orange += delta; break;
+            case PassionColor.Yellow: yellow = Math.Max(0, yellow + delta); break;
+            case PassionColor.Green: green = Math.Max(0, green + delta); break;
+            case PassionColor.Blue: blue = Math.Max(0, blue + delta); break;
+            case PassionColor.Purple: purple = Math.Max(0, purple + delta); break;
+            case PassionColor.Pink: pink = Math.Max(0, pink + delta); break;
+            case PassionColor.Orange: orange = Math.Max(0, orange + delta); break;
         }
     }
 

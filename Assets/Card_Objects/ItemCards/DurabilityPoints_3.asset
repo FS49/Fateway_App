@@ -19,7 +19,7 @@ MonoBehaviour:
   effectType: 1
   audioTemplateName: 
   videoTemplateName: 
-  trackAsStatusEffect: 1
+  trackAsStatusEffect: 0
   isPositive: 0
   isNegative: 0
   isRisk: 0
@@ -64,10 +64,10 @@ MonoBehaviour:
     purple: 1
     pink: 1
     orange: 1
-  grantRollBonus: 0
+  grantRollBonus: 1
   perRollBonus:
     yellow: 0
-    green: 0
+    green: 500
     blue: 0
     purple: 0
     pink: 0

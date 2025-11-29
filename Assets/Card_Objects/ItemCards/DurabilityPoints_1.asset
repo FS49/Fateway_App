@@ -19,13 +19,13 @@ MonoBehaviour:
   effectType: 1
   audioTemplateName: 
   videoTemplateName: 
-  trackAsStatusEffect: 1
+  trackAsStatusEffect: 0
   isPositive: 0
   isNegative: 0
   isRisk: 0
   statusLifetime:
     useRollLifetime: 1
-    maxRolls: 2
+    maxRolls: 1
     useTurnLifetime: 0
     maxTurns: 0
     useRollValueBreak: 0

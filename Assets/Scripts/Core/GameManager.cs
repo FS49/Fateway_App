@@ -186,6 +186,7 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"[GameManager] {player.playerName} rolled {baseRoll} + bonus {bonus} = {finalRoll}.");
 
+        ApplyPerRollScoreBonuses(player);
         UpdateStatusEffectsOnRoll(player, baseRoll);
 
         player.boardPosition += finalRoll;
@@ -193,7 +194,6 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"[GameManager] {player.playerName} moves to position {player.boardPosition}. Rolls left: {player.availableRolls}");
 
-        ApplyPerRollScoreBonuses(player);
         ProcessScheduledRisksForPlayer(player);
         ResolveField(player);
         CheckForGameEnd();
@@ -216,9 +216,40 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        UpdateTurnLifetimeOnEndTurn(player);
+
         if (!CheckForGameEnd())
         {
             AdvanceToNextPlayer();
+        }
+    }
+
+    private void UpdateTurnLifetimeOnEndTurn(PlayerData player)
+    {
+        if (player?.activeStatusEffects == null || cardManager == null) return;
+
+        for (int i = player.activeStatusEffects.Count - 1; i >= 0; i--)
+        {
+            var state = player.activeStatusEffects[i];
+            var card = cardManager.GetCardById(state.cardId);
+
+            if (card == null)
+            {
+                player.activeStatusEffects.RemoveAt(i);
+                continue;
+            }
+
+            var cfg = card.statusLifetime;
+
+            if (cfg.useTurnLifetime && state.remainingTurns > 0)
+            {
+                state.remainingTurns--;
+                if (state.remainingTurns <= 0)
+                {
+                    Debug.Log($"[GameManager] Status effect '{card.title}' expired for {player.playerName} (turn lifetime).");
+                    RemoveStatusEffect(player, card.id);
+                }
+            }
         }
     }
 
@@ -452,9 +483,15 @@ public class GameManager : MonoBehaviour
 
     public void AddStatusEffect(PlayerData player, BaseCardDefinition card)
     {
-        if (player == null || card == null || !card.trackAsStatusEffect) return;
+        if (player == null || card == null) return;
 
-        if (!player.statusEffectCards.Contains(card.id))
+        var cfg = card.statusLifetime;
+        bool hasLifetime = cfg.useRollLifetime || cfg.useTurnLifetime || cfg.useRollValueBreak || cfg.skipRounds > 0;
+        bool shouldTrack = card.trackAsStatusEffect || hasLifetime;
+
+        if (!shouldTrack) return;
+
+        if (card.trackAsStatusEffect && !player.statusEffectCards.Contains(card.id))
         {
             player.statusEffectCards.Add(card.id);
             Debug.Log($"[GameManager] Added status effect '{card.title}' to {player.playerName}.");
@@ -466,18 +503,18 @@ public class GameManager : MonoBehaviour
             player.activeStatusEffects.Add(new ActiveStatusEffectState
             {
                 cardId = card.id,
-                remainingRolls = card.statusLifetime.useRollLifetime ? card.statusLifetime.maxRolls : 0,
-                remainingTurns = card.statusLifetime.useTurnLifetime ? card.statusLifetime.maxTurns : 0,
-                remainingSkipRounds = card.statusLifetime.skipRounds
+                remainingRolls = cfg.useRollLifetime ? cfg.maxRolls : 0,
+                remainingTurns = cfg.useTurnLifetime ? cfg.maxTurns : 0,
+                remainingSkipRounds = cfg.skipRounds
             });
         }
         else
         {
-            if (card.statusLifetime.useRollLifetime)
-                existing.remainingRolls = card.statusLifetime.maxRolls;
-            if (card.statusLifetime.useTurnLifetime)
-                existing.remainingTurns = card.statusLifetime.maxTurns;
-            existing.remainingSkipRounds = card.statusLifetime.skipRounds;
+            if (cfg.useRollLifetime)
+                existing.remainingRolls = cfg.maxRolls;
+            if (cfg.useTurnLifetime)
+                existing.remainingTurns = cfg.maxTurns;
+            existing.remainingSkipRounds = cfg.skipRounds;
         }
     }
 
@@ -686,30 +723,6 @@ public class GameManager : MonoBehaviour
     {
         if (player?.activeStatusEffects == null || cardManager == null) return false;
 
-        for (int i = player.activeStatusEffects.Count - 1; i >= 0; i--)
-        {
-            var state = player.activeStatusEffects[i];
-            var card = cardManager.GetCardById(state.cardId);
-
-            if (card == null)
-            {
-                player.activeStatusEffects.RemoveAt(i);
-                continue;
-            }
-
-            var cfg = card.statusLifetime;
-
-            if (cfg.useTurnLifetime && state.remainingTurns > 0)
-            {
-                state.remainingTurns--;
-                if (state.remainingTurns <= 0)
-                {
-                    Debug.Log($"[GameManager] Status effect '{card.title}' expired for {player.playerName} (turn lifetime).");
-                    RemoveStatusEffect(player, card.id);
-                }
-            }
-        }
-
         bool mustSkip = false;
         for (int i = player.activeStatusEffects.Count - 1; i >= 0; i--)
         {
@@ -729,13 +742,11 @@ public class GameManager : MonoBehaviour
 
                 Debug.Log($"[GameManager] {player.playerName} must skip a turn due to '{card.title}'. Skip rounds left: {state.remainingSkipRounds}");
 
-                var cfg = card.statusLifetime;
-                bool noRollLife = !cfg.useRollLifetime || state.remainingRolls <= 0;
-                bool noTurnLife = !cfg.useTurnLifetime || state.remainingTurns <= 0;
-                bool noMoreSkip = state.remainingSkipRounds <= 0;
-
-                if (noRollLife && noTurnLife && noMoreSkip)
+                if (state.remainingSkipRounds <= 0)
+                {
+                    Debug.Log($"[GameManager] Skip effect '{card.title}' expired for {player.playerName}.");
                     RemoveStatusEffect(player, card.id);
+                }
             }
         }
 
