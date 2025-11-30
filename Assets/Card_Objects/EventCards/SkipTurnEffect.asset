@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525ba841fb03f424f97b906aef72bb20, type: 3}
+  m_Name: SkipTurnEffect
+  m_EditorClassIdentifier: 
+  id: EVS990
+  title: "Gef\xE4ngnis"
+  description: Du musst eine Runde aussetzen
+  cardType: 0
+  effectType: 7
+  audioTemplateName: 
+  videoTemplateName: 
+  trackAsStatusEffect: 1
+  isPositive: 0
+  isNegative: 0
+  isRisk: 0
+  statusLifetime:
+    useRollLifetime: 0
+    maxRolls: 0
+    useTurnLifetime: 0
+    maxTurns: 0
+    useRollValueBreak: 0
+    breakOnRollValues: 
+    skipRounds: 1
+  useSimplePoints: 0
+  pointsDelta: 0
+  applyToMainPassion: 0
+  simplePassion: 0
+  useMultiPassionPoints: 0
+  multiPassionPoints:
+    yellow: 0
+    green: 0
+    blue: 0
+    purple: 0
+    pink: 0
+    orange: 0
+  useMainPassionPoints: 0
+  mainPassionPointsDelta: 0
+  onlyAffectsLastPlace: 0
+  triggersMinigame: 0
+  minigameId: 
+  isRiskOutcome: 0
+  riskDurationTurns: 3

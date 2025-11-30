@@ -66,7 +66,7 @@ public class PlayersUIController : MonoBehaviour
             var ui = squareGO.GetComponent<PlayerSquareUI>();
             if (ui != null)
             {
-                ui.Init(player, i, i == currentIdx);
+                ui.Init(player, i, i == currentIdx, gameManager);
                 spawnedSquares.Add(ui);
             }
         }

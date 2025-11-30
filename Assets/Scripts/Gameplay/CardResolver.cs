@@ -56,6 +56,11 @@ public class CardResolver
                 break;
         }
 
+        if (card is EventCardDefinition eventCard)
+        {
+            ApplyRelationshipEffects(eventCard, targetPlayer);
+        }
+
         game.AddStatusEffect(targetPlayer, card);
         PlayCardMedia(card);
     }
@@ -165,6 +170,22 @@ public class CardResolver
         {
             Debug.Log($"[CardResolver] Helping last place {last.playerName} using card '{card.title}'.");
             ApplyPointsCard(pointsCard, last, passionOverride);
+        }
+    }
+
+    private void ApplyRelationshipEffects(EventCardDefinition card, PlayerData targetPlayer)
+    {
+        if (card == null) return;
+
+        if (card.resetsAllRelationships)
+        {
+            Debug.Log($"[CardResolver] Card '{card.title}' resets ALL relationships.");
+            game.ClearAllRelationships();
+        }
+        else if (card.resetsCurrentPlayerRelationship)
+        {
+            Debug.Log($"[CardResolver] Card '{card.title}' resets {targetPlayer.playerName}'s relationship.");
+            game.ClearPartner(targetPlayer);
         }
     }
 

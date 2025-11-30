@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     [Header("UI References")]
     public ManualCardInputUI manualCardInputUI;
     public InventoryUI inventoryUI;
+    public CrossroadChoiceUI crossroadChoiceUI;
 
     [Header("Button Hotkeys")]
     [SerializeField] private List<ButtonHotkey> buttonHotkeys = new List<ButtonHotkey>();
@@ -39,8 +40,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool isManualInputOpen;
     [HideInInspector] public bool isInventoryOpen;
     [HideInInspector] public bool isCardPopupOpen;
+    [HideInInspector] public bool isPartnerPanelOpen;
+    [HideInInspector] public bool isCrossroadChoiceOpen;
 
-    public bool IsInputLocked => isManualInputOpen || isInventoryOpen || isCardPopupOpen;
+    public bool IsInputLocked => isManualInputOpen || isInventoryOpen || isCardPopupOpen || isPartnerPanelOpen || isCrossroadChoiceOpen;
 
     private CardResolver cardResolver;
     private PlayerData firstFinisher;
@@ -78,9 +81,23 @@ public class GameManager : MonoBehaviour
             };
         }
 
+        ClearAllRelationships();
+        ResetAllRiskFlags();
+
         StartTurnForCurrentPlayer();
         PrintPlayerStates();
         Debug.Log($"[GameManager] Starting game. Current player: {GetCurrentPlayer().playerName}");
+    }
+
+    public void ResetAllRiskFlags()
+    {
+        if (players == null) return;
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            players[i].riskFlag = false;
+            players[i].pendingMovement = 0;
+        }
     }
 
     private void Update()
@@ -186,17 +203,108 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"[GameManager] {player.playerName} rolled {baseRoll} + bonus {bonus} = {finalRoll}.");
 
+        if (baseRoll == 1 && player.HasPartner)
+        {
+            Debug.Log($"[GameManager] {player.playerName} rolled a 1! Relationship ends.");
+            ClearPartner(player);
+        }
+
         ApplyPerRollScoreBonuses(player);
         UpdateStatusEffectsOnRoll(player, baseRoll);
 
-        player.boardPosition += finalRoll;
         player.availableRolls--;
 
-        Debug.Log($"[GameManager] {player.playerName} moves to position {player.boardPosition}. Rolls left: {player.availableRolls}");
+        MovePlayerWithCrossroadCheck(player, finalRoll);
+    }
+
+    private void MovePlayerWithCrossroadCheck(PlayerData player, int movement)
+    {
+        if (player == null || movement <= 0) return;
+
+        int startPosition = player.boardPosition;
+        int targetPosition = startPosition + movement;
+
+        Debug.Log($"[GameManager] MovePlayerWithCrossroadCheck: {player.playerName} moving from {startPosition} to {targetPosition} (movement: {movement})");
+
+        if (boardManager != null)
+        {
+            int crossroadIndex = boardManager.GetFirstCrossroadInPath(startPosition, targetPosition);
+
+            if (crossroadIndex >= 0)
+            {
+                int remainingMovement = targetPosition - crossroadIndex;
+                player.boardPosition = crossroadIndex;
+                player.pendingMovement = remainingMovement;
+
+                Debug.Log($"[GameManager] {player.playerName} stopped at crossroad (index {crossroadIndex}). Remaining movement: {remainingMovement}");
+
+                player.riskFlag = false;
+
+                ShowCrossroadChoice(player, remainingMovement);
+                return;
+            }
+        }
+        else
+        {
+            Debug.LogWarning("[GameManager] BoardManager is null! Cannot check for crossroads.");
+        }
+
+        player.boardPosition = targetPosition;
+        Debug.Log($"[GameManager] {player.playerName} moves to position {player.boardPosition}.");
 
         ProcessScheduledRisksForPlayer(player);
         ResolveField(player);
         CheckForGameEnd();
+    }
+
+    private void ShowCrossroadChoice(PlayerData player, int remainingMovement)
+    {
+        Debug.Log($"[GameManager] ShowCrossroadChoice called for {player?.playerName}, remaining: {remainingMovement}");
+
+        if (crossroadChoiceUI != null)
+        {
+            Debug.Log("[GameManager] CrossroadChoiceUI reference exists, calling Show...");
+            crossroadChoiceUI.Show(player, remainingMovement, (choseRisk) =>
+            {
+                OnCrossroadChoiceMade(player, choseRisk, remainingMovement);
+            });
+        }
+        else
+        {
+            Debug.LogWarning("[GameManager] No CrossroadChoiceUI assigned! Auto-selecting Safe route.");
+            OnCrossroadChoiceMade(player, false, remainingMovement);
+        }
+    }
+
+    private void OnCrossroadChoiceMade(PlayerData player, bool choseRisk, int remainingMovement)
+    {
+        player.riskFlag = choseRisk;
+        player.pendingMovement = 0;
+
+        Debug.Log($"[GameManager] {player.playerName} chose {(choseRisk ? "RISK" : "SAFE")} route.");
+
+        ResolveField(player);
+
+        if (remainingMovement > 0)
+        {
+            Debug.Log($"[GameManager] Continuing movement with {remainingMovement} remaining steps.");
+            MovePlayerWithCrossroadCheck(player, remainingMovement);
+        }
+        else
+        {
+            ProcessScheduledRisksForPlayer(player);
+            CheckForGameEnd();
+        }
+    }
+
+    public void OnCrossroadChoiceOpened()
+    {
+        isCrossroadChoiceOpen = true;
+    }
+
+    public void OnCrossroadChoiceClosed()
+    {
+        isCrossroadChoiceOpen = false;
     }
 
     public void TryEndTurn()
@@ -381,9 +489,9 @@ public class GameManager : MonoBehaviour
 
     private void HandleNeutralField(PlayerData player, BoardFieldDefinition fieldDef)
     {
-        if (fieldDef != null && fieldDef.useFieldCard && fieldDef.fieldCardOverride != null)
+        if (fieldDef != null && fieldDef.HasFieldCard(player.riskFlag))
         {
-            var fieldCard = fieldDef.fieldCardOverride;
+            var fieldCard = fieldDef.GetFieldCard(player.riskFlag);
 
             if (fieldCard.triggersManualScan)
             {
@@ -393,7 +501,8 @@ public class GameManager : MonoBehaviour
             else
             {
                 PassionColor? passionForPoints = fieldDef.yieldsPassionScore ? fieldDef.passionReward : (PassionColor?)null;
-                Debug.Log($"[GameManager] Applying FieldCard '{fieldCard.title}' on Neutral field {fieldDef.index}.");
+                string routeType = player.riskFlag ? "RISK" : "SAFE";
+                Debug.Log($"[GameManager] Applying FieldCard '{fieldCard.title}' ({routeType}) on Neutral field {fieldDef.index}.");
                 cardResolver.ApplyCard(fieldCard, player, passionForPoints);
             }
         }
@@ -406,11 +515,14 @@ public class GameManager : MonoBehaviour
     {
         if (cardManager == null) return;
 
-        EventCardDefinition card = fieldDef?.useSpecificEventCard == true && fieldDef.eventCardOverride != null
-            ? fieldDef.eventCardOverride
-            : cardManager.DrawRandomEventCard();
+        EventCardDefinition card = fieldDef?.GetEventCard(player.riskFlag);
+        if (card == null)
+            card = cardManager.DrawRandomEventCard();
 
         if (card == null) return;
+
+        string routeType = player.riskFlag ? "RISK" : "SAFE";
+        Debug.Log($"[GameManager] Applying event card '{card.title}' ({routeType}) to {player.playerName}.");
 
         PassionColor? passionForPoints = fieldDef?.yieldsPassionScore == true ? fieldDef.passionReward : (PassionColor?)null;
         cardResolver.ApplyCard(card, player, passionForPoints);
@@ -422,12 +534,16 @@ public class GameManager : MonoBehaviour
 
         BoardFieldDefinition fieldDef = boardManager.GetFieldDefinitionAt(player.boardPosition);
 
-        ItemCardDefinition card = fieldDef?.useSpecificItemCard == true && fieldDef.itemCardOverride != null
-            ? fieldDef.itemCardOverride
-            : cardManager.DrawRandomItemCard();
+        ItemCardDefinition card = fieldDef?.GetItemCard(player.riskFlag);
+        if (card == null)
+            card = cardManager.DrawRandomItemCard();
 
         if (card != null)
+        {
+            string routeType = player.riskFlag ? "RISK" : "SAFE";
+            Debug.Log($"[GameManager] Applying item card '{card.title}' ({routeType}) to {player.playerName}.");
             cardResolver.ApplyCard(card, player);
+        }
     }
 
     private void HandleMinigameField(PlayerData player)
@@ -437,9 +553,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleCrossroadField(PlayerData player)
     {
-        Debug.Log($"[GameManager] Crossroad! {player.playerName} must choose a path.");
-        bool riskyPath = Random.value > 0.5f;
-        Debug.Log($"[GameManager] Auto-choice: {(riskyPath ? "Risky" : "Safe")} path.");
+        Debug.Log($"[GameManager] {player.playerName} is at crossroad. Current route: {(player.riskFlag ? "RISK" : "SAFE")}");
     }
 
     private void HandleFinishField(PlayerData player)
@@ -450,6 +564,12 @@ public class GameManager : MonoBehaviour
 
         player.hasFinished = true;
         player.availableRolls = 0;
+
+        if (player.HasPartner)
+        {
+            Debug.Log($"[GameManager] {player.playerName} crossed the finish line! Relationship ends.");
+            ClearPartner(player);
+        }
 
         int finishIndex = boardManager != null ? boardManager.totalFields - 1 : player.boardPosition;
         if (player.boardPosition > finishIndex)
@@ -796,5 +916,92 @@ public class GameManager : MonoBehaviour
 
         AddPassionPoints(player, passion, delta);
         Debug.Log($"[GameManager] Redeemed item '{item.title}' for {delta} points in {passion} for {player.playerName}. Total: {player.GetTotalScore()}");
+    }
+
+    public bool IsInRelationship(PlayerData player)
+    {
+        return player != null && player.HasPartner;
+    }
+
+    public PlayerData GetPartner(PlayerData player)
+    {
+        if (player == null || !player.HasPartner)
+            return null;
+
+        if (player.partnerIndex < 0 || player.partnerIndex >= players.Count)
+            return null;
+
+        return players[player.partnerIndex];
+    }
+
+    public int GetPlayerIndex(PlayerData player)
+    {
+        if (player == null || players == null)
+            return -1;
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (players[i] == player)
+                return i;
+        }
+        return -1;
+    }
+
+    public void SetPartners(PlayerData playerA, PlayerData playerB)
+    {
+        if (playerA == null || playerB == null || playerA == playerB)
+            return;
+
+        int indexA = GetPlayerIndex(playerA);
+        int indexB = GetPlayerIndex(playerB);
+
+        if (indexA < 0 || indexB < 0)
+            return;
+
+        ClearPartner(playerA);
+        ClearPartner(playerB);
+
+        playerA.partnerIndex = indexB;
+        playerB.partnerIndex = indexA;
+
+        Debug.Log($"[GameManager] {playerA.playerName} and {playerB.playerName} are now partners.");
+    }
+
+    public void ClearPartner(PlayerData player)
+    {
+        if (player == null || !player.HasPartner)
+            return;
+
+        PlayerData partner = GetPartner(player);
+        
+        if (partner != null)
+        {
+            Debug.Log($"[GameManager] Cleared partnership between {player.playerName} and {partner.playerName}.");
+            partner.partnerIndex = -1;
+        }
+
+        player.partnerIndex = -1;
+    }
+
+    public void ClearAllRelationships()
+    {
+        if (players == null) return;
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            players[i].partnerIndex = -1;
+        }
+
+        Debug.Log("[GameManager] Cleared all relationships.");
+    }
+
+    public void OnPartnerPanelOpened()
+    {
+        isPartnerPanelOpen = true;
+    }
+
+    public void OnPartnerPanelClosed()
+    {
+        isPartnerPanelOpen = false;
     }
 }

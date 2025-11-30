@@ -13,4 +13,8 @@ public class EventCardDefinition : PointsCardDefinition
     [Header("Risk / Delayed Outcome")]
     public bool isRiskOutcome;
     public int riskDurationTurns = 3;
+
+    [Header("Relationship Effects")]
+    public bool resetsAllRelationships;
+    public bool resetsCurrentPlayerRelationship;
 }

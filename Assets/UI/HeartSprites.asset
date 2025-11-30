@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ed2b0d82c976543989f8e741307a14, type: 3}
+  m_Name: HeartSprites
+  m_EditorClassIdentifier: 
+  entries:
+  - passion: 0
+    gender: 0
+    side: 0
+    sprite: {fileID: 21300000, guid: 135fbddd1cab9c34c831d7461db30f3e, type: 3}
+  - passion: 0
+    gender: 0
+    side: 1
+    sprite: {fileID: 21300000, guid: 1372dcfc9e3682647ac0c486ad919272, type: 3}
+  - passion: 1
+    gender: 0
+    side: 0
+    sprite: {fileID: 21300000, guid: 0747aa8b53e03834b908182b9ce5bacb, type: 3}
+  - passion: 1
+    gender: 0
+    side: 1
+    sprite: {fileID: 21300000, guid: 6224d42ba3cf4814d8aa19c3dc6e361e, type: 3}
+  - passion: 2
+    gender: 0
+    side: 0
+    sprite: {fileID: 21300000, guid: 27e50deff23f81f43847f4c48c1bbbf0, type: 3}
+  - passion: 2
+    gender: 0
+    side: 1
+    sprite: {fileID: 21300000, guid: ce591bb35bc0b034280cd63395fdabc3, type: 3}
+  - passion: 3
+    gender: 0
+    side: 0
+    sprite: {fileID: 21300000, guid: 286ceacba37016f4daa64fe4d4cfda29, type: 3}
+  - passion: 3
+    gender: 0
+    side: 1
+    sprite: {fileID: 21300000, guid: fa35d6cf347d00648bacdeef0f8a2f6b, type: 3}
+  - passion: 4
+    gender: 0
+    side: 0
+    sprite: {fileID: 21300000, guid: 5ee46ec9ce6a2e045be26472b322d9ce, type: 3}
+  - passion: 4
+    gender: 0
+    side: 1
+    sprite: {fileID: 21300000, guid: ac905fdb10c29ed4cb69c559ae176319, type: 3}
+  - passion: 5
+    gender: 0
+    side: 0
+    sprite: {fileID: 21300000, guid: b056d2e4acec10747bc68724643d1601, type: 3}
+  - passion: 5
+    gender: 0
+    side: 1
+    sprite: {fileID: 21300000, guid: bd70f999cbeac234dbab403210879bf4, type: 3}
+  - passion: 0
+    gender: 1
+    side: 0
+    sprite: {fileID: 21300000, guid: 135fbddd1cab9c34c831d7461db30f3e, type: 3}
+  - passion: 0
+    gender: 1
+    side: 1
+    sprite: {fileID: 21300000, guid: 1372dcfc9e3682647ac0c486ad919272, type: 3}
+  - passion: 1
+    gender: 1
+    side: 0
+    sprite: {fileID: 21300000, guid: 0747aa8b53e03834b908182b9ce5bacb, type: 3}
+  - passion: 1
+    gender: 1
+    side: 1
+    sprite: {fileID: 21300000, guid: 6224d42ba3cf4814d8aa19c3dc6e361e, type: 3}
+  - passion: 2
+    gender: 1
+    side: 0
+    sprite: {fileID: 21300000, guid: 27e50deff23f81f43847f4c48c1bbbf0, type: 3}
+  - passion: 2
+    gender: 1
+    side: 1
+    sprite: {fileID: 21300000, guid: ce591bb35bc0b034280cd63395fdabc3, type: 3}
+  - passion: 3
+    gender: 1
+    side: 0
+    sprite: {fileID: 21300000, guid: 286ceacba37016f4daa64fe4d4cfda29, type: 3}
+  - passion: 3
+    gender: 1
+    side: 1
+    sprite: {fileID: 21300000, guid: fa35d6cf347d00648bacdeef0f8a2f6b, type: 3}
+  - passion: 4
+    gender: 1
+    side: 0
+    sprite: {fileID: 21300000, guid: 5ee46ec9ce6a2e045be26472b322d9ce, type: 3}
+  - passion: 4
+    gender: 1
+    side: 1
+    sprite: {fileID: 21300000, guid: ac905fdb10c29ed4cb69c559ae176319, type: 3}
+  - passion: 5
+    gender: 1
+    side: 0
+    sprite: {fileID: 21300000, guid: b056d2e4acec10747bc68724643d1601, type: 3}
+  - passion: 5
+    gender: 1
+    side: 1
+    sprite: {fileID: 21300000, guid: bd70f999cbeac234dbab403210879bf4, type: 3}

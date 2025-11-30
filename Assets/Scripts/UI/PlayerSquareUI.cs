@@ -12,6 +12,13 @@ public class PlayerSquareUI : MonoBehaviour
     public TextMeshProUGUI fieldText;
     public TextMeshProUGUI starsText;
 
+    [Header("Player Avatar")]
+    public PlayerAnimatedImage playerAvatar;
+
+    [Header("Relationship Heart")]
+    public CombinedHeartDisplay relationshipHeart;
+    public GameObject relationshipHeartContainer;
+
     [Header("Passion Bars")]
     public Image yellowBar;
     public Image greenBar;
@@ -27,23 +34,37 @@ public class PlayerSquareUI : MonoBehaviour
     public TextMeshProUGUI pinkScoreText;
     public TextMeshProUGUI orangeScoreText;
 
+    private PlayerData boundPlayer;
+    private GameManager gameManager;
+
     private int cachedPosition = -1;
     private int cachedStars = -1;
     private bool cachedActive;
     private int cachedYellow = -1, cachedGreen = -1, cachedBlue = -1;
     private int cachedPurple = -1, cachedPink = -1, cachedOrange = -1;
+    private int cachedPartnerIndex = -2;
 
-    public void Init(PlayerData playerData, int playerIndex, bool isActive)
+    public void Init(PlayerData playerData, int playerIndex, bool isActive, GameManager manager = null)
     {
+        boundPlayer = playerData;
+        gameManager = manager;
+
+        if (gameManager == null)
+            gameManager = FindObjectOfType<GameManager>();
+
         if (nameText != null)
             nameText.text = playerData.playerName;
 
         if (backgroundImage != null)
             backgroundImage.color = PassionColorUtils.GetColor(playerData.passion);
 
+        if (playerAvatar != null)
+            playerAvatar.Initialize(playerData);
+
         cachedPosition = -1;
         cachedStars = -1;
         cachedYellow = cachedGreen = cachedBlue = cachedPurple = cachedPink = cachedOrange = -1;
+        cachedPartnerIndex = -2;
 
         UpdateVisuals(playerData, isActive);
 
@@ -53,6 +74,8 @@ public class PlayerSquareUI : MonoBehaviour
     public void UpdateVisuals(PlayerData playerData, bool isActive)
     {
         if (playerData == null) return;
+
+        boundPlayer = playerData;
 
         if (fieldText != null && cachedPosition != playerData.boardPosition)
         {
@@ -79,6 +102,42 @@ public class PlayerSquareUI : MonoBehaviour
         SetBarCached(purpleBar, purpleScoreText, scores.purple, ref cachedPurple, "Purple: ");
         SetBarCached(pinkBar, pinkScoreText, scores.pink, ref cachedPink, "Pink: ");
         SetBarCached(orangeBar, orangeScoreText, scores.orange, ref cachedOrange, "Orange: ");
+
+        UpdateRelationshipHeart(playerData);
+    }
+
+    private void UpdateRelationshipHeart(PlayerData playerData)
+    {
+        if (relationshipHeart == null && relationshipHeartContainer == null)
+            return;
+
+        if (cachedPartnerIndex == playerData.partnerIndex)
+            return;
+
+        cachedPartnerIndex = playerData.partnerIndex;
+
+        bool hasPartner = playerData.HasPartner && gameManager != null;
+        PlayerData partner = hasPartner ? gameManager.GetPartner(playerData) : null;
+        bool showHeart = partner != null;
+
+        if (relationshipHeartContainer != null)
+        {
+            relationshipHeartContainer.SetActive(showHeart);
+        }
+
+        if (relationshipHeart != null)
+        {
+            if (showHeart)
+            {
+                relationshipHeart.gameObject.SetActive(true);
+                relationshipHeart.Initialize(playerData, partner);
+            }
+            else
+            {
+                relationshipHeart.Clear();
+                relationshipHeart.gameObject.SetActive(false);
+            }
+        }
     }
 
     private void SetBarCached(Image barImage, TextMeshProUGUI scoreText, int score, ref int cached, string labelPrefix)
@@ -92,4 +151,6 @@ public class PlayerSquareUI : MonoBehaviour
         if (scoreText != null)
             scoreText.text = $"{labelPrefix}{score}";
     }
+
+    public PlayerData BoundPlayer => boundPlayer;
 }
