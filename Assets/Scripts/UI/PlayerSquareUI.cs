@@ -7,6 +7,7 @@ public class PlayerSquareUI : MonoBehaviour
     [Header("UI References")]
     public Image backgroundImage;
     public Image activeHighlightImage;
+    public UIImageGlow activeHighlightGlow;
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI fieldText;
@@ -44,6 +45,16 @@ public class PlayerSquareUI : MonoBehaviour
     private int cachedPurple = -1, cachedPink = -1, cachedOrange = -1;
     private int cachedPartnerIndex = -2;
 
+    private Color Brighten(Color c, float amount)
+    {
+        return new Color(
+            Mathf.Clamp01(c.r * amount),
+            Mathf.Clamp01(c.g * amount),
+            Mathf.Clamp01(c.b * amount),
+            c.a
+        );
+    }
+
     public void Init(PlayerData playerData, int playerIndex, bool isActive, GameManager manager = null)
     {
         boundPlayer = playerData;
@@ -61,8 +72,24 @@ public class PlayerSquareUI : MonoBehaviour
         if (playerAvatar != null)
             playerAvatar.Initialize(playerData);
 
+        if (activeHighlightImage != null)
+        {
+            activeHighlightImage.enabled = isActive;
+            Color baseColor = PassionColorUtils.GetColor(playerData.passion);
+            activeHighlightImage.color = Brighten(baseColor, 1.20f);
+        }
+
+        if (activeHighlightGlow != null)
+        {
+            if (isActive)
+                activeHighlightGlow.StartGlow();
+            else
+                activeHighlightGlow.StopGlow(true);
+        }
+
         cachedPosition = -1;
         cachedStars = -1;
+        cachedActive = isActive;
         cachedYellow = cachedGreen = cachedBlue = cachedPurple = cachedPink = cachedOrange = -1;
         cachedPartnerIndex = -2;
 
@@ -93,6 +120,18 @@ public class PlayerSquareUI : MonoBehaviour
         {
             cachedActive = isActive;
             activeHighlightImage.enabled = isActive;
+            activeHighlightImage.transform.SetAsFirstSibling();
+
+            Color baseColor = PassionColorUtils.GetColor(playerData.passion);
+            activeHighlightImage.color = Brighten(baseColor, 1.20f);
+
+            if (activeHighlightGlow != null)
+            {
+                if (isActive)
+                    activeHighlightGlow.StartGlow();
+                else
+                    activeHighlightGlow.StopGlow(true);
+            }
         }
 
         var scores = playerData.passionScores;
@@ -121,9 +160,7 @@ public class PlayerSquareUI : MonoBehaviour
         bool showHeart = partner != null;
 
         if (relationshipHeartContainer != null)
-        {
             relationshipHeartContainer.SetActive(showHeart);
-        }
 
         if (relationshipHeart != null)
         {
