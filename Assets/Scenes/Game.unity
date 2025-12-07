@@ -3252,8 +3252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4877cb3030b3cbb4e81fb3e2ff2adb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minValue: 12
-  maxValue: 12
+  minValue: 11
+  maxValue: 11
 --- !u!4 &790244663
 Transform:
   m_ObjectHideFlags: 0
@@ -5144,10 +5144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2bf16851b5831447859234c1b243960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalFields: 15
+  totalFields: 80
   specialFields:
   - index: 2
-    fieldType: 0
+    fieldType: 1
     description: 
     yieldsPassionScore: 0
     passionReward: 1
@@ -5163,7 +5163,7 @@ MonoBehaviour:
     riskItemCardOverride: {fileID: 0}
     useRiskFieldCard: 0
     riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 1
+    requiresManualCardIdInput: 0
   - index: 3
     fieldType: 0
     description: 
@@ -5220,6 +5220,42 @@ MonoBehaviour:
     requiresManualCardIdInput: 0
   - index: 11
     fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 1
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 22
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 1
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 20
+    fieldType: 4
     description: 
     yieldsPassionScore: 0
     passionReward: 1
@@ -6371,100 +6407,17 @@ MonoBehaviour:
       yellow: 0
       green: 0
       blue: 0
-      purple: 10
+      purple: 0
       pink: 0
       orange: 0
     starCount: 0
-    inventory:
-    - ITG001
-    - ITG004
+    inventory: []
     statusEffectCards: []
     activeStatusEffects: []
     partnerIndex: 0
   - playerName: Player 2
     passion: 2
     gender: 0
-    boardPosition: 0
-    availableRolls: 0
-    hasFinished: 0
-    riskFlag: 0
-    pendingMovement: 0
-    passionScores:
-      yellow: 0
-      green: 0
-      blue: 0
-      purple: 0
-      pink: 0
-      orange: 0
-    starCount: 0
-    inventory:
-    - ITG004
-    statusEffectCards: []
-    activeStatusEffects: []
-    partnerIndex: 0
-  - playerName: Player 3
-    passion: 1
-    gender: 0
-    boardPosition: 0
-    availableRolls: 0
-    hasFinished: 0
-    riskFlag: 0
-    pendingMovement: 0
-    passionScores:
-      yellow: 0
-      green: 0
-      blue: 0
-      purple: 0
-      pink: 0
-      orange: 0
-    starCount: 0
-    inventory: []
-    statusEffectCards: []
-    activeStatusEffects: []
-    partnerIndex: 0
-  - playerName: Player 4
-    passion: 5
-    gender: 1
-    boardPosition: 0
-    availableRolls: 0
-    hasFinished: 0
-    riskFlag: 0
-    pendingMovement: 0
-    passionScores:
-      yellow: 0
-      green: 0
-      blue: 0
-      purple: 0
-      pink: 0
-      orange: 0
-    starCount: 0
-    inventory: []
-    statusEffectCards: []
-    activeStatusEffects: []
-    partnerIndex: 0
-  - playerName: Player 5
-    passion: 0
-    gender: 1
-    boardPosition: 0
-    availableRolls: 0
-    hasFinished: 0
-    riskFlag: 0
-    pendingMovement: 0
-    passionScores:
-      yellow: 0
-      green: 0
-      blue: 0
-      purple: 0
-      pink: 0
-      orange: 0
-    starCount: 0
-    inventory: []
-    statusEffectCards: []
-    activeStatusEffects: []
-    partnerIndex: 0
-  - playerName: Player 6
-    passion: 4
-    gender: 1
     boardPosition: 0
     availableRolls: 0
     hasFinished: 0
@@ -7677,7 +7630,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c3d379b18d60c2438dafcb7b7951d1c, type: 2}
   - {fileID: 11400000, guid: 38aadf938382ea34abb88b52b6a99b05, type: 2}
   - {fileID: 11400000, guid: 4d81195ce51dfc749a3f390a044d1ddb, type: 2}
-  fieldCards: []
+  fieldCards:
+  - {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+  - {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
 --- !u!4 &2008201003
 Transform:
   m_ObjectHideFlags: 0

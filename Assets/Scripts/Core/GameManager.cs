@@ -707,7 +707,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < players.Count; i++)
         {
-            int finalScore = players[i].passionScores.GetScore(players[i].passion);
+            int finalScore = players[i].GetTotalScore();
             if (finalScore > bestScore)
             {
                 winner = players[i];
@@ -717,7 +717,7 @@ public class GameManager : MonoBehaviour
 
         if (winner != null)
         {
-            Debug.Log($"[GameManager] GAME OVER. Winner: {winner.playerName} with FINAL score {bestScore}");
+            Debug.Log($"[GameManager] GAME OVER. Winner: {winner.playerName} with TOTAL score {bestScore}");
         }
 
         return true;
