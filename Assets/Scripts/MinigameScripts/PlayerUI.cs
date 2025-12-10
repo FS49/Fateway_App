@@ -3,11 +3,14 @@ using UnityEngine.UI;
 using TMPro;
 
 [System.Serializable]
-public class PlayerUI
+public class PlayerUI   // kein MonoBehaviour
 {
-    public string displayName = "Player";
-    public Button button;        // Der runde Reaktionsbutton
-    public TMP_Text label;       // Optionaler Name/Score etc.
-    [Header("Editor-Testing (optional)")]
-    public KeyCode testKey = KeyCode.None; // z.B. A, S, D, F... zum Testen am PC
+    public string   displayName = "Player";
+    public Button   button;              // runder Reaktions-Button
+    public TMP_Text label;               // optionaler Name/Label
+    public KeyCode  testKey = KeyCode.None; // optional (Editor-Test)
+
+    // OPTIONAL: für harten Lock gegen Clicks
+    public CanvasGroup canvasGroup;      // CanvasGroup am Button-Objekt
+    public Graphic     targetGraphic;    // z.B. das Image des Buttons
 }
