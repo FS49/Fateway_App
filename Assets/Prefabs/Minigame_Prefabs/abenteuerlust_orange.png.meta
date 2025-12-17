@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      abenteuerlust_orange_0: 8053369519163165651
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      erfolg_lila_aktentasche_0: 3577437936393649969
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

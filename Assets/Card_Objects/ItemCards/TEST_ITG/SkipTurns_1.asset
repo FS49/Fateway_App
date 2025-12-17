@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f77997d20af8f2a46853927c840c18ca, type: 3}
-  m_Name: RedeemCard_1
+  m_Name: SkipTurns_1
   m_EditorClassIdentifier: 
-  id: ITG099
-  title: Coupon
-  description: "Wird am Ende f\xFCr 99 Punkte f\xFCr alle Scores eingel\xF6st"
+  id: ITG9900
+  title: Test10
+  description: skip 2 rounds
   cardType: 1
   effectType: 1
   audioTemplateName: 
@@ -30,7 +30,7 @@ MonoBehaviour:
     maxTurns: 0
     useRollValueBreak: 0
     breakOnRollValues: 
-    skipRounds: 0
+    skipRounds: 2
   useSimplePoints: 0
   pointsDelta: 0
   applyToMainPassion: 0
@@ -45,14 +45,14 @@ MonoBehaviour:
     orange: 0
   useMainPassionPoints: 0
   mainPassionPointsDelta: 0
-  isRedeemable: 1
+  isRedeemable: 0
   redeemScores:
-    yellow: 99
-    green: 99
-    blue: -99
-    purple: 99
-    pink: 99
-    orange: 99
+    yellow: 0
+    green: 0
+    blue: 0
+    purple: 0
+    pink: 0
+    orange: 0
   tags: []
   uniquePerPlayer: 0
   partOfCombo: 0
@@ -64,12 +64,12 @@ MonoBehaviour:
     purple: 1
     pink: 1
     orange: 1
-  grantRollBonus: 0
+  grantRollBonus: 1
   perRollBonus:
     yellow: 0
     green: 0
     blue: 0
-    purple: 0
+    purple: 500
     pink: 0
     orange: 0
   rollBonusPassion: 0

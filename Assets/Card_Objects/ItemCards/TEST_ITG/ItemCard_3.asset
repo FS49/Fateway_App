@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77997d20af8f2a46853927c840c18ca, type: 3}
+  m_Name: ItemCard_3
+  m_EditorClassIdentifier: 
+  id: ITG0033
+  title: GreenPoints
+  description: 
+  cardType: 1
+  effectType: 0
+  audioTemplateName: 
+  videoTemplateName: 
+  trackAsStatusEffect: 0
+  isPositive: 0
+  isNegative: 0
+  isRisk: 0
+  statusLifetime:
+    useRollLifetime: 0
+    maxRolls: 0
+    useTurnLifetime: 0
+    maxTurns: 0
+    useRollValueBreak: 0
+    breakOnRollValues: 
+    skipRounds: 0
+  useSimplePoints: 0
+  pointsDelta: 0
+  applyToMainPassion: 0
+  simplePassion: 0
+  useMultiPassionPoints: 0
+  multiPassionPoints:
+    yellow: 0
+    green: 0
+    blue: 0
+    purple: 0
+    pink: 0
+    orange: 0
+  useMainPassionPoints: 0
+  mainPassionPointsDelta: 0
+  isRedeemable: 0
+  redeemScores:
+    yellow: 0
+    green: 0
+    blue: 0
+    purple: 0
+    pink: 0
+    orange: 0
+  tags: []
+  uniquePerPlayer: 0
+  partOfCombo: 0
+  enableScoreMultipliers: 0
+  passionMultipliers:
+    yellow: 1
+    green: 1
+    blue: 1
+    purple: 1
+    pink: 1
+    orange: 1
+  grantRollBonus: 1
+  perRollBonus:
+    yellow: 0
+    green: 0
+    blue: 0
+    purple: 0
+    pink: 0
+    orange: 0
+  rollBonusPassion: 1
+  rollBonusPoints: 30
+  diceRollBonus: 0

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f77997d20af8f2a46853927c840c18ca, type: 3}
-  m_Name: DurabilityPoints_2
+  m_Name: 14_Rabattmarkerl
   m_EditorClassIdentifier: 
-  id: ITG998
-  title: Test2
-  description: breaks after 1 turn
+  id: ITG014
+  title: Rabattmarkerl
+  description: Wenn du auf einem Shoppingfeld landest darfst du immer zwei Karten
+    nehmen.
   cardType: 1
   effectType: 1
   audioTemplateName: 
@@ -26,8 +27,8 @@ MonoBehaviour:
   statusLifetime:
     useRollLifetime: 0
     maxRolls: 0
-    useTurnLifetime: 1
-    maxTurns: 1
+    useTurnLifetime: 0
+    maxTurns: 0
     useRollValueBreak: 0
     breakOnRollValues: 
     skipRounds: 0
@@ -53,7 +54,8 @@ MonoBehaviour:
     purple: 0
     pink: 0
     orange: 0
-  tags: []
+  tags:
+  - Dokument
   uniquePerPlayer: 0
   partOfCombo: 0
   enableScoreMultipliers: 0
@@ -64,9 +66,9 @@ MonoBehaviour:
     purple: 1
     pink: 1
     orange: 1
-  grantRollBonus: 1
+  grantRollBonus: 0
   perRollBonus:
-    yellow: 500
+    yellow: 0
     green: 0
     blue: 0
     purple: 0

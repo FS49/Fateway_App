@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f77997d20af8f2a46853927c840c18ca, type: 3}
-  m_Name: DurabilityPoints_1
+  m_Name: DurabilityPoints_3
   m_EditorClassIdentifier: 
-  id: ITG999
-  title: Test1
-  description: breaks after 1 roll
+  id: ITG9977
+  title: Test3
+  description: break after rolling 3
   cardType: 1
   effectType: 1
   audioTemplateName: 
@@ -24,12 +24,12 @@ MonoBehaviour:
   isNegative: 0
   isRisk: 0
   statusLifetime:
-    useRollLifetime: 1
-    maxRolls: 1
+    useRollLifetime: 0
+    maxRolls: 0
     useTurnLifetime: 0
     maxTurns: 0
-    useRollValueBreak: 0
-    breakOnRollValues: 
+    useRollValueBreak: 1
+    breakOnRollValues: 03000000
     skipRounds: 0
   useSimplePoints: 0
   pointsDelta: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
   grantRollBonus: 1
   perRollBonus:
     yellow: 0
-    green: 0
-    blue: 500
+    green: 500
+    blue: 0
     purple: 0
     pink: 0
     orange: 0

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      wissen_blau_0: 4853877641774837588
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

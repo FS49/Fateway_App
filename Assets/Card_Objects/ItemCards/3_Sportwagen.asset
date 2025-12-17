@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f77997d20af8f2a46853927c840c18ca, type: 3}
-  m_Name: DurabilityPoints_3
+  m_Name: 3_Sportwagen
   m_EditorClassIdentifier: 
-  id: ITG997
-  title: Test3
-  description: break after rolling 3
+  id: ITG003
+  title: Sportwagen
+  description: "Rechne bei jedem mal W\xFCrfeln +3 Felder dazu, zus\xE4tzlich erh\xE4ltst
+    du Punkte bei Erfolg & Anerkennung so lange die Karte in deinem Besitz ist."
   cardType: 1
   effectType: 1
   audioTemplateName: 
@@ -28,8 +29,8 @@ MonoBehaviour:
     maxRolls: 0
     useTurnLifetime: 0
     maxTurns: 0
-    useRollValueBreak: 1
-    breakOnRollValues: 03000000
+    useRollValueBreak: 0
+    breakOnRollValues: 
     skipRounds: 0
   useSimplePoints: 0
   pointsDelta: 0
@@ -53,7 +54,8 @@ MonoBehaviour:
     purple: 0
     pink: 0
     orange: 0
-  tags: []
+  tags:
+  - Fahrzeug
   uniquePerPlayer: 0
   partOfCombo: 0
   enableScoreMultipliers: 0
@@ -67,11 +69,11 @@ MonoBehaviour:
   grantRollBonus: 1
   perRollBonus:
     yellow: 0
-    green: 500
+    green: 0
     blue: 0
-    purple: 0
+    purple: 5
     pink: 0
     orange: 0
   rollBonusPassion: 0
   rollBonusPoints: 0
-  diceRollBonus: 0
+  diceRollBonus: 3

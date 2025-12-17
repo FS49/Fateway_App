@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fateway_Logo_0: 2485900381994890125
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

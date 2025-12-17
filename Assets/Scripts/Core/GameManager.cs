@@ -194,14 +194,17 @@ public class GameManager : MonoBehaviour
         if (player == null) return;
 
         int baseRoll = diceController != null ? diceController.Roll() : Random.Range(1, 7);
-        int bonus = GetDiceRollModifier(player);
-        int finalRoll = Mathf.Max(1, baseRoll + bonus);
+        int diceBonus = GetDiceRollModifier(player);
+        int oddEvenBonus = GetOddEvenRollModifier(player, baseRoll);
+        int totalBonus = diceBonus + oddEvenBonus;
+        int finalRoll = Mathf.Max(1, baseRoll + totalBonus);
 
         lastBaseRoll = baseRoll;
-        lastRollBonus = bonus;
+        lastRollBonus = totalBonus;
         lastFinalRoll = finalRoll;
 
-        Debug.Log($"[GameManager] {player.playerName} rolled {baseRoll} + bonus {bonus} = {finalRoll}.");
+        string oddEvenText = oddEvenBonus != 0 ? $" ({(baseRoll % 2 != 0 ? "odd" : "even")} bonus: {oddEvenBonus:+0;-0;0})" : "";
+        Debug.Log($"[GameManager] {player.playerName} rolled {baseRoll} + bonus {totalBonus} = {finalRoll}.{oddEvenText}");
 
         if (baseRoll == 1 && player.HasPartner)
         {
@@ -373,6 +376,26 @@ public class GameManager : MonoBehaviour
             if (itemDef != null)
                 totalBonus += itemDef.diceRollBonus;
         }
+        return totalBonus;
+    }
+
+    private int GetOddEvenRollModifier(PlayerData player, int baseRoll)
+    {
+        if (player?.inventory == null || cardManager == null)
+            return 0;
+
+        bool isOdd = baseRoll % 2 != 0;
+        int totalBonus = 0;
+
+        for (int i = 0; i < player.inventory.Count; i++)
+        {
+            var itemDef = cardManager.GetItemById(player.inventory[i]);
+            if (itemDef != null)
+            {
+                totalBonus += isOdd ? itemDef.oddRollBonus : itemDef.evenRollBonus;
+            }
+        }
+
         return totalBonus;
     }
 

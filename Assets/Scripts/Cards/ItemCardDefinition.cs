@@ -26,4 +26,8 @@ public class ItemCardDefinition : PointsCardDefinition
 
     [Header("Dice Buffs")]
     public int diceRollBonus;
+
+    [Header("Odd/Even Roll Modifiers")]
+    public int oddRollBonus;
+    public int evenRollBonus;
 }

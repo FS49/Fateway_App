@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kreativ_gelb_0: -7126613604780415679
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
