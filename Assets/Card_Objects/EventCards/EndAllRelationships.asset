@@ -49,6 +49,6 @@ MonoBehaviour:
   triggersMinigame: 0
   minigameId: 
   isRiskOutcome: 0
-  riskDurationTurns: 3
+  riskDurationTurns: 0
   resetsAllRelationships: 1
   resetsCurrentPlayerRelationship: 0

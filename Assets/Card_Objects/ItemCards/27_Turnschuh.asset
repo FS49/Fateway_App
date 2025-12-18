@@ -69,7 +69,7 @@ MonoBehaviour:
   grantRollBonus: 1
   perRollBonus:
     yellow: 0
-    green: 5
+    green: 1
     blue: 0
     purple: 0
     pink: 0
@@ -77,3 +77,5 @@ MonoBehaviour:
   rollBonusPassion: 0
   rollBonusPoints: 0
   diceRollBonus: 0
+  oddRollBonus: 0
+  evenRollBonus: 0

@@ -70,10 +70,12 @@ MonoBehaviour:
   perRollBonus:
     yellow: 0
     green: 0
-    blue: 5
+    blue: 1
     purple: 0
     pink: 0
     orange: 0
   rollBonusPassion: 0
   rollBonusPoints: 0
   diceRollBonus: 0
+  oddRollBonus: 0
+  evenRollBonus: 0

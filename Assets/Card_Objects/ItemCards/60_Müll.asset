@@ -21,7 +21,7 @@ MonoBehaviour:
   videoTemplateName: 
   trackAsStatusEffect: 0
   isPositive: 0
-  isNegative: 0
+  isNegative: 1
   isRisk: 0
   statusLifetime:
     useRollLifetime: 0
@@ -47,12 +47,12 @@ MonoBehaviour:
   mainPassionPointsDelta: 0
   isRedeemable: 1
   redeemScores:
-    yellow: -5
-    green: -5
-    blue: -5
-    purple: -5
-    pink: -5
-    orange: -5
+    yellow: -2
+    green: -2
+    blue: -2
+    purple: -2
+    pink: -2
+    orange: -2
   tags:
   - Risikogegenstand
   uniquePerPlayer: 0
@@ -76,3 +76,5 @@ MonoBehaviour:
   rollBonusPassion: 0
   rollBonusPoints: 0
   diceRollBonus: 0
+  oddRollBonus: 0
+  evenRollBonus: 0

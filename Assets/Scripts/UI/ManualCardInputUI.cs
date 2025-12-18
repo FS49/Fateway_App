@@ -43,6 +43,9 @@ public class ManualCardInputUI : MonoBehaviour
     [Header("Feedback")]
     public TextMeshProUGUI feedbackText;
 
+    [Header("Card Popup")]
+    public CardDescriptionPopup cardDescriptionPopup;
+
     private PlayerData targetPlayer;
     private PlayerData selectedOtherPlayer;
     private ManualInputMode currentMode = ManualInputMode.Receive;
@@ -55,6 +58,9 @@ public class ManualCardInputUI : MonoBehaviour
 
         if (cardManager == null)
             cardManager = FindObjectOfType<CardManager>();
+
+        if (cardDescriptionPopup == null)
+            cardDescriptionPopup = FindObjectOfType<CardDescriptionPopup>(true);
 
         if (receiveTabButton != null)
             receiveTabButton.onClick.AddListener(() => SetMode(ManualInputMode.Receive));
@@ -313,17 +319,39 @@ public class ManualCardInputUI : MonoBehaviour
 
     private void ExecuteReceive(string cardId)
     {
+        BaseCardDefinition cardDef = null;
+
+        if (cardManager != null)
+        {
+            cardDef = cardManager.GetCardById(cardId);
+        }
+
         if (gameManager != null)
         {
             gameManager.ApplyCardFromId(cardId, targetPlayer, null);
-            ShowFeedback($"Card '{cardId}' applied to {targetPlayer.playerName}.", Color.green);
         }
 
         Hide();
+
+        if (cardDef != null && cardDescriptionPopup != null)
+        {
+            Debug.Log($"[ManualCardInputUI] Showing popup for card: {cardDef.title}");
+            cardDescriptionPopup.Show(cardDef);
+        }
+        else
+        {
+            Debug.LogWarning($"[ManualCardInputUI] Could not show popup. cardDef={cardDef != null}, popup={cardDescriptionPopup != null}");
+        }
     }
 
     private void ExecuteGive(string cardId)
     {
+        if (cardManager != null && cardManager.GetCardById(cardId) is EventCardDefinition)
+        {
+            ShowFeedback("Event cards can only be used in the 'Receive' tab.", Color.red);
+            return;
+        }
+
         if (selectedOtherPlayer == null)
         {
             ShowFeedback("Please select a player to give the card to.", Color.yellow);
@@ -360,6 +388,12 @@ public class ManualCardInputUI : MonoBehaviour
 
     private void ExecuteTake(string cardId)
     {
+        if (cardManager != null && cardManager.GetCardById(cardId) is EventCardDefinition)
+        {
+            ShowFeedback("Event cards can only be used in the 'Receive' tab.", Color.red);
+            return;
+        }
+
         if (selectedOtherPlayer == null)
         {
             ShowFeedback("Please select a player to take the card from.", Color.yellow);
@@ -396,6 +430,12 @@ public class ManualCardInputUI : MonoBehaviour
 
     private void ExecuteReturn(string cardId)
     {
+        if (cardManager != null && cardManager.GetCardById(cardId) is EventCardDefinition)
+        {
+            ShowFeedback("Event cards can only be used in the 'Receive' tab.", Color.red);
+            return;
+        }
+
         if (!targetPlayer.inventory.Contains(cardId))
         {
             ShowFeedback($"Card '{cardId}' not found in {targetPlayer.playerName}'s inventory.", Color.red);

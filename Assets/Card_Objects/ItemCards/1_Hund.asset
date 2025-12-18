@@ -72,8 +72,10 @@ MonoBehaviour:
     green: 0
     blue: 0
     purple: 0
-    pink: 5
+    pink: 1
     orange: 0
   rollBonusPassion: 0
   rollBonusPoints: 0
   diceRollBonus: 0
+  oddRollBonus: 0
+  evenRollBonus: 0

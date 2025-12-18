@@ -23,7 +23,7 @@ MonoBehaviour:
   trackAsStatusEffect: 0
   isPositive: 0
   isNegative: 0
-  isRisk: 0
+  isRisk: 1
   statusLifetime:
     useRollLifetime: 0
     maxRolls: 0

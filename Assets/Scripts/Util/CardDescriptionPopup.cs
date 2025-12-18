@@ -28,7 +28,10 @@ public class CardDescriptionPopup : MonoBehaviour
         if (card == null) return;
 
         if (panelRoot != null)
+        {
             panelRoot.SetActive(true);
+            panelRoot.transform.SetAsLastSibling();
+        }
 
         if (titleText != null)
             titleText.text = card.title;

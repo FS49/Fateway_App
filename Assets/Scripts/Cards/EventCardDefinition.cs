@@ -17,4 +17,24 @@ public class EventCardDefinition : PointsCardDefinition
     [Header("Relationship Effects")]
     public bool resetsAllRelationships;
     public bool resetsCurrentPlayerRelationship;
+
+    [Header("Item Distribution")]
+    public bool givesItemToNextPlayer;
+    public string nextPlayerItemId;
+
+    public bool givesItemToAllPlayers;
+    public string allPlayersItemId;
+
+    public bool givesItemToAllPartneredPlayers;
+    public string allPartneredPlayersItemId;
+
+    public bool givesItemToCurrentPlayerPartner;
+    public string currentPlayerPartnerItemId;
+
+    [Header("Partner Points Bonus")]
+    public bool givesPointsToAllPartneredPlayers;
+    public int partneredPlayersPointsDelta;
+
+    public bool givesPointsToCurrentPlayerAndPartner;
+    public int currentPlayerAndPartnerPointsDelta;
 }

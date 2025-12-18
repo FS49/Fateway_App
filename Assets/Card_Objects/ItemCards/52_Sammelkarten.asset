@@ -50,7 +50,7 @@ MonoBehaviour:
     yellow: 0
     green: 0
     blue: 0
-    purple: 20
+    purple: 10
     pink: 0
     orange: 0
   tags:
@@ -76,3 +76,5 @@ MonoBehaviour:
   rollBonusPassion: 0
   rollBonusPoints: 0
   diceRollBonus: 0
+  oddRollBonus: 0
+  evenRollBonus: 0

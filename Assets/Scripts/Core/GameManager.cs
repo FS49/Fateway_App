@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public ManualCardInputUI manualCardInputUI;
     public InventoryUI inventoryUI;
     public CrossroadChoiceUI crossroadChoiceUI;
+    public GameFeedbackUI gameFeedbackUI;
 
     [Header("Button Hotkeys")]
     [SerializeField] private List<ButtonHotkey> buttonHotkeys = new List<ButtonHotkey>();
@@ -71,6 +72,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (gameFeedbackUI == null)
+            gameFeedbackUI = FindObjectOfType<GameFeedbackUI>(true);
+
         if (players == null || players.Count == 0)
         {
             Debug.Log("[GameManager] No players defined in Inspector, creating 2 default players.");
@@ -197,7 +201,7 @@ public class GameManager : MonoBehaviour
         int diceBonus = GetDiceRollModifier(player);
         int oddEvenBonus = GetOddEvenRollModifier(player, baseRoll);
         int totalBonus = diceBonus + oddEvenBonus;
-        int finalRoll = Mathf.Max(1, baseRoll + totalBonus);
+        int finalRoll = Mathf.Max(0, baseRoll + totalBonus);
 
         lastBaseRoll = baseRoll;
         lastRollBonus = totalBonus;
@@ -217,7 +221,16 @@ public class GameManager : MonoBehaviour
 
         player.availableRolls--;
 
-        MovePlayerWithCrossroadCheck(player, finalRoll);
+        if (finalRoll > 0)
+        {
+            MovePlayerWithCrossroadCheck(player, finalRoll);
+        }
+        else
+        {
+            Debug.Log($"[GameManager] {player.playerName} rolled 0 total - no movement.");
+            ProcessScheduledRisksForPlayer(player);
+            CheckForGameEnd();
+        }
     }
 
     private void MovePlayerWithCrossroadCheck(PlayerData player, int movement)
@@ -331,8 +344,55 @@ public class GameManager : MonoBehaviour
 
         if (!CheckForGameEnd())
         {
+            PlayerData endingPlayer = player;
+            PlayerData nextPlayer = GetNextPlayer();
+
             AdvanceToNextPlayer();
+
+            if (gameFeedbackUI != null && nextPlayer != null)
+            {
+                gameFeedbackUI.ShowTurnEndedFeedback(endingPlayer.playerName, endingPlayer.passion, nextPlayer.playerName, nextPlayer.passion);
+            }
         }
+    }
+
+    private PlayerData GetNextPlayer()
+    {
+        if (players == null || players.Count == 0) return null;
+
+        int nextIndex = currentPlayerIndex;
+        int safeGuard = 0;
+
+        do
+        {
+            nextIndex = (nextIndex + 1) % players.Count;
+            safeGuard++;
+            if (safeGuard > players.Count + 1) break;
+        } while (players[nextIndex].hasFinished && nextIndex != currentPlayerIndex);
+
+        return players[nextIndex];
+    }
+
+    public PlayerData GetNextPlayerAfter(PlayerData player)
+    {
+        if (players == null || players.Count == 0 || player == null) return null;
+
+        int playerIndex = players.IndexOf(player);
+        if (playerIndex < 0) return null;
+
+        int nextIndex = playerIndex;
+        int safeGuard = 0;
+
+        do
+        {
+            nextIndex = (nextIndex + 1) % players.Count;
+            safeGuard++;
+            if (safeGuard > players.Count + 1) break;
+        } while (players[nextIndex].hasFinished && nextIndex != playerIndex);
+
+        if (nextIndex == playerIndex) return null;
+
+        return players[nextIndex];
     }
 
     private void UpdateTurnLifetimeOnEndTurn(PlayerData player)
@@ -414,6 +474,9 @@ public class GameManager : MonoBehaviour
             player.starCount += gainedStars;
             Debug.Log($"[GameManager] {player.playerName} gained {gainedStars} star(s). Total stars: {player.starCount}");
         }
+
+        if (gameFeedbackUI != null)
+            gameFeedbackUI.ShowPointsFeedback(player.playerName, player.passion, delta);
     }
 
     public float GetItemScoreMultiplier(PlayerData player, PassionColor passion)
@@ -477,6 +540,11 @@ public class GameManager : MonoBehaviour
         BoardFieldDefinition fieldDef = boardManager.GetFieldDefinitionAt(player.boardPosition);
 
         Debug.Log($"[GameManager] {player.playerName} landed on a {fieldType} field (Index: {player.boardPosition}).");
+
+        if (gameFeedbackUI != null && fieldDef != null && !string.IsNullOrEmpty(fieldDef.description))
+        {
+            gameFeedbackUI.ShowFieldFeedback(player.playerName, player.passion, fieldDef.description);
+        }
 
         switch (fieldType)
         {
@@ -728,6 +796,18 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"[GameManager] Applying card '{card.title}' to {targetPlayer.playerName} by manual input.");
         cardResolver.ApplyCard(card, targetPlayer, passionForPoints);
+
+        if (gameFeedbackUI != null)
+        {
+            if (card is EventCardDefinition)
+            {
+                gameFeedbackUI.ShowEventCardFeedback(targetPlayer.playerName, targetPlayer.passion, card.title);
+            }
+            else if (card is ItemCardDefinition)
+            {
+                gameFeedbackUI.ShowItemCardFeedback(targetPlayer.playerName, targetPlayer.passion, card.title);
+            }
+        }
     }
 
     private bool CheckForGameEnd()
@@ -912,7 +992,17 @@ public class GameManager : MonoBehaviour
         if (mustSkip)
         {
             Debug.Log($"[GameManager] {player.playerName} skips this entire turn.");
+
+            PlayerData skippedPlayer = player;
+            PlayerData nextPlayer = GetNextPlayer();
+
             AdvanceToNextPlayer();
+
+            if (gameFeedbackUI != null && nextPlayer != null)
+            {
+                gameFeedbackUI.ShowTurnSkippedFeedback(skippedPlayer.playerName, skippedPlayer.passion, nextPlayer.playerName, nextPlayer.passion);
+            }
+
             return true;
         }
 

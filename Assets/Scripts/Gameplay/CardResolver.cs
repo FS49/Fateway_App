@@ -59,6 +59,8 @@ public class CardResolver
         if (card is EventCardDefinition eventCard)
         {
             ApplyRelationshipEffects(eventCard, targetPlayer);
+            ApplyItemDistribution(eventCard, targetPlayer);
+            ApplyPartnerPointsBonus(eventCard, targetPlayer);
         }
 
         game.AddStatusEffect(targetPlayer, card);
@@ -186,6 +188,124 @@ public class CardResolver
         {
             Debug.Log($"[CardResolver] Card '{card.title}' resets {targetPlayer.playerName}'s relationship.");
             game.ClearPartner(targetPlayer);
+        }
+    }
+
+    private void ApplyItemDistribution(EventCardDefinition card, PlayerData currentPlayer)
+    {
+        if (card == null) return;
+
+        if (card.givesItemToNextPlayer && !string.IsNullOrEmpty(card.nextPlayerItemId))
+        {
+            PlayerData nextPlayer = game.GetNextPlayerAfter(currentPlayer);
+            if (nextPlayer != null)
+            {
+                GiveItemById(nextPlayer, card.nextPlayerItemId, card.title);
+            }
+        }
+
+        if (card.givesItemToAllPlayers && !string.IsNullOrEmpty(card.allPlayersItemId))
+        {
+            var allPlayers = game.players;
+            if (allPlayers != null)
+            {
+                for (int i = 0; i < allPlayers.Count; i++)
+                {
+                    var player = allPlayers[i];
+                    if (player != null && !player.hasFinished)
+                    {
+                        GiveItemById(player, card.allPlayersItemId, card.title);
+                    }
+                }
+            }
+        }
+
+        if (card.givesItemToAllPartneredPlayers && !string.IsNullOrEmpty(card.allPartneredPlayersItemId))
+        {
+            var allPlayers = game.players;
+            if (allPlayers != null)
+            {
+                for (int i = 0; i < allPlayers.Count; i++)
+                {
+                    var player = allPlayers[i];
+                    if (player != null && !player.hasFinished && player.HasPartner)
+                    {
+                        GiveItemById(player, card.allPartneredPlayersItemId, card.title);
+                    }
+                }
+            }
+        }
+
+        if (card.givesItemToCurrentPlayerPartner && !string.IsNullOrEmpty(card.currentPlayerPartnerItemId))
+        {
+            if (currentPlayer.HasPartner)
+            {
+                PlayerData partner = game.GetPartner(currentPlayer);
+                if (partner != null && !partner.hasFinished)
+                {
+                    GiveItemById(partner, card.currentPlayerPartnerItemId, card.title);
+                }
+            }
+        }
+    }
+
+    private void GiveItemById(PlayerData player, string itemId, string sourceCardTitle)
+    {
+        if (player == null || string.IsNullOrEmpty(itemId)) return;
+
+        var itemCard = game.cardManager?.GetItemById(itemId);
+        if (itemCard == null)
+        {
+            Debug.LogWarning($"[CardResolver] Item '{itemId}' not found for distribution from '{sourceCardTitle}'.");
+            return;
+        }
+
+        if (itemCard.uniquePerPlayer && player.inventory.Contains(itemId))
+        {
+            Debug.Log($"[CardResolver] {player.playerName} already has unique item '{itemId}'. Skipping.");
+            return;
+        }
+
+        player.inventory.Add(itemId);
+        game.AddStatusEffect(player, itemCard);
+        Debug.Log($"[CardResolver] {player.playerName} receives item '{itemCard.title}' from event card '{sourceCardTitle}'.");
+    }
+
+    private void ApplyPartnerPointsBonus(EventCardDefinition card, PlayerData currentPlayer)
+    {
+        if (card == null) return;
+
+        if (card.givesPointsToAllPartneredPlayers && card.partneredPlayersPointsDelta != 0)
+        {
+            var allPlayers = game.players;
+            if (allPlayers != null)
+            {
+                for (int i = 0; i < allPlayers.Count; i++)
+                {
+                    var player = allPlayers[i];
+                    if (player != null && !player.hasFinished && player.HasPartner)
+                    {
+                        AddPointsWithMultipliers(player, player.passion, card.partneredPlayersPointsDelta, card.title);
+                        Debug.Log($"[CardResolver] {player.playerName} (partnered) receives {card.partneredPlayersPointsDelta} main passion points from '{card.title}'.");
+                    }
+                }
+            }
+        }
+
+        if (card.givesPointsToCurrentPlayerAndPartner && card.currentPlayerAndPartnerPointsDelta != 0)
+        {
+            if (currentPlayer != null && currentPlayer.HasPartner)
+            {
+                AddPointsWithMultipliers(currentPlayer, currentPlayer.passion, card.currentPlayerAndPartnerPointsDelta, card.title);
+                Debug.Log($"[CardResolver] {currentPlayer.playerName} receives {card.currentPlayerAndPartnerPointsDelta} main passion points from '{card.title}'.");
+
+                PlayerData partner = game.GetPartner(currentPlayer);
+                if (partner != null && !partner.hasFinished)
+                {
+                    AddPointsWithMultipliers(partner, partner.passion, card.currentPlayerAndPartnerPointsDelta, card.title);
+                    Debug.Log($"[CardResolver] {partner.playerName} (partner) receives {card.currentPlayerAndPartnerPointsDelta} main passion points from '{card.title}'.");
+                }
+            }
         }
     }
 
