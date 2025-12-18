@@ -7877,7 +7877,27 @@ MonoBehaviour:
   boardManager: {fileID: 1395595213}
   cardManager: {fileID: 2008201002}
   players:
-  - playerName: Player 1
+  - playerName: Xaver
+    passion: 2
+    gender: 0
+    boardPosition: 0
+    availableRolls: 0
+    hasFinished: 0
+    riskFlag: 0
+    pendingMovement: 0
+    passionScores:
+      yellow: 0
+      green: 0
+      blue: 0
+      purple: 0
+      pink: 0
+      orange: 0
+    starCount: 0
+    inventory: []
+    statusEffectCards: []
+    activeStatusEffects: []
+    partnerIndex: 0
+  - playerName: Kathi
     passion: 0
     gender: 1
     boardPosition: 0
@@ -7897,7 +7917,7 @@ MonoBehaviour:
     statusEffectCards: []
     activeStatusEffects: []
     partnerIndex: 0
-  - playerName: Player 2
+  - playerName: Lorenz
     passion: 1
     gender: 0
     boardPosition: 0
@@ -7917,69 +7937,9 @@ MonoBehaviour:
     statusEffectCards: []
     activeStatusEffects: []
     partnerIndex: 0
-  - playerName: Player 3
-    passion: 2
-    gender: 1
-    boardPosition: 0
-    availableRolls: 0
-    hasFinished: 0
-    riskFlag: 0
-    pendingMovement: 0
-    passionScores:
-      yellow: 0
-      green: 0
-      blue: 0
-      purple: 0
-      pink: 0
-      orange: 0
-    starCount: 0
-    inventory: []
-    statusEffectCards: []
-    activeStatusEffects: []
-    partnerIndex: 0
-  - playerName: Player 4
+  - playerName: Mirjam
     passion: 3
-    gender: 0
-    boardPosition: 0
-    availableRolls: 0
-    hasFinished: 0
-    riskFlag: 0
-    pendingMovement: 0
-    passionScores:
-      yellow: 0
-      green: 0
-      blue: 0
-      purple: 0
-      pink: 0
-      orange: 0
-    starCount: 0
-    inventory: []
-    statusEffectCards: []
-    activeStatusEffects: []
-    partnerIndex: 0
-  - playerName: Player 5
-    passion: 4
     gender: 1
-    boardPosition: 0
-    availableRolls: 0
-    hasFinished: 0
-    riskFlag: 0
-    pendingMovement: 0
-    passionScores:
-      yellow: 0
-      green: 0
-      blue: 0
-      purple: 0
-      pink: 0
-      orange: 0
-    starCount: 0
-    inventory: []
-    statusEffectCards: []
-    activeStatusEffects: []
-    partnerIndex: 0
-  - playerName: Player 6
-    passion: 5
-    gender: 0
     boardPosition: 0
     availableRolls: 0
     hasFinished: 0
