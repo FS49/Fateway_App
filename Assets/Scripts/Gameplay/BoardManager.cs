@@ -13,6 +13,7 @@ public class BoardFieldDefinition
     [Header("Passion Scoring")]
     public bool yieldsPassionScore;
     public PassionColor passionReward;
+    public int passionRewardAmount = 10;
 
     [Header("Safe Route - Card Overrides")]
     public bool useSpecificEventCard;

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc86bcea93926f24dbee2fd9d50628dc, type: 3}
-  m_Name: STOP
+  m_Name: FIELD_MainPassionPoints
   m_EditorClassIdentifier: 
-  id: FCP003
-  title: STOP
-  description: stops at field
+  id: FCP001
+  title: Points
+  description: 
   cardType: 2
-  effectType: 7
+  effectType: 0
   audioTemplateName: 
   videoTemplateName: 
   trackAsStatusEffect: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
     skipRounds: 0
   useSimplePoints: 0
   pointsDelta: 0
-  applyToMainPassion: 0
+  applyToMainPassion: 1
   simplePassion: 0
   useMultiPassionPoints: 0
   multiPassionPoints:
@@ -43,6 +43,6 @@ MonoBehaviour:
     purple: 0
     pink: 0
     orange: 0
-  useMainPassionPoints: 0
-  mainPassionPointsDelta: 0
+  useMainPassionPoints: 1
+  mainPassionPointsDelta: 10
   triggersManualScan: 0

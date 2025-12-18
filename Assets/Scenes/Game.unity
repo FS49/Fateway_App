@@ -3564,8 +3564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4877cb3030b3cbb4e81fb3e2ff2adb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minValue: 3
-  maxValue: 3
+  minValue: 50
+  maxValue: 50
 --- !u!4 &790244663
 Transform:
   m_ObjectHideFlags: 0
@@ -5979,13 +5979,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2bf16851b5831447859234c1b243960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalFields: 80
+  totalFields: 92
   specialFields:
-  - index: 2
-    fieldType: 1
+  - index: 1
+    fieldType: 0
     description: 
-    yieldsPassionScore: 0
-    passionReward: 1
+    yieldsPassionScore: 1
+    passionReward: 0
+    passionRewardAmount: 10
     useSpecificEventCard: 0
     eventCardOverride: {fileID: 0}
     useSpecificItemCard: 0
@@ -5999,17 +6000,56 @@ MonoBehaviour:
     useRiskFieldCard: 0
     riskFieldCardOverride: {fileID: 0}
     requiresManualCardIdInput: 0
-  - index: 3
+  - index: 2
     fieldType: 0
     description: 
     yieldsPassionScore: 0
-    passionReward: 1
+    passionReward: 0
+    passionRewardAmount: 0
     useSpecificEventCard: 0
     eventCardOverride: {fileID: 0}
     useSpecificItemCard: 0
     itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    useFieldCard: 0
+    fieldCardOverride: {fileID: 0}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 0
+    riskFieldCardOverride: {fileID: 0}
+    requiresManualCardIdInput: 1
+  - index: 4
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 1
+    passionRewardAmount: 10
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 0
+    fieldCardOverride: {fileID: 0}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 0
+    riskFieldCardOverride: {fileID: 0}
+    requiresManualCardIdInput: 1
+  - index: 5
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 1
+    passionReward: 1
+    passionRewardAmount: 10
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 0
+    fieldCardOverride: {fileID: 0}
     useRiskEventCard: 0
     riskEventCardOverride: {fileID: 0}
     useRiskItemCard: 0
@@ -6017,11 +6057,50 @@ MonoBehaviour:
     useRiskFieldCard: 0
     riskFieldCardOverride: {fileID: 0}
     requiresManualCardIdInput: 0
-  - index: 1
+  - index: 6
     fieldType: 0
     description: 
     yieldsPassionScore: 0
     passionReward: 1
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 0
+    fieldCardOverride: {fileID: 0}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 0
+    riskFieldCardOverride: {fileID: 0}
+    requiresManualCardIdInput: 1
+  - index: 8
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 1
+    passionReward: 2
+    passionRewardAmount: 10
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 0
+    fieldCardOverride: {fileID: 0}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 0
+    riskFieldCardOverride: {fileID: 0}
+    requiresManualCardIdInput: 0
+  - index: 9
+    fieldType: 4
+    description: Kreuzung 1
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
     useSpecificEventCard: 0
     eventCardOverride: {fileID: 0}
     useSpecificItemCard: 0
@@ -6036,10 +6115,372 @@ MonoBehaviour:
     riskFieldCardOverride: {fileID: 0}
     requiresManualCardIdInput: 0
   - index: 10
-    fieldType: 4
+    fieldType: 0
     description: 
     yieldsPassionScore: 0
-    passionReward: 1
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 11
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 12
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 13
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 43e78fe05a1655146a0db708a1265d55, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 14
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 43e78fe05a1655146a0db708a1265d55, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 15
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 16
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 17
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 18
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 19
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 20
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 43e78fe05a1655146a0db708a1265d55, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 21
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 22
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 23
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 24
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 25
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 43e78fe05a1655146a0db708a1265d55, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 43e78fe05a1655146a0db708a1265d55, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 26
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 27
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    requiresManualCardIdInput: 0
+  - index: 28
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 0
+    passionReward: 2
+    passionRewardAmount: 0
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 0
+    fieldCardOverride: {fileID: 0}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 0
+    riskFieldCardOverride: {fileID: 0}
+    requiresManualCardIdInput: 1
+  - index: 29
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 1
+    passionReward: 2
+    passionRewardAmount: 10
     useSpecificEventCard: 0
     eventCardOverride: {fileID: 0}
     useSpecificItemCard: 0
@@ -6053,47 +6494,107 @@ MonoBehaviour:
     useRiskFieldCard: 0
     riskFieldCardOverride: {fileID: 0}
     requiresManualCardIdInput: 0
-  - index: 11
+  - index: 30
     fieldType: 0
     description: 
     yieldsPassionScore: 0
-    passionReward: 1
+    passionReward: 2
+    passionRewardAmount: 10
     useSpecificEventCard: 0
     eventCardOverride: {fileID: 0}
     useSpecificItemCard: 0
     itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    useFieldCard: 0
+    fieldCardOverride: {fileID: 0}
     useRiskEventCard: 0
     riskEventCardOverride: {fileID: 0}
     useRiskItemCard: 0
     riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 22
+    useRiskFieldCard: 0
+    riskFieldCardOverride: {fileID: 0}
+    requiresManualCardIdInput: 1
+  - index: 31
     fieldType: 0
     description: 
     yieldsPassionScore: 0
-    passionReward: 1
+    passionReward: 2
+    passionRewardAmount: 10
     useSpecificEventCard: 0
     eventCardOverride: {fileID: 0}
     useSpecificItemCard: 0
     itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
+    useFieldCard: 0
+    fieldCardOverride: {fileID: 0}
     useRiskEventCard: 0
     riskEventCardOverride: {fileID: 0}
     useRiskItemCard: 0
     riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+    useRiskFieldCard: 0
+    riskFieldCardOverride: {fileID: 0}
+    requiresManualCardIdInput: 1
+  - index: 32
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 1
+    passionReward: 2
+    passionRewardAmount: 10
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 0
+    fieldCardOverride: {fileID: 0}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 0
+    riskFieldCardOverride: {fileID: 0}
     requiresManualCardIdInput: 0
-  - index: 20
-    fieldType: 4
+  - index: 33
+    fieldType: 0
     description: 
     yieldsPassionScore: 0
-    passionReward: 1
+    passionReward: 2
+    passionRewardAmount: 10
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 0
+    fieldCardOverride: {fileID: 0}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 0
+    riskFieldCardOverride: {fileID: 0}
+    requiresManualCardIdInput: 1
+  - index: 34
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 1
+    passionReward: 2
+    passionRewardAmount: 10
+    useSpecificEventCard: 0
+    eventCardOverride: {fileID: 0}
+    useSpecificItemCard: 0
+    itemCardOverride: {fileID: 0}
+    useFieldCard: 0
+    fieldCardOverride: {fileID: 0}
+    useRiskEventCard: 0
+    riskEventCardOverride: {fileID: 0}
+    useRiskItemCard: 0
+    riskItemCardOverride: {fileID: 0}
+    useRiskFieldCard: 0
+    riskFieldCardOverride: {fileID: 0}
+    requiresManualCardIdInput: 0
+  - index: 29
+    fieldType: 0
+    description: 
+    yieldsPassionScore: 1
+    passionReward: 2
+    passionRewardAmount: 10
     useSpecificEventCard: 0
     eventCardOverride: {fileID: 0}
     useSpecificItemCard: 0
@@ -9220,6 +9721,7 @@ MonoBehaviour:
   fieldCards:
   - {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
   - {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
+  - {fileID: 11400000, guid: 43e78fe05a1655146a0db708a1265d55, type: 2}
 --- !u!4 &2008201003
 Transform:
   m_ObjectHideFlags: 0

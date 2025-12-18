@@ -530,6 +530,22 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (fieldDef != null && fieldDef.yieldsPassionScore && fieldDef.passionRewardAmount != 0)
+        {
+            int basePoints = fieldDef.passionRewardAmount;
+            PassionColor passion = fieldDef.passionReward;
+
+            float factor = passion == player.passion ? 1.2f : 1f;
+            factor *= GetItemScoreMultiplier(player, passion);
+
+            int finalPoints = Mathf.RoundToInt(basePoints * factor);
+            if (finalPoints != 0)
+            {
+                AddPassionPoints(player, passion, finalPoints);
+                Debug.Log($"[GameManager] {player.playerName} received {finalPoints} {passion} points for landing on field {fieldDef.index} (base {basePoints}, factor {factor:F2}).");
+            }
+        }
+
         if (fieldDef?.requiresManualCardIdInput == true)
             StartManualCardInput(player);
     }
