@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: bb1e35ba00e7f3f4fbfa7ad794a1c168
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1468776995624859463
+    second: Green_Risk_0
+  - first:
+      213: -7055582096405503970
+    second: Green_Risk_1
+  - first:
+      213: -5114687669402358204
+    second: Green_Risk_2
+  - first:
+      213: -5559130022007680666
+    second: Green_Risk_3
+  - first:
+      213: -117748886404462154
+    second: Green_Risk_4
+  - first:
+      213: -441476866350385932
+    second: Green_Risk_5
+  - first:
+      213: -1964112158468166114
+    second: Green_Risk_6
+  - first:
+      213: -5042907225390557806
+    second: Green_Risk_7
+  - first:
+      213: -1380291513002415815
+    second: Green_Risk_8
+  - first:
+      213: -4635465705168331178
+    second: Green_Risk_9
+  - first:
+      213: -39223676637664819
+    second: Green_Risk_10
+  - first:
+      213: 3866454326096048345
+    second: Green_Risk_11
+  - first:
+      213: -6162380894847871728
+    second: Green_Risk_12
+  - first:
+      213: 4406054139822752761
+    second: Green_Risk_13
+  - first:
+      213: 3602875323597006810
+    second: Green_Risk_14
+  - first:
+      213: 2426230657854443130
+    second: Green_Risk_15
+  - first:
+      213: 3408943496151148028
+    second: Green_Risk_16
+  - first:
+      213: -6726193687201490109
+    second: Green_Risk_17
+  - first:
+      213: 1858415651386244536
+    second: Green_Risk_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Green_Risk_0
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 3380
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b8c389ba1bdd9be0800000000000000
+      internalID: -1468776995624859463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_1
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 3200
+        width: 40
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e10e4242779851e90800000000000000
+      internalID: -7055582096405503970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_2
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 3372
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44ea338d9aaf409b0800000000000000
+      internalID: -5114687669402358204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_3
+      rect:
+        serializedVersion: 2
+        x: 1778
+        y: 3364
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661d502d2b00ad2b0800000000000000
+      internalID: -5559130022007680666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_4
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 3156
+        width: 120
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b90a2df20cad5ef0800000000000000
+      internalID: -117748886404462154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_5
+      rect:
+        serializedVersion: 2
+        x: 1994
+        y: 3316
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f4f1ac012f8fd9f0800000000000000
+      internalID: -441476866350385932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_6
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 3252
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1eaa7fe5621eb4e0800000000000000
+      internalID: -1964112158468166114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_7
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 2572
+        width: 800
+        height: 678
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2955853d89ef30ab0800000000000000
+      internalID: -5042907225390557806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_8
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 3164
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93921099e2838dce0800000000000000
+      internalID: -1380291513002415815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_9
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 3066
+        width: 172
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65e9fea30848bafb0800000000000000
+      internalID: -4635465705168331178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_10
+      rect:
+        serializedVersion: 2
+        x: 2114
+        y: 3156
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc92a3f1646a47ff0800000000000000
+      internalID: -39223676637664819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_11
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 3140
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d03a3769b768a530800000000000000
+      internalID: 3866454326096048345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_12
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1576
+        width: 1178
+        height: 1204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01550ffc933da7aa0800000000000000
+      internalID: -6162380894847871728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_13
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 2780
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f3464955e2752d30800000000000000
+      internalID: 4406054139822752761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_14
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 2556
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad72509940cfff130800000000000000
+      internalID: 3602875323597006810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_15
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 900
+        width: 160
+        height: 718
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e8398bde3bba120800000000000000
+      internalID: 2426230657854443130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_16
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 1508
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf5a7736c000f4f20800000000000000
+      internalID: 3408943496151148028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_17
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 1092
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b51e77a72c7a2a0800000000000000
+      internalID: -6726193687201490109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Risk_18
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 714
+        width: 1056
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bd37e9403b6ac910800000000000000
+      internalID: 1858415651386244536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Green_Risk_0: -1468776995624859463
+      Green_Risk_1: -7055582096405503970
+      Green_Risk_10: -39223676637664819
+      Green_Risk_11: 3866454326096048345
+      Green_Risk_12: -6162380894847871728
+      Green_Risk_13: 4406054139822752761
+      Green_Risk_14: 3602875323597006810
+      Green_Risk_15: 2426230657854443130
+      Green_Risk_16: 3408943496151148028
+      Green_Risk_17: -6726193687201490109
+      Green_Risk_18: 1858415651386244536
+      Green_Risk_2: -5114687669402358204
+      Green_Risk_3: -5559130022007680666
+      Green_Risk_4: -117748886404462154
+      Green_Risk_5: -441476866350385932
+      Green_Risk_6: -1964112158468166114
+      Green_Risk_7: -5042907225390557806
+      Green_Risk_8: -1380291513002415815
+      Green_Risk_9: -4635465705168331178
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

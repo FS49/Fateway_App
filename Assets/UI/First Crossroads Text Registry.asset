@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9af8c87ac0372944ad1357e1783d3c6, type: 3}
+  m_Name: First Crossroads Text Registry
+  m_EditorClassIdentifier: 
+  entries:
+  - characterName: 
+    color: 0
+    gender: 0
+    safeText: "Du sitzt da, bastelst ein kleines Geschenk und verlierst kurz die
+      Zeit.\nEs ist nichts Gro\xDFes \u2013 aber es f\xFChlt sich richtig an.\r\n"
+    riskText: "Du f\xE4ngst ein gro\xDFes DIY-Projekt an.\nEine Lampe, ein M\xF6belst\xFCck
+      \u2013 pl\xF6tzlich wird aus der Idee echte Arbeit.\r\n"
+  - characterName: 
+    color: 0
+    gender: 1
+    safeText: "Du sitzt da, bastelst ein kleines Geschenk und verlierst kurz die
+      Zeit.\nEs ist nichts Gro\xDFes \u2013 aber es f\xFChlt sich richtig an.\r\n"
+    riskText: "Du f\xE4ngst ein gro\xDFes DIY-Projekt an.\nEine Lampe, ein M\xF6belst\xFCck
+      \u2013 pl\xF6tzlich wird aus der Idee echte Arbeit.\r\n"
+  - characterName: 
+    color: 1
+    gender: 0
+    safeText: "Du ziehst dir die Sportsachen an und trainierst f\xFCr dich.\nKein
+      Vergleich, kein Druck. Nur Bewegung."
+    riskText: 'Ein Freund fragt, ob du fix bei seinem Sportteam mitmachst.
+
+      Trainingszeiten,
+      Verpflichtung, jede Woche wieder.'
+  - characterName: 
+    color: 1
+    gender: 1
+    safeText: "Du ziehst dir die Sportsachen an und trainierst f\xFCr dich.\nKein
+      Vergleich, kein Druck. Nur Bewegung."
+    riskText: 'Ein Freund fragt, ob du fix bei seinem Sportteam mitmachst.
+
+      Trainingszeiten,
+      Verpflichtung, jede Woche wieder.'
+  - characterName: 
+    color: 2
+    gender: 0
+    safeText: "Du bereitest eine kleine Pr\xE4sentation vor.\n\xDCberschaubar, vertraute
+      Gesichter, alles wirkt machbar."
+    riskText: "Du \xFCbernimmst die Hauptpr\xE4sentation.\nViele Menschen im Raum,
+      alle h\xF6ren dir zu."
+  - characterName: 
+    color: 2
+    gender: 1
+    safeText: "Du bereitest eine kleine Pr\xE4sentation vor.\n\xDCberschaubar, vertraute
+      Gesichter, alles wirkt machbar."
+    riskText: "Du \xFCbernimmst die Hauptpr\xE4sentation.\nViele Menschen im Raum,
+      alle h\xF6ren dir zu."
+  - characterName: 
+    color: 4
+    gender: 0
+    safeText: "Du hilfst jemandem kurz aus.\nEin kleines Danke bleibt h\xE4ngen."
+    riskText: "Du passt auf das Haustier von jemand anderem auf.\nF\xFCttern, rausgehen,
+      Verantwortung rund um die Uhr."
+  - characterName: 
+    color: 4
+    gender: 1
+    safeText: "Du hilfst jemandem kurz aus.\nEin kleines Danke bleibt h\xE4ngen."
+    riskText: "Du passt auf das Haustier von jemand anderem auf.\nF\xFCttern, rausgehen,
+      Verantwortung rund um die Uhr."
+  - characterName: 
+    color: 3
+    gender: 0
+    safeText: "Du erz\xE4hlst deinem Team von einer Idee.\nKein gro\xDFes Pitch-Gef\xFChl
+      \u2013 eher ein offenes Gespr\xE4ch."
+    riskText: "Du pr\xE4sentierst ein gro\xDFes Projekt vor wichtigen Personen.\nF\xFChrungskr\xE4fte,
+      Jury oder Klient:innen sitzen vor dir."
+  - characterName: 
+    color: 3
+    gender: 1
+    safeText: "Du erz\xE4hlst deinem Team von einer Idee.\nKein gro\xDFes Pitch-Gef\xFChl
+      \u2013 eher ein offenes Gespr\xE4ch."
+    riskText: "Du pr\xE4sentierst ein gro\xDFes Projekt vor wichtigen Personen.\nF\xFChrungskr\xE4fte,
+      Jury oder Klient:innen sitzen vor dir."
+  - characterName: 
+    color: 5
+    gender: 0
+    safeText: "Du machst einen kurzen Ausflug.\nStadt oder Natur \u2013 Hauptsache
+      raus aus dem Alltag."
+    riskText: 'Du buchst spontan einen Wochenendtrip.
+
+      Neue Stadt, wenig Planung,
+      einfach los.'
+  - characterName: 
+    color: 5
+    gender: 1
+    safeText: "Du machst einen kurzen Ausflug.\nStadt oder Natur \u2013 Hauptsache
+      raus aus dem Alltag."
+    riskText: 'Du buchst spontan einen Wochenendtrip.
+
+      Neue Stadt, wenig Planung,
+      einfach los.'
+  defaultSafeText: "Du hast den sicheren Pfad gew\xE4hlt."
+  defaultRiskText: "Du hast den Risikopfad gew\xE4hlt!"

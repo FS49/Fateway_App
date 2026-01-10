@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14eeb16ec2ef93249b1a45292d1a6d40, type: 3}
+  m_Name: First Crossroads Image Registry
+  m_EditorClassIdentifier: 
+  entries:
+  - characterName: 
+    color: 0
+    gender: 0
+    safeImage: {fileID: 21300000, guid: a5b33a4281b489e4887f1c34e6c4f677, type: 3}
+    riskImage: {fileID: 21300000, guid: a9f5332fd7d213f47b9fbe0b4967f9f8, type: 3}
+  - characterName: 
+    color: 0
+    gender: 1
+    safeImage: {fileID: 21300000, guid: a5b33a4281b489e4887f1c34e6c4f677, type: 3}
+    riskImage: {fileID: 21300000, guid: a9f5332fd7d213f47b9fbe0b4967f9f8, type: 3}
+  - characterName: 
+    color: 1
+    gender: 0
+    safeImage: {fileID: 21300000, guid: e61cc385cdbaa5543ac55196f8a5e573, type: 3}
+    riskImage: {fileID: 21300000, guid: bb1e35ba00e7f3f4fbfa7ad794a1c168, type: 3}
+  - characterName: 
+    color: 1
+    gender: 1
+    safeImage: {fileID: 21300000, guid: e61cc385cdbaa5543ac55196f8a5e573, type: 3}
+    riskImage: {fileID: 21300000, guid: bb1e35ba00e7f3f4fbfa7ad794a1c168, type: 3}
+  - characterName: 
+    color: 2
+    gender: 0
+    safeImage: {fileID: 21300000, guid: 5b1c49f6ffa52e9429e656b36b2eb86b, type: 3}
+    riskImage: {fileID: 21300000, guid: c27b8a14a782e6f44aa93165067e0ea9, type: 3}
+  - characterName: 
+    color: 2
+    gender: 1
+    safeImage: {fileID: 21300000, guid: 5b1c49f6ffa52e9429e656b36b2eb86b, type: 3}
+    riskImage: {fileID: 21300000, guid: c27b8a14a782e6f44aa93165067e0ea9, type: 3}
+  - characterName: 
+    color: 3
+    gender: 0
+    safeImage: {fileID: 21300000, guid: 2d50864f11c90354d87d1335e23c9122, type: 3}
+    riskImage: {fileID: 21300000, guid: 4ea460fd180935c4c88accda2b98cf5f, type: 3}
+  - characterName: 
+    color: 3
+    gender: 1
+    safeImage: {fileID: 21300000, guid: 2d50864f11c90354d87d1335e23c9122, type: 3}
+    riskImage: {fileID: 21300000, guid: 4ea460fd180935c4c88accda2b98cf5f, type: 3}
+  - characterName: 
+    color: 4
+    gender: 0
+    safeImage: {fileID: 21300000, guid: a7d4dda5db118b543bdd468b7a429993, type: 3}
+    riskImage: {fileID: 21300000, guid: 9fba68b1b1c9b78408af4dd4b51d69dc, type: 3}
+  - characterName: 
+    color: 4
+    gender: 1
+    safeImage: {fileID: 21300000, guid: a7d4dda5db118b543bdd468b7a429993, type: 3}
+    riskImage: {fileID: 21300000, guid: 9fba68b1b1c9b78408af4dd4b51d69dc, type: 3}
+  - characterName: 
+    color: 5
+    gender: 0
+    safeImage: {fileID: 21300000, guid: a1ef374893b8a3d469d3df617893d401, type: 3}
+    riskImage: {fileID: 21300000, guid: db283f4f9f0e208459a732ad2ad02f80, type: 3}
+  - characterName: 
+    color: 5
+    gender: 1
+    safeImage: {fileID: 21300000, guid: a1ef374893b8a3d469d3df617893d401, type: 3}
+    riskImage: {fileID: 21300000, guid: db283f4f9f0e208459a732ad2ad02f80, type: 3}

@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 5b1c49f6ffa52e9429e656b36b2eb86b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2804734258340821659
+    second: Blue_Safe_0
+  - first:
+      213: -2485545947020623203
+    second: Blue_Safe_1
+  - first:
+      213: 6555070678356878193
+    second: Blue_Safe_2
+  - first:
+      213: -1682522095947067796
+    second: Blue_Safe_3
+  - first:
+      213: -1427343061447457986
+    second: Blue_Safe_4
+  - first:
+      213: 4612965355912733095
+    second: Blue_Safe_5
+  - first:
+      213: 2258730262296817230
+    second: Blue_Safe_6
+  - first:
+      213: -7220281602962261152
+    second: Blue_Safe_7
+  - first:
+      213: -7214747593495504433
+    second: Blue_Safe_8
+  - first:
+      213: 3409036492817233789
+    second: Blue_Safe_9
+  - first:
+      213: -4710007077982671693
+    second: Blue_Safe_10
+  - first:
+      213: 6351790885738613833
+    second: Blue_Safe_11
+  - first:
+      213: -2689407471174808618
+    second: Blue_Safe_12
+  - first:
+      213: 7672044110936410686
+    second: Blue_Safe_13
+  - first:
+      213: -8599076464305689570
+    second: Blue_Safe_14
+  - first:
+      213: 9199408459505825863
+    second: Blue_Safe_15
+  - first:
+      213: -5370598185990536775
+    second: Blue_Safe_16
+  - first:
+      213: -8985223272586775722
+    second: Blue_Safe_17
+  - first:
+      213: 7849324262557870762
+    second: Blue_Safe_18
+  - first:
+      213: -9139981343794883925
+    second: Blue_Safe_19
+  - first:
+      213: 606218590738143887
+    second: Blue_Safe_20
+  - first:
+      213: -1611624199099874107
+    second: Blue_Safe_21
+  - first:
+      213: 136108920999297291
+    second: Blue_Safe_22
+  - first:
+      213: 1902785087844966636
+    second: Blue_Safe_23
+  - first:
+      213: 5271644369985096909
+    second: Blue_Safe_24
+  - first:
+      213: -5550465542380873890
+    second: Blue_Safe_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Blue_Safe_0
+      rect:
+        serializedVersion: 2
+        x: 1618
+        y: 3484
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5650a3a5d059319d0800000000000000
+      internalID: -2804734258340821659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_1
+      rect:
+        serializedVersion: 2
+        x: 1618
+        y: 3352
+        width: 104
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d928ce25121918dd0800000000000000
+      internalID: -2485545947020623203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_2
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 3386
+        width: 54
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1736a0d3d0a48fa50800000000000000
+      internalID: 6555070678356878193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_3
+      rect:
+        serializedVersion: 2
+        x: 1842
+        y: 3444
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6e4450711b76a8e0800000000000000
+      internalID: -1682522095947067796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_4
+      rect:
+        serializedVersion: 2
+        x: 2074
+        y: 3420
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e334ec94c0f013ce0800000000000000
+      internalID: -1427343061447457986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_5
+      rect:
+        serializedVersion: 2
+        x: 1490
+        y: 3332
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a1ac58fc8b840040800000000000000
+      internalID: 4612965355912733095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_6
+      rect:
+        serializedVersion: 2
+        x: 1986
+        y: 3332
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e60afc43f985f10800000000000000
+      internalID: 2258730262296817230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_7
+      rect:
+        serializedVersion: 2
+        x: 1990
+        y: 3302
+        width: 120
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06b752503286ccb90800000000000000
+      internalID: -7220281602962261152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_8
+      rect:
+        serializedVersion: 2
+        x: 1482
+        y: 3324
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc998910a4110eb90800000000000000
+      internalID: -7214747593495504433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_9
+      rect:
+        serializedVersion: 2
+        x: 1484
+        y: 3240
+        width: 156
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d77f6bcd0a45f4f20800000000000000
+      internalID: 3409036492817233789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_10
+      rect:
+        serializedVersion: 2
+        x: 1660
+        y: 2992
+        width: 332
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bc644b6481b2aeb0800000000000000
+      internalID: -4710007077982671693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_11
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 3324
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94c83084828162850800000000000000
+      internalID: 6351790885738613833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_12
+      rect:
+        serializedVersion: 2
+        x: 2042
+        y: 3170
+        width: 152
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6db0850772e4daad0800000000000000
+      internalID: -2689407471174808618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_13
+      rect:
+        serializedVersion: 2
+        x: 2106
+        y: 3220
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3a0e7d7873987a60800000000000000
+      internalID: 7672044110936410686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_14
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 3212
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1c23acf381f9a880800000000000000
+      internalID: -8599076464305689570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_15
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 1700
+        width: 1054
+        height: 1466
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 748719cd04ddaaf70800000000000000
+      internalID: 9199408459505825863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_16
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 3164
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b14dac876dc775b0800000000000000
+      internalID: -5370598185990536775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_17
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 2468
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65374e11a031e4380800000000000000
+      internalID: -8985223272586775722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_18
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 954
+        width: 530
+        height: 660
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaaed9c44d66eec60800000000000000
+      internalID: 7849324262557870762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_19
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 1612
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba2986db463482180800000000000000
+      internalID: -9139981343794883925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_20
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 954
+        width: 530
+        height: 660
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8a5f2da898b96800800000000000000
+      internalID: 606218590738143887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_21
+      rect:
+        serializedVersion: 2
+        x: 1762
+        y: 1612
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c48a35645c52a9e0800000000000000
+      internalID: -1611624199099874107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_22
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 892
+        width: 526
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b01cceea75e83e100800000000000000
+      internalID: 136108920999297291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_23
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 1548
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce0e8ecb4fc086a10800000000000000
+      internalID: 1902785087844966636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_24
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 1100
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcc4627cf94a82940800000000000000
+      internalID: 5271644369985096909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue_Safe_25
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 1004
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5797503ff8c8f2b0800000000000000
+      internalID: -5550465542380873890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Blue_Safe_0: -2804734258340821659
+      Blue_Safe_1: -2485545947020623203
+      Blue_Safe_10: -4710007077982671693
+      Blue_Safe_11: 6351790885738613833
+      Blue_Safe_12: -2689407471174808618
+      Blue_Safe_13: 7672044110936410686
+      Blue_Safe_14: -8599076464305689570
+      Blue_Safe_15: 9199408459505825863
+      Blue_Safe_16: -5370598185990536775
+      Blue_Safe_17: -8985223272586775722
+      Blue_Safe_18: 7849324262557870762
+      Blue_Safe_19: -9139981343794883925
+      Blue_Safe_2: 6555070678356878193
+      Blue_Safe_20: 606218590738143887
+      Blue_Safe_21: -1611624199099874107
+      Blue_Safe_22: 136108920999297291
+      Blue_Safe_23: 1902785087844966636
+      Blue_Safe_24: 5271644369985096909
+      Blue_Safe_25: -5550465542380873890
+      Blue_Safe_3: -1682522095947067796
+      Blue_Safe_4: -1427343061447457986
+      Blue_Safe_5: 4612965355912733095
+      Blue_Safe_6: 2258730262296817230
+      Blue_Safe_7: -7220281602962261152
+      Blue_Safe_8: -7214747593495504433
+      Blue_Safe_9: 3409036492817233789
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -15,6 +15,9 @@ public class CrossroadChoiceUI : MonoBehaviour
     public Button safeButton;
     public Button riskButton;
 
+    [Header("First Crossroads Popup")]
+    public FirstCrossroadsPopupUI firstCrossroadsPopupUI;
+
     private PlayerData currentPlayer;
     private Action<bool> onChoiceMade;
 
@@ -64,8 +67,6 @@ public class CrossroadChoiceUI : MonoBehaviour
         if (panelRoot != null)
             panelRoot.SetActive(false);
 
-        currentPlayer = null;
-
         if (gameManager != null)
             gameManager.OnCrossroadChoiceClosed();
     }
@@ -83,13 +84,24 @@ public class CrossroadChoiceUI : MonoBehaviour
     private void MakeChoice(bool choseRisk)
     {
         var callback = onChoiceMade;
+        var player = currentPlayer;
         onChoiceMade = null;
+        currentPlayer = null;
 
         Hide();
 
-        callback?.Invoke(choseRisk);
+        if (firstCrossroadsPopupUI != null && player != null)
+        {
+            firstCrossroadsPopupUI.Show(player, choseRisk, () =>
+            {
+                callback?.Invoke(choseRisk);
+            });
+        }
+        else
+        {
+            callback?.Invoke(choseRisk);
+        }
     }
 
     public bool IsVisible => panelRoot != null && panelRoot.activeSelf;
 }
-
