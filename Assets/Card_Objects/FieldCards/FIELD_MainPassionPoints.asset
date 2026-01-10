@@ -44,5 +44,5 @@ MonoBehaviour:
     pink: 0
     orange: 0
   useMainPassionPoints: 1
-  mainPassionPointsDelta: 10
+  mainPassionPointsDelta: 5
   triggersManualScan: 0

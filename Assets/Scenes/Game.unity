@@ -6631,11 +6631,11 @@ MonoBehaviour:
     riskItemCardOverride: {fileID: 0}
     useRiskFieldCard: 0
     riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 0
+    requiresManualCardIdInput: 1
     isLastCrossroadsField: 0
-  - index: 2
+  - index: 1
     fieldType: 0
-    description: Ende
+    description: Kreuzung
     yieldsPassionScore: 0
     passionReward: 0
     passionRewardAmount: 0
@@ -6643,16 +6643,16 @@ MonoBehaviour:
     eventCardOverride: {fileID: 0}
     useSpecificItemCard: 0
     itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
+    useFieldCard: 1
+    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
     useRiskEventCard: 0
     riskEventCardOverride: {fileID: 0}
     useRiskItemCard: 0
     riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
+    useRiskFieldCard: 1
+    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
     requiresManualCardIdInput: 0
-    isLastCrossroadsField: 1
+    isLastCrossroadsField: 0
 --- !u!4 &1395595214
 Transform:
   m_ObjectHideFlags: 0
