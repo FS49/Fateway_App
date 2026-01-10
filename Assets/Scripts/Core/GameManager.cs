@@ -246,25 +246,37 @@ public class GameManager : MonoBehaviour
 
         if (boardManager != null)
         {
-            int crossroadIndex = boardManager.GetFirstCrossroadInPath(startPosition, targetPosition);
+            var stopField = boardManager.GetFirstStopFieldInPath(startPosition, targetPosition);
 
-            if (crossroadIndex >= 0)
+            if (stopField.type == BoardManager.StopFieldType.Crossroad)
             {
-                int remainingMovement = targetPosition - crossroadIndex;
-                player.boardPosition = crossroadIndex;
+                int remainingMovement = targetPosition - stopField.index;
+                player.boardPosition = stopField.index;
                 player.pendingMovement = remainingMovement;
 
-                Debug.Log($"[GameManager] {player.playerName} stopped at crossroad (index {crossroadIndex}). Remaining movement: {remainingMovement}");
+                Debug.Log($"[GameManager] {player.playerName} stopped at crossroad (index {stopField.index}). Remaining movement: {remainingMovement}");
 
                 player.riskFlag = false;
 
                 ShowCrossroadChoice(player, remainingMovement);
                 return;
             }
+
+            if (stopField.type == BoardManager.StopFieldType.LastCrossroads)
+            {
+                int remainingMovement = targetPosition - stopField.index;
+                player.boardPosition = stopField.index;
+                player.pendingMovement = remainingMovement;
+
+                Debug.Log($"[GameManager] {player.playerName} stopped at Last Crossroads Field (index {stopField.index}). Remaining movement: {remainingMovement}");
+
+                HandleLastCrossroadsFieldWithContinuation(player);
+                return;
+            }
         }
         else
         {
-            Debug.LogWarning("[GameManager] BoardManager is null! Cannot check for crossroads.");
+            Debug.LogWarning("[GameManager] BoardManager is null! Cannot check for stop fields.");
         }
 
         player.boardPosition = targetPosition;
@@ -545,13 +557,15 @@ public class GameManager : MonoBehaviour
 
         if (fieldDef != null && fieldDef.isLastCrossroadsField)
         {
-            HandleLastCrossroadsField(player);
+            Debug.Log($"[GameManager] ResolveField fallback: Last Crossroads Field already processed during movement.");
             return;
         }
 
-        if (gameFeedbackUI != null && fieldDef != null && !string.IsNullOrEmpty(fieldDef.description))
+        if (gameFeedbackUI != null && fieldDef != null)
         {
-            gameFeedbackUI.ShowFieldFeedback(player.playerName, player.passion, fieldDef.description);
+            string desc = fieldDef.GetDescription(player.riskFlag);
+            if (!string.IsNullOrEmpty(desc))
+                gameFeedbackUI.ShowFieldFeedback(player.playerName, player.passion, desc);
         }
 
         switch (fieldType)
@@ -578,8 +592,9 @@ public class GameManager : MonoBehaviour
 
         if (fieldDef != null)
         {
-            if (!string.IsNullOrEmpty(fieldDef.description))
-                Debug.Log($"[GameManager] Field description: {fieldDef.description}");
+            string desc = fieldDef.GetDescription(player.riskFlag);
+            if (!string.IsNullOrEmpty(desc))
+                Debug.Log($"[GameManager] Field description: {desc}");
 
             if (fieldDef.requiresManualCardIdInput)
                 StartManualCardInput(player);
@@ -590,14 +605,21 @@ public class GameManager : MonoBehaviour
     {
         if (fieldDef != null && fieldDef.HasFieldCard(player.riskFlag))
         {
-            var fieldCard = fieldDef.GetFieldCard(player.riskFlag);
+            var fieldCard = fieldDef.GetFieldCard(player.riskFlag, cardManager);
 
-            if (fieldCard.triggersManualScan)
+            if (fieldCard != null && fieldCard.triggersManualScan)
             {
                 Debug.Log($"[GameManager] Neutral field {fieldDef.index} uses manual-scan FieldCard. Prompting {player.playerName}.");
                 StartManualCardInput(player);
             }
-            else
+            else if (fieldCard != null && fieldCard.triggersMinigame)
+            {
+                // TODO: Minigame trigger logic
+                string minigameId = !string.IsNullOrEmpty(fieldCard.minigameId) ? fieldCard.minigameId : "default";
+                Debug.Log($"[GameManager] Neutral field {fieldDef.index} triggers minigame '{minigameId}' for {player.playerName}.");
+                StartMinigame(minigameId, player);
+            }
+            else if (fieldCard != null)
             {
                 PassionColor? passionForPoints = fieldDef.yieldsPassionScore ? fieldDef.passionReward : (PassionColor?)null;
                 string routeType = player.riskFlag ? "RISK" : "SAFE";
@@ -630,7 +652,7 @@ public class GameManager : MonoBehaviour
     {
         if (cardManager == null) return;
 
-        EventCardDefinition card = fieldDef?.GetEventCard(player.riskFlag);
+        EventCardDefinition card = fieldDef?.GetEventCard(player.riskFlag, cardManager);
         if (card == null)
             card = cardManager.DrawRandomEventCard();
 
@@ -649,7 +671,7 @@ public class GameManager : MonoBehaviour
 
         BoardFieldDefinition fieldDef = boardManager.GetFieldDefinitionAt(player.boardPosition);
 
-        ItemCardDefinition card = fieldDef?.GetItemCard(player.riskFlag);
+        ItemCardDefinition card = fieldDef?.GetItemCard(player.riskFlag, cardManager);
         if (card == null)
             card = cardManager.DrawRandomItemCard();
 
@@ -709,12 +731,20 @@ public class GameManager : MonoBehaviour
 
     private void HandleLastCrossroadsField(PlayerData player)
     {
-        Debug.Log($"[GameManager] {player.playerName} landed on Last Crossroads Field. RiskFlag: {player.riskFlag}");
+        HandleLastCrossroadsFieldWithContinuation(player);
+    }
+
+    private void HandleLastCrossroadsFieldWithContinuation(PlayerData player)
+    {
+        Debug.Log($"[GameManager] {player.playerName} stopped at Last Crossroads Field. RiskFlag: {player.riskFlag}");
+
+        int remainingMovement = player.pendingMovement;
 
         if (!player.riskFlag)
         {
-            Debug.Log($"[GameManager] {player.playerName} was on safe route. No action taken.");
+            Debug.Log($"[GameManager] {player.playerName} was on safe route. No popup, continuing movement.");
             player.riskFlag = false;
+            ContinueAfterLastCrossroads(player, remainingMovement);
             return;
         }
 
@@ -738,11 +768,28 @@ public class GameManager : MonoBehaviour
             {
                 isLastCrossroadsPopupOpen = false;
                 player.riskFlag = false;
+                ContinueAfterLastCrossroads(player, remainingMovement);
             });
         }
         else
         {
             player.riskFlag = false;
+            ContinueAfterLastCrossroads(player, remainingMovement);
+        }
+    }
+
+    private void ContinueAfterLastCrossroads(PlayerData player, int remainingMovement)
+    {
+        if (remainingMovement > 0)
+        {
+            Debug.Log($"[GameManager] Continuing movement with {remainingMovement} remaining steps after Last Crossroads.");
+            MovePlayerWithCrossroadCheck(player, remainingMovement);
+        }
+        else
+        {
+            Debug.Log($"[GameManager] {player.playerName} ended exactly on Last Crossroads Field. Turn complete.");
+            ProcessScheduledRisksForPlayer(player);
+            CheckForGameEnd();
         }
     }
 

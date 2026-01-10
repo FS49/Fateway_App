@@ -4106,8 +4106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4877cb3030b3cbb4e81fb3e2ff2adb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minValue: 1
-  maxValue: 1
+  minValue: 27
+  maxValue: 27
 --- !u!4 &790244663
 Transform:
   m_ObjectHideFlags: 0
@@ -6611,48 +6611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2bf16851b5831447859234c1b243960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalFields: 5
-  specialFields:
-  - index: 1
-    fieldType: 4
-    description: Kreuzung
-    yieldsPassionScore: 0
-    passionReward: 0
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 1
-    isLastCrossroadsField: 0
-  - index: 1
-    fieldType: 0
-    description: Kreuzung
-    yieldsPassionScore: 0
-    passionReward: 0
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    requiresManualCardIdInput: 0
-    isLastCrossroadsField: 0
+  totalFields: 93
+  specialFields: []
 --- !u!4 &1395595214
 Transform:
   m_ObjectHideFlags: 0
@@ -7800,7 +7760,7 @@ MonoBehaviour:
   boardManager: {fileID: 1395595213}
   cardManager: {fileID: 2008201002}
   players:
-  - playerName: Xaver
+  - playerName: Player1
     passion: 2
     gender: 0
     boardPosition: 0
@@ -7820,7 +7780,7 @@ MonoBehaviour:
     statusEffectCards: []
     activeStatusEffects: []
     partnerIndex: 0
-  - playerName: Kathi
+  - playerName: Player2
     passion: 0
     gender: 1
     boardPosition: 0
@@ -9562,6 +9522,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
   - {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
   - {fileID: 11400000, guid: 43e78fe05a1655146a0db708a1265d55, type: 2}
+  - {fileID: 11400000, guid: de168a2ccae084844bf48fc9787695de, type: 2}
 --- !u!4 &2008201003
 Transform:
   m_ObjectHideFlags: 0

@@ -5,4 +5,6 @@ public class FieldCardDefinition : PointsCardDefinition
 {
     [Header("Field Behavior")]
     public bool triggersManualScan;
+    public bool triggersMinigame;
+    public string minigameId;
 }
