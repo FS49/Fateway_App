@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hauptscreen_beigeLeiste_0: -5527267992559372545
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

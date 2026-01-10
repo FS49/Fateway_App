@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f44cefdab739d4f8cd7608950b779e, type: 3}
+  m_Name: Last Crossroads Text Registry
+  m_EditorClassIdentifier: 
+  entries:
+  - characterName: 
+    color: 0
+    gender: 0
+    successText: "Dein DIY-Projekt wird mega \u2013 alle sind beeindruckt, \ndu bekommst
+      richtig viele Komplimente.\r\nDu erh\xE4ltst 12 Punkte f\xFCr deine Hauptleidenschaft!"
+    failedText: "Das Projekt bricht dir buchst\xE4blich auseinander \u2013 du bist
+      frustriert und zweifelst kurz an deinem Talent.\r\n"
+  - characterName: 
+    color: 0
+    gender: 1
+    successText: "Dein DIY-Projekt wird mega \u2013 alle sind beeindruckt, \ndu bekommst
+      richtig viele Komplimente.\nDu erh\xE4ltst 12 Punkte f\xFCr deine Hauptleidenschaft!"
+    failedText: "Das Projekt bricht dir buchst\xE4blich auseinander \u2013 du bist
+      frustriert und zweifelst kurz an deinem Talent.\r\n"
+  - characterName: 
+    color: 1
+    gender: 0
+    successText: "Du passt super ins Team, du lernst neue Leute kennen und f\xFChlst
+      dich richtig fit und motiviert.\nDu erh\xE4ltst 12 Punkte f\xFCr deine Hauptleidenschaft!\r"
+    failedText: "Das Training ist h\xE4rter als gedacht \u2013 du kommst nicht gut
+      mit und f\xFChlst dich \xFCberfordert.\r\n"
+  - characterName: 
+    color: 1
+    gender: 1
+    successText: "Du passt super ins Team, du lernst neue Leute kennen und f\xFChlst
+      dich richtig fit und motiviert.\r\nDu erh\xE4ltst 12 Punkte f\xFCr deine Hauptleidenschaft!"
+    failedText: "Das Training ist h\xE4rter als gedacht \u2013 du kommst nicht gut
+      mit und f\xFChlst dich \xFCberfordert.\r\n"
+  - characterName: 
+    color: 2
+    gender: 0
+    successText: "Du gl\xE4nzt \u2013 klar, souver\xE4n, \xFCberzeugend. Der Applaus
+      gibt dir richtig Schubkraft.\r\nDu erh\xE4ltst 12 Punkte f\xFCr deine Hauptleidenschaft!"
+    failedText: "Du verhaspelst dich, wirst nerv\xF6s \u2013 ein Moment, den du am
+      liebsten \xFCberspringen w\xFCrdest.\r\n"
+  - characterName: 
+    color: 2
+    gender: 1
+    successText: "Du gl\xE4nzt \u2013 klar, souver\xE4n, \xFCberzeugend. Der Applaus
+      gibt dir richtig Schubkraft.\r\nDu erh\xE4ltst 12 Punkte f\xFCr deine Hauptleidenschaft!"
+    failedText: "Du verhaspelst dich, wirst nerv\xF6s \u2013 ein Moment, den du am
+      liebsten \xFCberspringen w\xFCrdest.\r\n"
+  - characterName: 
+    color: 4
+    gender: 0
+    successText: "Alles klappt perfekt \u2013 der Dank ist riesig, \ndu f\xFChlst
+      dich richtig wertgesch\xE4tzt.\r\nDu erh\xE4ltst 12 Punkte f\xFCr deine Hauptleidenschaft!"
+    failedText: "Die Aufgabe wird schwieriger als gedacht, \nalles geht schief und
+      du f\xFChlst dich \xFCberfordert.\r\n"
+  - characterName: 
+    color: 4
+    gender: 1
+    successText: "Alles klappt perfekt \u2013 der Dank ist riesig, \ndu f\xFChlst
+      dich richtig wertgesch\xE4tzt.\r\nDu erh\xE4ltst 12 Punkte f\xFCr deine Hauptleidenschaft!"
+    failedText: "Die Aufgabe wird schwieriger als gedacht, \nalles geht schief und
+      du f\xFChlst dich \xFCberfordert.\r\n"
+  - characterName: 
+    color: 3
+    gender: 0
+    successText: "Der Pitch l\xE4uft perfekt \u2013 du \xFCberzeugst mit deiner Idee,\n
+      bekommst Lob und f\xFChlst dich wie ein \nechter High-Performer.\nDu erh\xE4ltst
+      12 Punkte f\xFCr deine Hauptleidenschaft!\r\n"
+    failedText: "Die Pr\xE4sentation geht daneben \u2013 \ntechnische Probleme, Nervosit\xE4t,
+      \nfehlende Reaktionen. Unangenehm.\n"
+  - characterName: 
+    color: 3
+    gender: 1
+    successText: "Der Pitch l\xE4uft perfekt \u2013 du \xFCberzeugst mit deiner Idee,\n
+      bekommst Lob und f\xFChlst dich wie ein \nechter High-Performer.\nDu erh\xE4ltst
+      12 Punkte f\xFCr deine Hauptleidenschaft!\r\n"
+    failedText: "Die Pr\xE4sentation geht daneben \u2013 \ntechnische Probleme, Nervosit\xE4t,
+      \nfehlende Reaktionen. Unangenehm.\r\n"
+  - characterName: 
+    color: 5
+    gender: 0
+    successText: "Du entdeckst coole Orte, lernst neue \nLeute kennen und hast das
+      Gef\xFChl, \ndas perfekte Abenteuer erlebt zu haben.\nDu erh\xE4ltst 12 Punkte
+      f\xFCr deine Hauptleidenschaft!\r\n"
+    failedText: "Es regnet, du verirrst dich, alles ist teuer \u2013 \nder Trip l\xE4uft
+      komplett anders als erwartet.\r\n"
+  - characterName: 
+    color: 5
+    gender: 1
+    successText: "Du entdeckst coole Orte, lernst neue \nLeute kennen und hast das
+      Gef\xFChl, \ndas perfekte Abenteuer erlebt zu haben.\r\nDu erh\xE4ltst 12 Punkte
+      f\xFCr deine Hauptleidenschaft!"
+    failedText: "Es regnet, du verirrst dich, alles ist teuer \u2013 \nder Trip l\xE4uft
+      komplett anders als erwartet.\r\n"
+  defaultSuccessText: "Geschafft! Du erh\xE4ltst 12 Punkte f\xFCr deine Hauptleidenschaft!"
+  defaultFailedText: "Nicht geschafft! Du erh\xE4ltst keine Punkte!"

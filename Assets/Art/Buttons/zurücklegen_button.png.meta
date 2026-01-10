@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "zur\xFCcklegen_button_0": 2843374956568328243
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

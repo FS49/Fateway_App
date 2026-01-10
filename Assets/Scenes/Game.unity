@@ -879,6 +879,141 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68822784}
   m_CullTransparentMesh: 1
+--- !u!1001 &79982862
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1602565413}
+    m_Modifications:
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -92.309
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 981808788889471907, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 95.5772
+      objectReference: {fileID: 0}
+    - target: {fileID: 981808788889471907, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 24.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731826726499498460, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: videoTimeout
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3886570365722713586, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_Name
+      value: CrossroadsOutcomePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435075751041058427, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435075751041058427, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435075751041058427, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929674091587192815, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929674091587192815, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 720
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3731826726499498460, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+--- !u!224 &79982863 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 23382931670026582, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+  m_PrefabInstance: {fileID: 79982862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &112335189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,6 +2115,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 340877716}
   m_CullTransparentMesh: 1
+--- !u!114 &348006117 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8506198280466167136, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+  m_PrefabInstance: {fileID: 79982862}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &411781471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2153,6 +2299,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3745d1451b7291c45b2b77c3a0f4522e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &434980425 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7340450411963798327, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+  m_PrefabInstance: {fileID: 79982862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &468807055
 GameObject:
   m_ObjectHideFlags: 0
@@ -3929,6 +4080,7 @@ RectTransform:
   - {fileID: 1874512793}
   - {fileID: 918417597}
   - {fileID: 1498535987}
+  - {fileID: 1602565413}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4072,6 +4224,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812350904}
   m_CullTransparentMesh: 1
+--- !u!114 &917200046 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8311580771118050388, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+  m_PrefabInstance: {fileID: 79982862}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &918417596
 GameObject:
   m_ObjectHideFlags: 0
@@ -5088,6 +5251,11 @@ MonoBehaviour:
   gameManager: {fileID: 1586176374}
   availableRollsText: {fileID: 1911173318}
   lastRollText: {fileID: 637896947}
+--- !u!1 &1032601480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3886570365722713586, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+  m_PrefabInstance: {fileID: 79982862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1042249362
 GameObject:
   m_ObjectHideFlags: 0
@@ -5697,6 +5865,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280856338}
   m_CullTransparentMesh: 1
+--- !u!114 &1310515454 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4118587562292112644, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+  m_PrefabInstance: {fileID: 79982862}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1344157016
 GameObject:
   m_ObjectHideFlags: 0
@@ -5985,14 +6164,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2bf16851b5831447859234c1b243960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalFields: 92
+  totalFields: 5
   specialFields:
   - index: 1
-    fieldType: 0
-    description: Test
-    yieldsPassionScore: 1
+    fieldType: 4
+    description: Kreuzung
+    yieldsPassionScore: 0
     passionReward: 0
-    passionRewardAmount: 10
+    passionRewardAmount: 0
     useSpecificEventCard: 0
     eventCardOverride: {fileID: 0}
     useSpecificItemCard: 0
@@ -6006,9 +6185,10 @@ MonoBehaviour:
     useRiskFieldCard: 0
     riskFieldCardOverride: {fileID: 0}
     requiresManualCardIdInput: 0
+    isLastCrossroadsField: 0
   - index: 2
     fieldType: 0
-    description: 
+    description: Ende
     yieldsPassionScore: 0
     passionReward: 0
     passionRewardAmount: 0
@@ -6024,596 +6204,8 @@ MonoBehaviour:
     riskItemCardOverride: {fileID: 0}
     useRiskFieldCard: 0
     riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 1
-  - index: 4
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 1
-    passionRewardAmount: 10
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 1
-  - index: 5
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 1
-    passionReward: 1
-    passionRewardAmount: 10
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
     requiresManualCardIdInput: 0
-  - index: 6
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 1
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 1
-  - index: 8
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 1
-    passionReward: 2
-    passionRewardAmount: 10
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 0
-  - index: 9
-    fieldType: 4
-    description: Kreuzung 1
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 0
-  - index: 10
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 11
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 12
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 13
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 43e78fe05a1655146a0db708a1265d55, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 14
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 43e78fe05a1655146a0db708a1265d55, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 15
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 16
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 17
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 18
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 19
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 20
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 43e78fe05a1655146a0db708a1265d55, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 21
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 22
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 23
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 24
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 25
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 0
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 43e78fe05a1655146a0db708a1265d55, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 43e78fe05a1655146a0db708a1265d55, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 26
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 3
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 44487079e35a8584c8b895977ec8e856, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 27
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 3
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 1
-    fieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 1
-    riskFieldCardOverride: {fileID: 11400000, guid: 9338862d1da07ee41ab7a6d791a862b6, type: 2}
-    requiresManualCardIdInput: 0
-  - index: 28
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 3
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 1
-  - index: 29
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 1
-    passionReward: 2
-    passionRewardAmount: 3
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 0
-  - index: 30
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 3
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 1
-  - index: 31
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 3
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 1
-  - index: 32
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 1
-    passionReward: 2
-    passionRewardAmount: 3
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 0
-  - index: 33
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 0
-    passionReward: 2
-    passionRewardAmount: 3
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 1
-  - index: 34
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 1
-    passionReward: 2
-    passionRewardAmount: 3
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 0
-  - index: 29
-    fieldType: 0
-    description: 
-    yieldsPassionScore: 1
-    passionReward: 2
-    passionRewardAmount: 3
-    useSpecificEventCard: 0
-    eventCardOverride: {fileID: 0}
-    useSpecificItemCard: 0
-    itemCardOverride: {fileID: 0}
-    useFieldCard: 0
-    fieldCardOverride: {fileID: 0}
-    useRiskEventCard: 0
-    riskEventCardOverride: {fileID: 0}
-    useRiskItemCard: 0
-    riskItemCardOverride: {fileID: 0}
-    useRiskFieldCard: 0
-    riskFieldCardOverride: {fileID: 0}
-    requiresManualCardIdInput: 0
+    isLastCrossroadsField: 1
 --- !u!4 &1395595214
 Transform:
   m_ObjectHideFlags: 0
@@ -7801,46 +7393,6 @@ MonoBehaviour:
     statusEffectCards: []
     activeStatusEffects: []
     partnerIndex: 0
-  - playerName: Lorenz
-    passion: 1
-    gender: 0
-    boardPosition: 0
-    availableRolls: 0
-    hasFinished: 0
-    riskFlag: 0
-    pendingMovement: 0
-    passionScores:
-      yellow: 0
-      green: 0
-      blue: 0
-      purple: 0
-      pink: 0
-      orange: 0
-    starCount: 0
-    inventory: []
-    statusEffectCards: []
-    activeStatusEffects: []
-    partnerIndex: 0
-  - playerName: Mirjam
-    passion: 3
-    gender: 1
-    boardPosition: 0
-    availableRolls: 0
-    hasFinished: 0
-    riskFlag: 0
-    pendingMovement: 0
-    passionScores:
-      yellow: 0
-      green: 0
-      blue: 0
-      purple: 0
-      pink: 0
-      orange: 0
-    starCount: 0
-    inventory: []
-    statusEffectCards: []
-    activeStatusEffects: []
-    partnerIndex: 0
   currentPlayerIndex: 0
   defaultRollsPerTurn: 1
   lastBaseRoll: 0
@@ -7850,6 +7402,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 246167369}
   crossroadChoiceUI: {fileID: 112335191}
   gameFeedbackUI: {fileID: 0}
+  lastCrossroadsPopupUI: {fileID: 1602565414}
   buttonHotkeys:
   - name: Roll
     button: {fileID: 942866285}
@@ -7877,6 +7430,7 @@ MonoBehaviour:
   isCardPopupOpen: 0
   isPartnerPanelOpen: 0
   isCrossroadChoiceOpen: 0
+  isLastCrossroadsPopupOpen: 0
 --- !u!4 &1586176375
 Transform:
   m_ObjectHideFlags: 0
@@ -7892,6 +7446,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1602565412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1602565413}
+  - component: {fileID: 1602565414}
+  m_Layer: 5
+  m_Name: LastCrossroadsOutcomeController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1602565413
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602565412}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 79982863}
+  m_Father: {fileID: 798504046}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1602565414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602565412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e7f551e3b3e9cf429ecdcc5ccbd61a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelRoot: {fileID: 1032601480}
+  videoPlayer: {fileID: 2015120242}
+  videoDisplay: {fileID: 348006117}
+  outcomeText: {fileID: 1310515454}
+  closeButton: {fileID: 917200046}
+  textCanvasGroup: {fileID: 434980425}
+  animationRegistry: {fileID: 11400000, guid: a71d632d49d5b474a893cf819fc1ca41, type: 2}
+  textRegistry: {fileID: 11400000, guid: 1c48d4760bba66643a4c3cf4d6ca5f16, type: 2}
+  videoTimeout: 10
 --- !u!1 &1690824308
 GameObject:
   m_ObjectHideFlags: 0
@@ -9654,6 +9266,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013599395}
   m_CullTransparentMesh: 1
+--- !u!328 &2015120242 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 6870529793294683142, guid: 9b623d760edc57044940e945fa4d0f72, type: 3}
+  m_PrefabInstance: {fileID: 79982862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2035805720
 GameObject:
   m_ObjectHideFlags: 0

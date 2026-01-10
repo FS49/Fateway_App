@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "entscheidung_ausw\xE4hlen_button_0": -492316533758457545
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

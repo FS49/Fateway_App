@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "zur\xFCck_pfeil_button_0": -7825773305999122737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

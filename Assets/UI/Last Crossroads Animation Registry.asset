@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a4423d6d6d83248955e3a67df5d07a, type: 3}
+  m_Name: Last Crossroads Animation Registry
+  m_EditorClassIdentifier: 
+  entries:
+  - characterName: 
+    color: 0
+    gender: 0
+    successClip: {fileID: 32900000, guid: 48d2535a24f70ff439377cffa70a2280, type: 3}
+    failedClip: {fileID: 32900000, guid: 3417549a60f2aa54faea812cf1365f35, type: 3}
+  - characterName: 
+    color: 0
+    gender: 1
+    successClip: {fileID: 32900000, guid: 4063c439ddbecfd40a85b4397d095103, type: 3}
+    failedClip: {fileID: 32900000, guid: d71916f6946786843a127ed08478ba41, type: 3}
+  - characterName: 
+    color: 1
+    gender: 0
+    successClip: {fileID: 32900000, guid: fe2118ae8d444aa43b403b724de7b280, type: 3}
+    failedClip: {fileID: 32900000, guid: 33b9838ba64bbbf499b704668ff7f279, type: 3}
+  - characterName: 
+    color: 1
+    gender: 1
+    successClip: {fileID: 32900000, guid: 985b9e4bed63f064587b351e7be6f8d3, type: 3}
+    failedClip: {fileID: 32900000, guid: 7e3a9f6d0704182478a267d2d6b496d7, type: 3}
+  - characterName: 
+    color: 2
+    gender: 0
+    successClip: {fileID: 32900000, guid: f9827294c00e8d848a1c3c92c00db1cf, type: 3}
+    failedClip: {fileID: 32900000, guid: 67fd678d68dbbc54eb0aff971319822b, type: 3}
+  - characterName: 
+    color: 2
+    gender: 1
+    successClip: {fileID: 32900000, guid: 7175f7de435bf0745a8fec7e836def96, type: 3}
+    failedClip: {fileID: 32900000, guid: 7df1ab1b8e43dc24b9f205d3a307d9eb, type: 3}
+  - characterName: 
+    color: 4
+    gender: 0
+    successClip: {fileID: 32900000, guid: a9e244de258bb92419b0e43618664223, type: 3}
+    failedClip: {fileID: 32900000, guid: c1c2e2cbcf44b5144b7b02e931ac52f0, type: 3}
+  - characterName: 
+    color: 4
+    gender: 1
+    successClip: {fileID: 32900000, guid: 5071cd35a3dac384f9a89ee5d3b2009e, type: 3}
+    failedClip: {fileID: 32900000, guid: d1cf8323370444c418c7101f1c6a0fb4, type: 3}
+  - characterName: 
+    color: 3
+    gender: 0
+    successClip: {fileID: 32900000, guid: 923e0ddb51c857e4188fd7ed725eba51, type: 3}
+    failedClip: {fileID: 32900000, guid: aed6dbc4b3807e643997a8033e0f56de, type: 3}
+  - characterName: 
+    color: 3
+    gender: 1
+    successClip: {fileID: 32900000, guid: 0785f71b64d6ea244994672d0d6a0c9c, type: 3}
+    failedClip: {fileID: 32900000, guid: c78c39c74f747444cbe4d5e20c8631c5, type: 3}
+  - characterName: 
+    color: 5
+    gender: 0
+    successClip: {fileID: 32900000, guid: c50ed2563d9389f4a8e7d003e1602df9, type: 3}
+    failedClip: {fileID: 32900000, guid: 3ec3914855d533149a5bc3cff353bdcc, type: 3}
+  - characterName: 
+    color: 5
+    gender: 1
+    successClip: {fileID: 32900000, guid: 969c7335f445cd343b8eced6bbe30bc1, type: 3}
+    failedClip: {fileID: 32900000, guid: d5d2527c6e4c056419a85d00ef78229a, type: 3}

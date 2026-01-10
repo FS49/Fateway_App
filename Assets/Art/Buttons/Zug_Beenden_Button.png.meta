@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Zug_Beenden_Button_0: 3043006287604939449
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

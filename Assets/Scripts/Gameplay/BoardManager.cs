@@ -38,6 +38,9 @@ public class BoardFieldDefinition
     [Header("Manual Card Input")]
     public bool requiresManualCardIdInput;
 
+    [Header("Last Crossroads Field")]
+    public bool isLastCrossroadsField;
+
     public EventCardDefinition GetEventCard(bool isRisk)
     {
         if (isRisk && useRiskEventCard && riskEventCardOverride != null)

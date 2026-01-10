@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hauptscreen_blauerHintergrund_0: -7887407765131562247
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public InventoryUI inventoryUI;
     public CrossroadChoiceUI crossroadChoiceUI;
     public GameFeedbackUI gameFeedbackUI;
+    public LastCrossroadsPopupUI lastCrossroadsPopupUI;
 
     [Header("Button Hotkeys")]
     [SerializeField] private List<ButtonHotkey> buttonHotkeys = new List<ButtonHotkey>();
@@ -43,8 +44,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool isCardPopupOpen;
     [HideInInspector] public bool isPartnerPanelOpen;
     [HideInInspector] public bool isCrossroadChoiceOpen;
+    [HideInInspector] public bool isLastCrossroadsPopupOpen;
 
-    public bool IsInputLocked => isManualInputOpen || isInventoryOpen || isCardPopupOpen || isPartnerPanelOpen || isCrossroadChoiceOpen;
+    public bool IsInputLocked => isManualInputOpen || isInventoryOpen || isCardPopupOpen || isPartnerPanelOpen || isCrossroadChoiceOpen || isLastCrossroadsPopupOpen;
 
     private CardResolver cardResolver;
     private PlayerData firstFinisher;
@@ -541,6 +543,12 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"[GameManager] {player.playerName} landed on a {fieldType} field (Index: {player.boardPosition}).");
 
+        if (fieldDef != null && fieldDef.isLastCrossroadsField)
+        {
+            HandleLastCrossroadsField(player);
+            return;
+        }
+
         if (gameFeedbackUI != null && fieldDef != null && !string.IsNullOrEmpty(fieldDef.description))
         {
             gameFeedbackUI.ShowFieldFeedback(player.playerName, player.passion, fieldDef.description);
@@ -697,6 +705,45 @@ public class GameManager : MonoBehaviour
         }
 
         ClearEffectsAndRedeemItems(player);
+    }
+
+    private void HandleLastCrossroadsField(PlayerData player)
+    {
+        Debug.Log($"[GameManager] {player.playerName} landed on Last Crossroads Field. RiskFlag: {player.riskFlag}");
+
+        if (!player.riskFlag)
+        {
+            Debug.Log($"[GameManager] {player.playerName} was on safe route. No action taken.");
+            player.riskFlag = false;
+            return;
+        }
+
+        bool isSuccess = Random.value >= 0.5f;
+        Debug.Log($"[GameManager] {player.playerName} risk outcome: {(isSuccess ? "SUCCESS" : "FAILED")}");
+
+        if (isSuccess)
+        {
+            float factor = 1.2f;
+            factor *= GetItemScoreMultiplier(player, player.passion);
+            int finalPoints = Mathf.RoundToInt(10 * factor);
+
+            AddPassionPoints(player, player.passion, finalPoints);
+            Debug.Log($"[GameManager] {player.playerName} gains {finalPoints} points in {player.passion} from risk success!");
+        }
+
+        if (lastCrossroadsPopupUI != null)
+        {
+            isLastCrossroadsPopupOpen = true;
+            lastCrossroadsPopupUI.Show(player, isSuccess, () =>
+            {
+                isLastCrossroadsPopupOpen = false;
+                player.riskFlag = false;
+            });
+        }
+        else
+        {
+            player.riskFlag = false;
+        }
     }
 
     public void StartManualCardInput(PlayerData player)

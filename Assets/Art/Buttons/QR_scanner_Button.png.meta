@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      QR_scanner_Button_0: -102356876688149071
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
