@@ -108,6 +108,12 @@ public class FirstCrossroadsPopupUI : MonoBehaviour
         if (closeButton != null)
             closeButton.gameObject.SetActive(false);
 
+        if (imageRegistry == null)
+            imageRegistry = Resources.Load<FirstCrossroadsImageRegistry>("FirstCrossroadsImageRegistry");
+
+        if (textRegistry == null)
+            textRegistry = Resources.Load<FirstCrossroadsTextRegistry>("FirstCrossroadsTextRegistry");
+
         Sprite sprite = null;
         if (imageRegistry != null)
         {
@@ -116,7 +122,7 @@ public class FirstCrossroadsPopupUI : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("[FirstCrossroadsPopupUI] Image registry is null!");
+            Debug.LogWarning("[FirstCrossroadsPopupUI] Image registry not assigned and not found in Resources.");
         }
 
         string text = "";
@@ -127,7 +133,7 @@ public class FirstCrossroadsPopupUI : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("[FirstCrossroadsPopupUI] Text registry is null!");
+            Debug.LogWarning("[FirstCrossroadsPopupUI] Text registry not assigned and not found in Resources.");
         }
 
         if (displayImage != null && sprite != null)

@@ -42,3 +42,12 @@ public enum CardEffectType
     ShowInventory,
     Custom
 }
+
+public enum GameScreen
+{
+    Start,
+    CharacterSelection,
+    Game,
+    Results,
+    End
+}

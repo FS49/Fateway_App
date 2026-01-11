@@ -44,5 +44,7 @@ MonoBehaviour:
     pink: 0
     orange: 0
   useMainPassionPoints: 1
-  mainPassionPointsDelta: 5
+  mainPassionPointsDelta: 3
   triggersManualScan: 0
+  triggersMinigame: 0
+  minigameId: 

@@ -103,6 +103,12 @@ public class LastCrossroadsPopupUI : MonoBehaviour
         if (closeButton != null)
             closeButton.gameObject.SetActive(false);
 
+        if (animationRegistry == null)
+            animationRegistry = Resources.Load<LastCrossroadsAnimationRegistry>("LastCrossroadsAnimationRegistry");
+
+        if (textRegistry == null)
+            textRegistry = Resources.Load<LastCrossroadsTextRegistry>("LastCrossroadsTextRegistry");
+
         VideoClip clip = null;
         if (animationRegistry != null)
         {
@@ -111,7 +117,7 @@ public class LastCrossroadsPopupUI : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("[LastCrossroadsPopupUI] Animation registry is null!");
+            Debug.LogWarning("[LastCrossroadsPopupUI] Animation registry not assigned and not found in Resources.");
         }
 
         string text = "";
@@ -122,7 +128,7 @@ public class LastCrossroadsPopupUI : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("[LastCrossroadsPopupUI] Text registry is null!");
+            Debug.LogWarning("[LastCrossroadsPopupUI] Text registry not assigned and not found in Resources.");
         }
 
         if (outcomeText != null)

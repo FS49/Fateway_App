@@ -55,4 +55,19 @@ public class PlayerData
     {
         return passionScores.TotalScore;
     }
+
+    public void Reset()
+    {
+        boardPosition = 0;
+        availableRolls = 1;
+        hasFinished = false;
+        riskFlag = false;
+        pendingMovement = 0;
+        starCount = 0;
+        passionScores = new PassionScoreSet();
+        inventory.Clear();
+        statusEffectCards.Clear();
+        activeStatusEffects.Clear();
+        partnerIndex = -1;
+    }
 }

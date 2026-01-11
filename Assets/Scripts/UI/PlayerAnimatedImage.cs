@@ -73,7 +73,12 @@ public class PlayerAnimatedImage : MonoBehaviour
 
     public void Initialize(PlayerData player)
     {
-        if (player == null) return;
+        if (player == null)
+        {
+            Debug.LogWarning("[PlayerAnimatedImage] Initialize called with null player.");
+            return;
+        }
+        Debug.Log($"[PlayerAnimatedImage] Initializing for {player.playerName}: {player.passion}/{player.gender}");
         Initialize(player.passion, player.gender);
     }
 
@@ -83,6 +88,8 @@ public class PlayerAnimatedImage : MonoBehaviour
         currentGender = gender;
         LoadAssets();
         isInitialized = true;
+
+        Debug.Log($"[PlayerAnimatedImage] Loaded {(frames?.Length ?? 0)} frames for {passion}/{gender}");
 
         if (playOnStart && frames != null && frames.Length > 0)
             Play();
@@ -115,11 +122,23 @@ public class PlayerAnimatedImage : MonoBehaviour
     {
         if (avatarRegistry == null)
         {
-            Debug.LogWarning("[PlayerAnimatedImage] No avatar registry assigned.");
+            Debug.Log("[PlayerAnimatedImage] avatarRegistry is null, trying Resources.Load...");
+            avatarRegistry = Resources.Load<PlayerAvatarRegistry>("PlayerAvatarRegistry");
+        }
+
+        if (avatarRegistry == null)
+        {
+            Debug.LogWarning("[PlayerAnimatedImage] No avatar registry assigned and none found in Resources. Make sure PlayerAvatarRegistry.asset is in Assets/Resources/");
             return;
         }
 
+        Debug.Log($"[PlayerAnimatedImage] Using registry: {avatarRegistry.name}");
         frames = avatarRegistry.GetFrames(currentPassion, currentGender);
+
+        if (frames == null || frames.Length == 0)
+        {
+            Debug.LogWarning($"[PlayerAnimatedImage] Registry returned no frames for {currentPassion}/{currentGender}. Check registry entries.");
+        }
     }
 
     private void LoadFromResources()

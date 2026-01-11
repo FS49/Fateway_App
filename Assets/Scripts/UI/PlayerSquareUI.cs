@@ -70,7 +70,14 @@ public class PlayerSquareUI : MonoBehaviour
             backgroundImage.color = PassionColorUtils.GetColor(playerData.passion);
 
         if (playerAvatar != null)
+        {
+            Debug.Log($"[PlayerSquareUI] Initializing avatar for {playerData.playerName}");
             playerAvatar.Initialize(playerData);
+        }
+        else
+        {
+            Debug.LogWarning($"[PlayerSquareUI] playerAvatar is NULL for {playerData.playerName}! Check prefab references.");
+        }
 
         if (activeHighlightImage != null)
         {

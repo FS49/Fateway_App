@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public CrossroadChoiceUI crossroadChoiceUI;
     public GameFeedbackUI gameFeedbackUI;
     public LastCrossroadsPopupUI lastCrossroadsPopupUI;
+    public ScreenManager screenManager;
 
     [Header("Button Hotkeys")]
     [SerializeField] private List<ButtonHotkey> buttonHotkeys = new List<ButtonHotkey>();
@@ -95,6 +96,35 @@ public class GameManager : MonoBehaviour
         Debug.Log($"[GameManager] Starting game. Current player: {GetCurrentPlayer().playerName}");
     }
 
+    public void ResetGame()
+    {
+        Debug.Log("[GameManager] Resetting game...");
+
+        if (players != null)
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                players[i].Reset();
+            }
+        }
+
+        currentPlayerIndex = 0;
+
+        isManualInputOpen = false;
+        isInventoryOpen = false;
+        isCardPopupOpen = false;
+        isPartnerPanelOpen = false;
+        isCrossroadChoiceOpen = false;
+        isLastCrossroadsPopupOpen = false;
+
+        ClearAllRelationships();
+
+        StartTurnForCurrentPlayer();
+        PrintPlayerStates();
+
+        Debug.Log("[GameManager] Game reset complete.");
+    }
+
     public void ResetAllRiskFlags()
     {
         if (players == null) return;
@@ -129,6 +159,22 @@ public class GameManager : MonoBehaviour
             currentPlayerIndex = 0;
 
         return players[currentPlayerIndex];
+    }
+
+    public List<PlayerData> GetPlayerRankings()
+    {
+        if (players == null || players.Count == 0)
+            return new List<PlayerData>();
+
+        var sorted = new List<PlayerData>(players);
+        sorted.Sort((a, b) => b.GetTotalScore().CompareTo(a.GetTotalScore()));
+        return sorted;
+    }
+
+    public PlayerData GetWinner()
+    {
+        var rankings = GetPlayerRankings();
+        return rankings.Count > 0 ? rankings[0] : null;
     }
 
     public PlayerData GetLastPlacePlayer()
@@ -932,6 +978,9 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log($"[GameManager] GAME OVER. Winner: {winner.playerName} with TOTAL score {bestScore}");
         }
+
+        if (screenManager != null)
+            screenManager.ShowResultsScreen();
 
         return true;
     }
