@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      orangerPartner_0: -8723757504351492641
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

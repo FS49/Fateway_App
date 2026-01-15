@@ -16,48 +16,48 @@ MonoBehaviour:
   - passion: 0
     gender: 0
     frames:
-    - {fileID: 21300000, guid: ece68ce195ba2fa4bbf263f4c2597f68, type: 3}
+    - {fileID: -1518728879954933863, guid: 3ae54776386ff144e9009dc5be7382f1, type: 3}
   - passion: 0
     gender: 1
     frames:
-    - {fileID: 21300000, guid: 5367c279dab1ac04d9da2178640183a6, type: 3}
+    - {fileID: 2656828274630869775, guid: 9d1f34e94adf6d94ca641ed0bc0f44b7, type: 3}
   - passion: 1
     gender: 0
     frames:
-    - {fileID: 21300000, guid: ece68ce195ba2fa4bbf263f4c2597f68, type: 3}
+    - {fileID: -831413475012808838, guid: 562126493e9d71b48ba10302a789fa30, type: 3}
   - passion: 1
     gender: 1
     frames:
-    - {fileID: 21300000, guid: 5367c279dab1ac04d9da2178640183a6, type: 3}
+    - {fileID: 1729872138605095753, guid: a819005a528190f4e834458c93a6223a, type: 3}
   - passion: 2
     gender: 0
     frames:
-    - {fileID: 21300000, guid: ece68ce195ba2fa4bbf263f4c2597f68, type: 3}
+    - {fileID: -8217186988738567155, guid: 21b367fe3b6719844a0719ff5f6515da, type: 3}
   - passion: 2
     gender: 1
     frames:
-    - {fileID: 21300000, guid: 5367c279dab1ac04d9da2178640183a6, type: 3}
+    - {fileID: 7333216405741089407, guid: 3cc67836feed8b247a7913c12f3f1c17, type: 3}
   - passion: 3
     gender: 0
     frames:
-    - {fileID: 21300000, guid: ece68ce195ba2fa4bbf263f4c2597f68, type: 3}
+    - {fileID: 6961666029918089087, guid: aa7936f8dba4f0b4bb25b3f414c950c4, type: 3}
   - passion: 3
     gender: 1
     frames:
-    - {fileID: 21300000, guid: 5367c279dab1ac04d9da2178640183a6, type: 3}
+    - {fileID: -8119247891254833330, guid: 6a2e9e84c3f71fd418b4ec78e48c2a41, type: 3}
   - passion: 4
     gender: 0
     frames:
-    - {fileID: 21300000, guid: ece68ce195ba2fa4bbf263f4c2597f68, type: 3}
+    - {fileID: 4720520116532029661, guid: e32b840508475824cb2cfeb5ed1c9878, type: 3}
   - passion: 4
     gender: 1
     frames:
-    - {fileID: 21300000, guid: 5367c279dab1ac04d9da2178640183a6, type: 3}
+    - {fileID: -4693994308461345077, guid: b58a13c25dd902b4ab073dd219fdda66, type: 3}
   - passion: 5
     gender: 0
     frames:
-    - {fileID: 21300000, guid: ece68ce195ba2fa4bbf263f4c2597f68, type: 3}
+    - {fileID: -2019854607409508155, guid: 9b2f7c81b2cffbe4a940d29ab7ecf015, type: 3}
   - passion: 5
     gender: 1
     frames:
-    - {fileID: 21300000, guid: 5367c279dab1ac04d9da2178640183a6, type: 3}
+    - {fileID: -2019854607409508155, guid: 9b2f7c81b2cffbe4a940d29ab7ecf015, type: 3}
