@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 826bd10caaabe094093be2eb063172e0, type: 3}
-  m_Name: Erfolg_Male
+  m_Name: "Kreativit\xE4t_Female"
   m_EditorClassIdentifier: 
-  displayName: Abenteuerlust
-  portrait: {fileID: -8728319303716392410, guid: 03e5cfd65c8129a4284ada9c0c2fd1fc, type: 3}
-  passion: 3
+  displayName: "Kreativit\xE4t"
+  portrait: {fileID: 21300000, guid: b93a704fd4136474f9ee40a6396dcc72, type: 3}
+  passion: 1
   gender: 0
