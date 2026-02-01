@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wissen_Female
   m_EditorClassIdentifier: 
   displayName: Wissen
-  portrait: {fileID: 21300000, guid: b93a704fd4136474f9ee40a6396dcc72, type: 3}
-  passion: 1
-  gender: 0
+  portrait: {fileID: 7333216405741089407, guid: 3cc67836feed8b247a7913c12f3f1c17, type: 3}
+  passion: 2
+  gender: 1

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Fitness_Male
   m_EditorClassIdentifier: 
   displayName: Fitness
-  portrait: {fileID: 21300000, guid: b93a704fd4136474f9ee40a6396dcc72, type: 3}
+  portrait: {fileID: 1729872138605095753, guid: a819005a528190f4e834458c93a6223a, type: 3}
   passion: 1
   gender: 0

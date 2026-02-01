@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Erfolg_Female
   m_EditorClassIdentifier: 
   displayName: Erfolg
-  portrait: {fileID: 9021079137799439539, guid: a03aa7bb0bed7eb4bb4f5e7aaa6326ba, type: 3}
+  portrait: {fileID: -8119247891254833330, guid: 6a2e9e84c3f71fd418b4ec78e48c2a41, type: 3}
   passion: 3
   gender: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826bd10caaabe094093be2eb063172e0, type: 3}
   m_Name: Erfolg_Male
   m_EditorClassIdentifier: 
-  displayName: Abenteuerlust
-  portrait: {fileID: -8728319303716392410, guid: 03e5cfd65c8129a4284ada9c0c2fd1fc, type: 3}
+  displayName: Erfolg
+  portrait: {fileID: 6961666029918089087, guid: aa7936f8dba4f0b4bb25b3f414c950c4, type: 3}
   passion: 3
   gender: 0

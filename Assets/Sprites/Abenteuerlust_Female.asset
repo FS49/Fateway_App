@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Abenteuerlust_Female
   m_EditorClassIdentifier: 
   displayName: Abenteuerlust
-  portrait: {fileID: 21300000, guid: 2ccd244a26bfb6b48999ce149d150776, type: 3}
+  portrait: {fileID: -7398326806081981787, guid: ee3053bba589f684585e368148f87700, type: 3}
   passion: 5
   gender: 1

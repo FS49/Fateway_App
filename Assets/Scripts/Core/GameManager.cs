@@ -46,8 +46,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool isPartnerPanelOpen;
     [HideInInspector] public bool isCrossroadChoiceOpen;
     [HideInInspector] public bool isLastCrossroadsPopupOpen;
+    [HideInInspector] public bool isSetupOpen;
 
-    public bool IsInputLocked => isManualInputOpen || isInventoryOpen || isCardPopupOpen || isPartnerPanelOpen || isCrossroadChoiceOpen || isLastCrossroadsPopupOpen;
+    public bool IsInputLocked => isManualInputOpen || isInventoryOpen || isCardPopupOpen || isPartnerPanelOpen || isCrossroadChoiceOpen || isLastCrossroadsPopupOpen || isSetupOpen;
 
     private CardResolver cardResolver;
     private PlayerData firstFinisher;
@@ -124,6 +125,14 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("[GameManager] Game reset complete.");
     }
+
+    public void ApplySetupPlayersAndRestart(List<PlayerData> newPlayers)
+{
+    if (newPlayers == null || newPlayers.Count < 1) return;
+    players = newPlayers;
+    currentPlayerIndex = 0;
+    ResetGame();
+}
 
     public void ResetAllRiskFlags()
     {

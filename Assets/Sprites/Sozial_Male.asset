@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Sozial_Male
   m_EditorClassIdentifier: 
   displayName: Sozial
-  portrait: {fileID: 21300000, guid: b93a704fd4136474f9ee40a6396dcc72, type: 3}
-  passion: 1
+  portrait: {fileID: 4720520116532029661, guid: e32b840508475824cb2cfeb5ed1c9878, type: 3}
+  passion: 4
   gender: 0
