@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      head gelb f_0: 2656828274630869775
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

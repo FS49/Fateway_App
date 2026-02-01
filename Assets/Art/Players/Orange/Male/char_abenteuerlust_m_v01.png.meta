@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      char_abenteuerlust_m_v01_0: 3319028045154957519
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
