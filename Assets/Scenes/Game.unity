@@ -10649,6 +10649,9 @@ MonoBehaviour:
   - name: CloseDescription
     button: {fileID: 1462572326}
     key: 8
+  minigameScenes:
+  - PlinkoGame
+  fallbackMinigameScene: PlinkoGame
   isManualInputOpen: 0
   isInventoryOpen: 0
   isCardPopupOpen: 0

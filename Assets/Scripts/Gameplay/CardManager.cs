@@ -19,6 +19,7 @@ public class CardManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         BuildLookups();
     }
 

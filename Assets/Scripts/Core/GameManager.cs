@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class ButtonHotkey
@@ -40,6 +41,19 @@ public class GameManager : MonoBehaviour
     [Header("Button Hotkeys")]
     [SerializeField] private List<ButtonHotkey> buttonHotkeys = new List<ButtonHotkey>();
 
+
+    [Header("Minigames")]
+    [Tooltip("Scene names (must be in Build Settings).")]
+    public string[] minigameScenes;
+
+    [Tooltip("Fallback if array empty.")]
+    public string fallbackMinigameScene = "PlinkoGame";
+
+    // Merker, damit wir nach dem Minigame wissen wohin zurück
+    private string _returnSceneName;
+    private PlayerData _minigamePlayer;
+    private bool _minigameWasRiskRoute;
+
     [HideInInspector] public bool isManualInputOpen;
     [HideInInspector] public bool isInventoryOpen;
     [HideInInspector] public bool isCardPopupOpen;
@@ -71,6 +85,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         cardResolver = new CardResolver(this);
     }
 
@@ -127,12 +142,33 @@ public class GameManager : MonoBehaviour
     }
 
     public void ApplySetupPlayersAndRestart(List<PlayerData> newPlayers)
-{
+    {
     if (newPlayers == null || newPlayers.Count < 1) return;
     players = newPlayers;
     currentPlayerIndex = 0;
     ResetGame();
+    }
+
+
+    private void OnEnable()
+{
+    SceneManager.sceneLoaded += OnSceneLoaded;
 }
+
+private void OnDisable()
+{
+    SceneManager.sceneLoaded -= OnSceneLoaded;
+}
+
+private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+{
+    // Wenn wir zurück zur Board-Szene kommen, Referenzen wieder finden (falls sie neu instanziert wurden)
+    boardManager = FindObjectOfType<BoardManager>(true);
+    cardManager = FindObjectOfType<CardManager>(true);
+    gameFeedbackUI = FindObjectOfType<GameFeedbackUI>(true);
+    
+}
+
 
     public void ResetAllRiskFlags()
     {
@@ -144,6 +180,13 @@ public class GameManager : MonoBehaviour
             players[i].pendingMovement = 0;
         }
     }
+
+    public void ReturnFromMinigame()
+    {
+    Debug.Log("[GameManager] Returning from minigame to board scene...");
+    SceneManager.LoadScene(_returnSceneName);
+    }
+
 
     private void Update()
     {
@@ -616,6 +659,14 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        // ... nach LastCrossroadsField-Check, bevor switch(fieldType)
+        if (fieldDef != null && fieldDef.IsMinigameField(player.riskFlag))
+        {
+        Debug.Log($"[GameManager] {player.playerName} hit a MINIGAME field at {player.boardPosition}.");
+        StartMinigame("random", player);
+        return; // wichtig: nicht weiter FieldCards/Events auf dem Board ausführen
+        }
+
         if (gameFeedbackUI != null && fieldDef != null)
         {
             string desc = fieldDef.GetDescription(player.riskFlag);
@@ -1030,9 +1081,29 @@ public class GameManager : MonoBehaviour
     }
 
     public void StartMinigame(string minigameId, PlayerData player)
-    {
-        Debug.Log($"[GameManager] Would load minigame '{minigameId}' for {player.playerName}");
-    }
+{
+    // minigameId kannst du später für "bestimmtes Minigame" nutzen,
+    // aktuell nehmen wir random aus der Liste.
+    string sceneToLoad = PickMinigameScene();
+
+    Debug.Log($"[GameManager] Loading minigame scene '{sceneToLoad}' for {player.playerName}");
+
+    _returnSceneName = SceneManager.GetActiveScene().name;
+    _minigamePlayer = player;
+    _minigameWasRiskRoute = player.riskFlag;
+
+    // Wichtig: Board-Zustand bleibt erhalten, wenn GameManager nicht zerstört wird.
+    // -> siehe Abschnitt C (DontDestroyOnLoad)
+    SceneManager.LoadScene(sceneToLoad);
+}
+
+private string PickMinigameScene()
+{
+    if (minigameScenes != null && minigameScenes.Length > 0)
+        return minigameScenes[UnityEngine.Random.Range(0, minigameScenes.Length)];
+
+    return fallbackMinigameScene;
+}
 
     public void ScheduleRiskOutcome(EventCardDefinition card, PlayerData player, PassionColor? passionForPoints = null)
     {

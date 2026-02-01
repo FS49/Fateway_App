@@ -114,6 +114,18 @@ public class BoardFieldDefinition
             return true;
         return !string.IsNullOrEmpty(safeItemCardId);
     }
+
+    public bool IsMinigameField(bool isRisk)
+    {
+    string id = isRisk ? riskFieldCardId : safeFieldCardId;
+
+    // fallback: wenn risk-route kein eigenes fieldCardId hat, nutze safe
+    if (isRisk && string.IsNullOrEmpty(id))
+        id = safeFieldCardId;
+
+    return id == CardIds.Fields.MINIGAME;
+}
+
 }
 
 public class BoardManager : MonoBehaviour
@@ -149,6 +161,7 @@ public class BoardManager : MonoBehaviour
         specialFields = BoardFieldConfig.BuildAll();
         Debug.Log($"[BoardManager] Loaded {specialFields.Count} field definitions from BoardFieldConfig.");
         BuildLookup();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()

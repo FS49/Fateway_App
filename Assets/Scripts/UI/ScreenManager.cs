@@ -27,6 +27,7 @@ public class ScreenManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
