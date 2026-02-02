@@ -127,6 +127,18 @@ public class ScreenManager : MonoBehaviour
         }
     }
 
+    public void HideGameScreen()
+    {
+    if (screenGame != null)
+        screenGame.SetActive(false);
+    }
+
+    public void ShowGameScreenOnly()
+    {
+    if (screenGame != null)
+        screenGame.SetActive(true);
+    }
+
     public void RestartGame()
     {
         if (gameManager != null)

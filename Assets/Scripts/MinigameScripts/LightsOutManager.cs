@@ -8,27 +8,27 @@ public class LightsOutManager : MonoBehaviour
     [Header("Gameplay")]
     [Range(1, 60)] public float roundDuration = 20f;
     public bool autoStart = true;
-    public bool useTimer = false;              // Timer optional
-    public bool avoidImmediateRepeat = true;   // Ziel nicht zweimal direkt hintereinander
+    public bool useTimer = false;             
+    public bool avoidImmediateRepeat = true;  
 
     [Header("UI Bindings")]
     public List<LightButton> buttons = new List<LightButton>();
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
 
-    [Header("Result UI")] // <-- Neues Popup
-    public GameObject resultPopup;             // Canvas-Panel mit Text + Restart-Button
-    public TextMeshProUGUI resultText;         // Textfeld im Popup
+    [Header("Result UI")] 
+    public GameObject resultPopup;         
+    public TextMeshProUGUI resultText;     
     [TextArea]
     public string resultTemplate = "Gratuliere! du bekommst {0} Punkte für deine Leidenschaft!";
 
     [Header("Start UI")]
-public GameObject startPopup;   // Panel mit dem Start-Button
+public GameObject startPopup;   
 
     [Header("Colors")]
-    public Color targetColor = Color.red;      // Der richtige Button (rot)
-    public bool forceWarmPalette = true;       // Inspector-Palette ignorieren und warme Palette erzwingen
-    public List<Color> nonTargetPalette = new List<Color>   // Warme Töne (keine kalten Farben)
+    public Color targetColor = Color.red;     
+    public bool forceWarmPalette = true;       
+    public List<Color> nonTargetPalette = new List<Color>   
     {
         new Color(1f, 0.85f, 0.20f),  // Gelb
         new Color(1f, 0.70f, 0.10f),  // Orange
@@ -47,7 +47,7 @@ public GameObject startPopup;   // Panel mit dem Start-Button
 
     void Awake()
     {
-        // Falls Liste leer ist: alle LightButton-Kinder einsammeln und nach index sortieren
+        
         if (buttons == null || buttons.Count == 0)
         {
             buttons = GetComponentsInChildren<LightButton>(true).ToList();
@@ -68,7 +68,7 @@ public GameObject startPopup;   // Panel mit dem Start-Button
             };
         }
 
-        // Palette darf nicht exakt targetColor enthalten
+        
         nonTargetPalette = nonTargetPalette.Where(c => !ApproximatelyEqual(c, targetColor)).ToList();
         if (nonTargetPalette.Count == 0)
             nonTargetPalette = new List<Color> { new Color(1f, 0.8f, 0.2f), new Color(1f, 0.5f, 0.2f), new Color(1f, 0.4f, 0.4f) };
@@ -80,11 +80,11 @@ public GameObject startPopup;   // Panel mit dem Start-Button
     {
         if (b == null) continue;
         b.Init(this);
-        b.SetInteractable(false); // <-- bis Start gedrückt ist, gesperrt
+        b.SetInteractable(false); 
     }
 
     if (resultPopup) resultPopup.SetActive(false);
-    if (!autoStart && startPopup) startPopup.SetActive(true); // <-- Popup zeigen
+    if (!autoStart && startPopup) startPopup.SetActive(true); 
 
     if (autoStart) StartRound();
     else UpdateUI();
@@ -151,14 +151,14 @@ public GameObject startPopup;   // Panel mit dem Start-Button
     // Popup bauen
     private void ShowResultPopup()
     {
-        int reward = Mathf.FloorToInt(score / 5f); // score/5 abgerundet
+        int reward = Mathf.FloorToInt(score / 5f); 
         if (resultText)
             resultText.text = string.Format(resultTemplate, reward);
         if (resultPopup)
             resultPopup.SetActive(true);
     }
 
-    // Immer ALLE Buttons färben; genau EINER rot
+    
     private void AssignNewTargetAndColors()
     {
         var valid = Enumerable.Range(0, buttons.Count).Where(IsValidIndex).ToList();
@@ -213,4 +213,18 @@ public GameObject startPopup;   // Panel mit dem Start-Button
     public void UI_StartRound() { if (!playing) StartRound(); }
     public void UI_Restart()    { StartRound(); }
     public void UI_ClosePopup() { if (resultPopup) resultPopup.SetActive(false); }
+
+
+
+
+    public void UI_ExitMinigame()
+    {
+    Time.timeScale = 1f;
+
+    var gm = FindObjectOfType<GameManager>();
+    if (gm != null)
+        gm.ReturnFromMinigame();
+    else
+        Debug.LogError("[LightsOutManager] Kein GameManager gefunden.");
+    }
 }

@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
+
 
 [System.Serializable]
 public class ButtonHotkey
@@ -42,12 +44,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<ButtonHotkey> buttonHotkeys = new List<ButtonHotkey>();
 
 
-    [Header("Minigames")]
-    [Tooltip("Scene names (must be in Build Settings).")]
-    public string[] minigameScenes;
+    [Header("Minigames (Additive)")]
+    public string[] minigameSceneNames = new[]
+{
+    "PlinkoGame",
+    "Lights Out",
+    "Fortune Wheel",
+    "PlinkoGame2"
+};
 
-    [Tooltip("Fallback if array empty.")]
-    public string fallbackMinigameScene = "PlinkoGame";
+    private string _boardSceneName;
+    private string _activeMinigameScene;
+    private bool _minigameRunning;
 
     // Merker, damit wir nach dem Minigame wissen wohin zurück
     private string _returnSceneName;
@@ -181,11 +189,7 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         }
     }
 
-    public void ReturnFromMinigame()
-    {
-    Debug.Log("[GameManager] Returning from minigame to board scene...");
-    SceneManager.LoadScene(_returnSceneName);
-    }
+
 
 
     private void Update()
@@ -1080,29 +1084,83 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         }
     }
 
+    private string PickRandomMinigameScene()
+    {
+    if (minigameSceneNames == null || minigameSceneNames.Length == 0)
+    {
+        Debug.LogWarning("[GameManager] No minigameSceneNames set!");
+        return "PlinkoGame";
+    }
+
+    int idx = Random.Range(0, minigameSceneNames.Length);
+    return minigameSceneNames[idx];
+}
     public void StartMinigame(string minigameId, PlayerData player)
 {
-    // minigameId kannst du später für "bestimmtes Minigame" nutzen,
-    // aktuell nehmen wir random aus der Liste.
-    string sceneToLoad = PickMinigameScene();
+    if (_minigameRunning) return;
 
-    Debug.Log($"[GameManager] Loading minigame scene '{sceneToLoad}' for {player.playerName}");
+    string sceneToLoad = PickRandomMinigameScene();
+    Debug.Log($"[GameManager] Starting random minigame: {sceneToLoad} for {player.playerName}");
 
-    _returnSceneName = SceneManager.GetActiveScene().name;
-    _minigamePlayer = player;
-    _minigameWasRiskRoute = player.riskFlag;
-
-    // Wichtig: Board-Zustand bleibt erhalten, wenn GameManager nicht zerstört wird.
-    // -> siehe Abschnitt C (DontDestroyOnLoad)
-    SceneManager.LoadScene(sceneToLoad);
+    StartCoroutine(PlayMinigameAdditive(sceneToLoad));
 }
 
-private string PickMinigameScene()
+public void ReturnFromMinigame()
 {
-    if (minigameScenes != null && minigameScenes.Length > 0)
-        return minigameScenes[UnityEngine.Random.Range(0, minigameScenes.Length)];
+    if (!_minigameRunning) return;
+    StartCoroutine(EndMinigameAdditive(_activeMinigameScene));
+}
 
-    return fallbackMinigameScene;
+public IEnumerator PlayMinigameAdditive(string sceneName)
+{
+    _minigameRunning = true;
+    _activeMinigameScene = sceneName;
+
+    // merken welche Szene gerade die Board-Szene ist
+    _boardSceneName = SceneManager.GetActiveScene().name;
+
+    // Input lock (dein IsInputLocked blockiert dann Würfeln etc.)
+    isSetupOpen = true;
+
+    if (screenManager != null)
+    screenManager.HideGameScreen();
+
+    // Minigame additiv laden
+    yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+
+    // Minigame Szene aktiv setzen (optional, aber meist sinnvoll)
+    Scene minigameScene = SceneManager.GetSceneByName(sceneName);
+    if (minigameScene.IsValid())
+        SceneManager.SetActiveScene(minigameScene);
+
+    // sicherstellen, dass die Zeit läuft (falls Minigame pausiert)
+    Time.timeScale = 1f;
+}
+
+public IEnumerator EndMinigameAdditive(string sceneName)
+{
+    // Zeit zurücksetzen, falls Plinko irgendwas pausiert
+    Time.timeScale = 1f;
+
+    // zurück zur Board Szene als active
+    Scene boardScene = SceneManager.GetSceneByName(_boardSceneName);
+    if (boardScene.IsValid())
+        SceneManager.SetActiveScene(boardScene);
+
+    // Minigame Szene entladen
+    if (SceneManager.GetSceneByName(sceneName).IsValid())
+        yield return SceneManager.UnloadSceneAsync(sceneName);
+
+    // Input unlock
+    isSetupOpen = false;
+
+    if (screenManager != null)
+    screenManager.ShowGameScreenOnly();
+
+    _activeMinigameScene = null;
+    _minigameRunning = false;
+
+    Debug.Log("[GameManager] Minigame finished, back on board.");
 }
 
     public void ScheduleRiskOutcome(EventCardDefinition card, PlayerData player, PassionColor? passionForPoints = null)

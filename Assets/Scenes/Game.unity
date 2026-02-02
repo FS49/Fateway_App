@@ -10649,9 +10649,12 @@ MonoBehaviour:
   - name: CloseDescription
     button: {fileID: 1462572326}
     key: 8
-  minigameScenes:
+  minigameSceneNames:
+  - Rubbellos
   - PlinkoGame
-  fallbackMinigameScene: PlinkoGame
+  - PlinkoGame2
+  - Lights Out
+  - FortuneWheel
   isManualInputOpen: 0
   isInventoryOpen: 0
   isCardPopupOpen: 0

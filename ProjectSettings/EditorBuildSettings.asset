@@ -15,10 +15,16 @@ EditorBuildSettings:
     path: Assets/Scenes/PlinkoGame.unity
     guid: a460dcdd84fc90640bc80e5dee2bcba6
   - enabled: 1
-    path: Assets/Scenes/Minigames/PlinkoGame2.unity
+    path: Assets/Scenes/PlinkoGame2.unity
     guid: 0d94fd6c54ebe894dac6d1cb742dc790
   - enabled: 1
-    path: Assets/Scenes/Minigames/Lights Out.unity
+    path: Assets/Scenes/Lights Out.unity
     guid: 0479b56fc2434b744aa1838fc766ae0d
+  - enabled: 1
+    path: Assets/Scenes/FortuneWheel.unity
+    guid: 65c59ad04cf2f124686fa861944abd90
+  - enabled: 1
+    path: Assets/Scenes/Rubbellos.unity
+    guid: 82a7b3267dc8f2d479d30c604230bd2b
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
