@@ -25,6 +25,8 @@ public class ScreenManager : MonoBehaviour
     private static ScreenManager instance;
     public static ScreenManager Instance => instance;
 
+    private static GameScreen? lastScreenBeforeSceneReload = null;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -41,12 +43,17 @@ public class ScreenManager : MonoBehaviour
 
     private void Start()
     {
+
+    if (lastScreenBeforeSceneReload.HasValue)
+        ShowScreen(lastScreenBeforeSceneReload.Value);
+    else
         ShowScreen(GameScreen.Start);
     }
 
     public void ShowScreen(GameScreen screen)
     {
         CurrentScreen = screen;
+        lastScreenBeforeSceneReload = screen;
 
         if (screenStart != null)
             screenStart.SetActive(screen == GameScreen.Start);
@@ -95,6 +102,8 @@ public class ScreenManager : MonoBehaviour
     public void ShowGameScreen() => ShowScreen(GameScreen.Game);
     public void ShowResultsScreen() => ShowScreen(GameScreen.Results);
     public void ShowEndScreen() => ShowScreen(GameScreen.End);
+
+
 
     public void NextScreen()
     {
